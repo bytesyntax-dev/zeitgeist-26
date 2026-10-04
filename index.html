@@ -1,0 +1,3700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ZEITGEIST'26 — The Night We Never Left | IIT Ropar</title>
+<meta name="description" content="ZEITGEIST'26, the annual cultural festival of IIT Ropar. Three nights of gothic cinema, art, music, star pronites, and dark revelry.">
+<meta property="og:title" content="ZEITGEIST'26 — The Night We Never Left">
+<meta property="og:description" content="Enter the haunted campus archives of IIT Ropar's annual cultural festival.">
+<meta name="theme-color" content="#040304">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<!-- High-Speed Resource Hints & Preloads -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preload" as="image" href="assets/logo_trans.png" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;700&family=Syncopate:wght@400;700&family=Creepster&display=swap" rel="stylesheet">
+<style>
+:root {
+  --void: #040304;
+  --char: #0d0a0c;
+  --surface: #141113;
+  --surface-hover: #1c171b;
+  --bone: #e2dbce;
+  --bone-dim: #9e978c;
+  --ash: #736f68;
+  --blood: #5a0a11;
+  --crim: #941722;
+  --crim-glow: rgba(148, 23, 34, 0.45);
+  --crim-bright: #e61c30;
+  --burg: #240508;
+  --amber: #ad5f26;
+  --amber-glow: rgba(173, 95, 38, 0.35);
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Syncopate", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --horror: "Creepster", cursive;
+  --pad: clamp(20px, 5.5vw, 88px);
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--void);
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: var(--void);
+  color: var(--bone);
+  font: 400 15px/1.65 var(--sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
+
+/* Custom Horror Cursor */
+@media (pointer: fine) {
+  body, a, button, input, select, textarea, [data-tilt], .pol-card, .highlight-box {
+    cursor: none !important;
+  }
+}
+
+#cur-dot {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+  width: 8px;
+  height: 8px;
+  background: var(--crim-bright);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 12px var(--crim-bright), 0 0 24px rgba(224, 46, 61, 0.7);
+  transition: width 0.15s, height 0.15s, background-color 0.2s;
+}
+
+#cur-ring {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(224, 46, 61, 0.55);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1), height 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s, background-color 0.2s;
+  box-shadow: 0 0 15px rgba(148, 23, 34, 0.35);
+}
+
+#cur-ring.hover {
+  width: 56px;
+  height: 56px;
+  border-color: var(--crim-bright);
+  border-width: 1.5px;
+  background: rgba(148, 23, 34, 0.12);
+  box-shadow: 0 0 24px rgba(224, 46, 61, 0.55), inset 0 0 12px rgba(224, 46, 61, 0.3);
+}
+
+#cur-ring.active {
+  transform: translate(-50%, -50%) scale(0.78);
+}
+
+/* Atmospheric Overlays */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 92;
+  pointer-events: none;
+  opacity: 0.07;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.vig {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 50%, transparent 45%, rgba(4,3,4,0.5) 75%, rgba(0,0,0,0.9) 100%);
+}
+
+/* Typography */
+.eyebrow {
+  font: 500 11px/1 var(--mono);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+
+.disp {
+  font-family: var(--serif);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+/* Clean Tag (NO RED/GREEN DOTS) */
+.goth-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 500 10px var(--mono);
+  letter-spacing: 0.22em;
+  color: var(--bone-dim);
+  text-transform: uppercase;
+  background: rgba(20, 16, 18, 0.7);
+  padding: 6px 14px;
+  border: 1px solid rgba(226, 219, 206, 0.2);
+  border-radius: 2px;
+}
+
+.goth-tag .tag-glyph {
+  color: var(--crim-bright);
+  font-size: 11px;
+}
+
+section {
+  position: relative;
+  padding: clamp(70px, 9vw, 120px) var(--pad);
+}
+
+/* Section reveal */
+.rv {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.rv.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Navigation Bar */
+nav.top {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(14px + env(safe-area-inset-top, 0px)) var(--pad) 14px;
+  background: rgba(4, 3, 4, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Top Left Brand: ONLY ONE ZEITGEIST */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand img {
+  height: 40px;
+  width: auto;
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.9));
+  transition: transform 0.3s;
+}
+
+.brand:hover img {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+.brand-sub {
+  font: 600 9px var(--mono);
+  letter-spacing: 0.26em;
+  color: var(--crim-bright);
+  text-transform: uppercase;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  padding-left: 10px;
+  line-height: 1.2;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.nav-link {
+  font: 600 10px var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ash);
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.nav-link:hover {
+  color: #fff;
+  background: rgba(165, 29, 41, 0.15);
+  border-color: rgba(165, 29, 41, 0.4);
+}
+
+.nav-link.active {
+  color: #fff;
+  background: rgba(165, 29, 41, 0.28);
+  border: 1px solid rgba(224, 46, 61, 0.55);
+  box-shadow: 0 0 15px rgba(165, 29, 41, 0.4);
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 18%;
+  right: 18%;
+  height: 2px;
+  background: var(--crim-bright);
+  box-shadow: 0 0 8px var(--crim-bright);
+  border-radius: 2px;
+}
+
+.nav-sound-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(20, 17, 19, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font: 500 10px var(--mono);
+  letter-spacing: 0.18em;
+  color: var(--bone-dim);
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: all 0.3s;
+  margin-right: 6px;
+}
+
+.nav-sound-btn:hover {
+  color: #fff;
+  border-color: var(--crim);
+}
+
+.nav-sound-btn[aria-pressed="true"] {
+  border-color: var(--crim);
+  color: var(--crim-bright);
+  box-shadow: 0 0 12px var(--crim-glow);
+}
+
+.nav-sound-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.burger {
+  display: none;
+  font: 600 11px var(--mono);
+  letter-spacing: 0.2em;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--surface);
+  color: var(--bone);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.burger:hover {
+  border-color: var(--crim);
+  color: #fff;
+  background: rgba(165, 29, 41, 0.25);
+  box-shadow: 0 0 12px rgba(224, 46, 61, 0.3);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--surface);
+  padding: 14px 26px;
+  font: 600 11px var(--mono);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bone);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  border-color: var(--bone);
+  color: var(--void);
+  background: var(--bone);
+}
+
+.btn.btn-crim {
+  border-color: var(--crim);
+  background: var(--burg);
+  color: var(--bone);
+}
+
+.btn.btn-crim:hover {
+  background: var(--crim);
+  border-color: var(--crim-bright);
+  color: #fff;
+  box-shadow: 0 0 25px var(--crim-glow);
+}
+
+.btn.btn-amber {
+  border-color: var(--amber);
+  background: rgba(173, 95, 38, 0.15);
+  color: var(--bone);
+}
+
+.btn.btn-amber:hover {
+  background: var(--amber);
+  color: #000;
+  box-shadow: 0 0 20px var(--amber-glow);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: calc(100px + env(safe-area-inset-top, 0px)) var(--pad) 60px;
+  overflow: hidden;
+  perspective: 1200px;
+  background: radial-gradient(circle at 50% 40%, rgba(90, 10, 17, 0.35) 0%, rgba(4,3,4,0.95) 70%, var(--void) 100%);
+  animation: skyFlash 24s infinite;
+}
+
+@keyframes skyFlash {
+  0%, 93%, 97%, 100% { background: radial-gradient(circle at 50% 40%, rgba(90, 10, 17, 0.35) 0%, rgba(4,3,4,0.95) 70%, var(--void) 100%); }
+  94%, 96% { background: radial-gradient(circle at 50% 40%, rgba(180, 20, 35, 0.55) 0%, rgba(40,10,15,0.95) 60%, var(--void) 100%); }
+  95% { background: radial-gradient(circle at 50% 40%, rgba(220, 30, 45, 0.7) 0%, rgba(60,15,20,0.95) 50%, var(--void) 100%); }
+}
+
+#hero-cv {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Blood Drip SVG & Animated Droplets */
+.blood-drip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.85;
+}
+
+.blood-droplets {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.blood-droplets .drop {
+  position: absolute;
+  top: 15px;
+  width: 4px;
+  height: 9px;
+  background: var(--crim-bright);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  box-shadow: 0 0 8px var(--crim-bright);
+  opacity: 0;
+  animation: bloodFall var(--dur, 4s) var(--del, 0s) cubic-bezier(0.55, 0.085, 0.68, 0.53) infinite;
+}
+
+@keyframes bloodFall {
+  0% { transform: translateY(0) scaleY(1); opacity: 0; }
+  10% { opacity: 0.95; transform: translateY(0) scaleY(1.3); }
+  35% { transform: translateY(90px) scaleY(2.2); opacity: 0.85; }
+  40% { transform: translateY(105px) scale(1.6, 0.4); opacity: 0.7; }
+  45%, 100% { transform: translateY(108px) scale(2.2, 0.1); opacity: 0; }
+}
+
+/* 3D Hanging Gothic Lanterns (Symmetrical Left & Right) */
+.lantern-rig {
+  position: absolute;
+  top: 75px;
+  left: clamp(25px, 5.5vw, 95px);
+  z-index: 10;
+  transform-origin: top center;
+  animation: lanternSway 7s ease-in-out infinite alternate;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: auto;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.lantern-rig:hover {
+  transform: scale(1.08) translateY(-2px);
+}
+
+.lantern-rig:active {
+  transform: scale(0.96) translateY(2px);
+}
+
+.lantern-rig-right {
+  left: auto;
+  right: clamp(25px, 5.5vw, 95px);
+  animation: lanternSwayRight 8.5s ease-in-out infinite alternate;
+}
+
+@keyframes lanternSway {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
+
+@keyframes lanternSwayRight {
+  0% { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
+}
+
+.lantern-chain {
+  width: 2px;
+  height: clamp(65px, 9vw, 110px);
+  background: repeating-linear-gradient(180deg, #504449, #504449 4px, #1a1617 4px, #1a1617 8px);
+  margin: 0 auto;
+}
+
+.lantern-body {
+  width: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 0 25px rgba(173, 95, 38, 0.45));
+  transition: filter 0.4s ease;
+}
+
+.lantern-cap {
+  width: 36px;
+  height: 9px;
+  background: #2b2226;
+  border: 1px solid #635058;
+  clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
+}
+
+.lantern-glass {
+  width: 28px;
+  height: 44px;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 170, 51, 0.35) 0%, rgba(173, 95, 38, 0.15) 70%, transparent 100%);
+  border: 1px solid #57444c;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 35px rgba(220, 120, 30, 0.45), inset 0 0 15px rgba(255, 170, 51, 0.25);
+  animation: lanternGlowBreath 3.5s ease-in-out infinite alternate;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+@keyframes lanternGlowBreath {
+  0% { box-shadow: 0 0 25px rgba(220, 120, 30, 0.35), inset 0 0 12px rgba(255, 170, 51, 0.2); }
+  100% { box-shadow: 0 0 42px rgba(255, 140, 20, 0.55), inset 0 0 18px rgba(255, 180, 60, 0.35); }
+}
+
+.lantern-flame {
+  width: 9px;
+  height: 16px;
+  background: radial-gradient(ellipse at 50% 80%, #fff 0%, #ffaa22 50%, #cc5500 100%);
+  border-radius: 50% 50% 35% 35%;
+  box-shadow: 0 0 14px #ff8800, 0 0 28px rgba(255, 170, 0, 0.6);
+  animation: flameBreath 2.8s ease-in-out infinite alternate;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+@keyframes flameBreath {
+  0% { transform: scale(0.96) translateY(0.5px); }
+  100% { transform: scale(1.04) translateY(-0.5px); }
+}
+
+.lantern-base {
+  width: 32px;
+  height: 7px;
+  background: #2b2226;
+  border: 1px solid #635058;
+}
+
+/* Ground Pedestal Cemetery Lanterns (Symmetrical Left & Right) */
+.lantern-ground {
+  position: absolute;
+  bottom: clamp(60px, 11vh, 115px);
+  z-index: 5;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.lantern-ground:hover {
+  transform: scale(1.08) translateY(-2px);
+}
+
+.lantern-ground:active {
+  transform: scale(0.96) translateY(2px);
+}
+
+.lantern-ground-left {
+  left: clamp(20px, 4vw, 75px);
+}
+
+.lantern-ground-right {
+  right: clamp(20px, 4vw, 75px);
+}
+
+.lantern-plinth {
+  width: 44px;
+  height: 11px;
+  background: #181114;
+  border: 1px solid #5a454e;
+  border-radius: 2px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.9);
+}
+
+.lantern-ground-body {
+  width: 32px;
+  height: 46px;
+  position: relative;
+  background: radial-gradient(circle at 50% 60%, rgba(255, 170, 51, 0.45) 0%, rgba(173, 95, 38, 0.2) 70%, transparent 100%);
+  border: 1px solid #6e5560;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 35px rgba(220, 120, 30, 0.55), 0 -8px 30px rgba(255, 140, 20, 0.3);
+  animation: lanternGlowBreath 4s ease-in-out infinite alternate;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.lantern-ground-roof {
+  width: 40px;
+  height: 14px;
+  background: #2b2025;
+  border: 1px solid #6e5560;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+/* Lantern Extinguished State */
+.lantern-rig.is-extinguished .lantern-flame,
+.lantern-ground.is-extinguished .lantern-flame {
+  opacity: 0 !important;
+  transform: scale(0.15) !important;
+}
+
+.lantern-rig.is-extinguished .lantern-glass,
+.lantern-ground.is-extinguished .lantern-ground-body {
+  background: radial-gradient(circle at 50% 50%, rgba(30, 20, 25, 0.3) 0%, rgba(15, 10, 12, 0.5) 100%) !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+.lantern-rig.is-extinguished .lantern-body {
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.85)) !important;
+}
+
+.lantern-hint {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(14, 8, 11, 0.92);
+  border: 1px solid rgba(220, 100, 30, 0.55);
+  color: var(--bone);
+  font: italic 500 11px/1 var(--serif);
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 15;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.85);
+}
+
+.lantern-rig:hover .lantern-hint,
+.lantern-ground:hover .lantern-hint {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* Creepy Blinking Eyes in the Gloom */
+.creepy-eyes-pair {
+  position: absolute;
+  display: flex;
+  gap: 8px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.creepy-eye {
+  width: 6px;
+  height: 3px;
+  background: #e02e3d;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ff2a3b, 0 0 16px rgba(224, 46, 61, 0.85);
+  animation: eyeBlink 6.5s infinite;
+}
+
+.creepy-eye:nth-child(2) {
+  animation-delay: 0.04s;
+}
+
+@keyframes eyeBlink {
+  0%, 42%, 46%, 92%, 96%, 100% { transform: scaleY(1); opacity: 0.85; }
+  44%, 94% { transform: scaleY(0.08); opacity: 0.08; }
+}
+
+/* Symmetrical Scary Jack-o'-Lanterns (Light ON/OFF) */
+.scary-pumpkin-wrap {
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.scary-pumpkin-wrap:hover {
+  transform: scale(1.08) translateY(-4px);
+}
+
+.scary-pumpkin-wrap:active {
+  transform: scale(0.96) translateY(2px);
+}
+
+.pumpkin-left {
+  bottom: clamp(55px, 10vh, 105px);
+  left: clamp(80px, 11.5vw, 185px);
+  width: clamp(75px, 8vw, 110px);
+  transform: rotate(-4deg);
+}
+
+.pumpkin-left:hover {
+  transform: rotate(-4deg) scale(1.08) translateY(-4px);
+}
+
+.pumpkin-right {
+  bottom: clamp(55px, 10vh, 105px);
+  right: clamp(80px, 11.5vw, 185px);
+  width: clamp(75px, 8vw, 110px);
+  transform: rotate(4deg);
+}
+
+.pumpkin-right:hover {
+  transform: rotate(4deg) scale(1.08) translateY(-4px);
+}
+
+.jack-lantern-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: filter 0.35s ease;
+}
+
+/* Ground Amber Light Pool under Pumpkin */
+.pumpkin-ground-glow {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(255, 120, 20, 0.65) 0%, rgba(220, 40, 10, 0.3) 50%, transparent 80%);
+  filter: blur(8px);
+  pointer-events: none;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  z-index: -1;
+}
+
+/* Light States */
+.scary-pumpkin-wrap.is-lit .jack-carving {
+  fill: url(#fireGrad);
+  filter: drop-shadow(0 0 4px #ffe633) drop-shadow(0 0 12px #ff4800);
+  animation: jackFlicker 3s infinite alternate ease-in-out;
+}
+
+.scary-pumpkin-wrap.is-lit .jack-lantern-svg {
+  filter: drop-shadow(0 0 22px rgba(255, 120, 20, 0.65)) drop-shadow(0 8px 18px rgba(0,0,0,0.95));
+}
+
+.scary-pumpkin-wrap.is-lit .pumpkin-ground-glow {
+  opacity: 0.92;
+  transform: translateX(-50%) scale(1);
+}
+
+/* Extinguished / Off State */
+.scary-pumpkin-wrap.is-extinguished .jack-carving {
+  fill: url(#darkGrad);
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.95));
+  animation: none;
+}
+
+.scary-pumpkin-wrap.is-extinguished .jack-lantern-svg {
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.95)) brightness(0.62);
+}
+
+.scary-pumpkin-wrap.is-extinguished .pumpkin-ground-glow {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.35);
+}
+
+@keyframes jackFlicker {
+  0%, 100% { filter: drop-shadow(0 0 4px #ffe633) drop-shadow(0 0 12px #ff4800); opacity: 0.98; }
+  20% { filter: drop-shadow(0 0 2px #ffa200) drop-shadow(0 0 8px #d62200); opacity: 0.88; }
+  40% { filter: drop-shadow(0 0 6px #fff3a8) drop-shadow(0 0 16px #ff6600); opacity: 1; }
+  60% { filter: drop-shadow(0 0 3px #ff9900) drop-shadow(0 0 10px #c41500); opacity: 0.92; }
+  80% { filter: drop-shadow(0 0 7px #ffe040) drop-shadow(0 0 15px #ff5000); opacity: 1; }
+}
+
+/* Sinister Hover Tooltip */
+.pumpkin-hint {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(14, 8, 11, 0.92);
+  border: 1px solid rgba(220, 100, 30, 0.55);
+  color: var(--bone);
+  font: italic 500 11px/1 var(--serif);
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.85);
+}
+
+.scary-pumpkin-wrap:hover .pumpkin-hint {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* Eerie Cemetery Ground Mist */
+.cemetery-mist {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  pointer-events: none;
+  z-index: 3;
+  background: linear-gradient(0deg, rgba(8,4,6,0.92) 0%, rgba(148,23,34,0.06) 45%, transparent 100%);
+}
+
+/* Spider Rig (Top-Right) */
+.spider-rig {
+  position: absolute;
+  top: 75px;
+  right: clamp(15px, 4vw, 55px);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.corner-web {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.7;
+}
+
+.spider-thread {
+  position: absolute;
+  top: 0;
+  right: 28px;
+  width: 1px;
+  height: 0;
+  background: rgba(226, 219, 206, 0.35);
+  animation: spiderDrop 15s ease-in-out infinite;
+}
+
+@keyframes spiderDrop {
+  0%, 100% { height: 10px; }
+  30%, 70% { height: 130px; }
+  50% { height: 160px; }
+}
+
+.spider-beast {
+  position: absolute;
+  bottom: -12px;
+  left: -8px;
+  width: 17px;
+  height: 17px;
+}
+
+.spider-body {
+  width: 8px;
+  height: 11px;
+  background: #110e10;
+  border: 1px solid #5a1820;
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: 0 0 8px rgba(224, 46, 61, 0.5);
+  position: relative;
+}
+
+.spider-legs {
+  position: absolute;
+  inset: -3px;
+  border: 1px solid rgba(226, 219, 206, 0.2);
+  border-radius: 40%;
+  animation: legTwitch 0.4s infinite alternate;
+}
+
+@keyframes legTwitch {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
+
+/* Spooky Animated Gothic Trees (Framing Bottom/Sides of Hero) */
+.spooky-tree-wrap {
+  position: absolute;
+  bottom: 0;
+  width: clamp(180px, 22vw, 360px);
+  height: clamp(260px, 34vh, 480px);
+  pointer-events: none;
+  z-index: 2;
+  transform-origin: bottom center;
+}
+
+.spooky-tree-left {
+  left: -20px;
+  animation: treeSwayLeft 10s ease-in-out infinite alternate;
+}
+
+.spooky-tree-right {
+  right: -20px;
+  animation: treeSwayRight 12s ease-in-out infinite alternate;
+}
+
+@keyframes treeSwayLeft {
+  0% { transform: rotate(0deg) skewX(0deg); }
+  50% { transform: rotate(1.8deg) skewX(1deg); }
+  100% { transform: rotate(-1.2deg) skewX(-0.8deg); }
+}
+
+@keyframes treeSwayRight {
+  0% { transform: rotate(0deg) skewX(0deg); }
+  50% { transform: rotate(-1.8deg) skewX(-1deg); }
+  100% { transform: rotate(1.2deg) skewX(0.8deg); }
+}
+
+/* Rotating Occult Sigil (Behind Hero Logo) */
+.occult-sigil {
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(620px, 90vw);
+  height: min(620px, 90vw);
+  pointer-events: none;
+  z-index: 2;
+  animation: sigilSpin 60s linear infinite;
+  opacity: 0.45;
+  filter: drop-shadow(0 0 30px rgba(148, 23, 34, 0.4));
+}
+
+@keyframes sigilSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* 3D Floating Occult Runes */
+.runes-3d {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  perspective: 1000px;
+}
+
+.rune-3d {
+  position: absolute;
+  font: 700 36px var(--serif);
+  color: rgba(226, 219, 206, 0.16);
+  text-shadow: 0 0 15px rgba(148, 23, 34, 0.4);
+  user-select: none;
+  transition: transform 0.1s linear;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+/* Interactive 3D Zeitgeist PNG Stage (Silky-Smooth Lerp Parallax) */
+.logo-3d-stage {
+  position: relative;
+  display: inline-block;
+  margin: 6px auto 14px;
+  cursor: crosshair;
+  user-select: none;
+  -webkit-user-select: none;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.hero-logo-img {
+  display: block;
+  max-width: min(850px, 92vw);
+  height: auto;
+  transform-style: preserve-3d;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  filter: drop-shadow(0 0 35px rgba(148, 23, 34, 0.65)) drop-shadow(0 15px 30px rgba(0,0,0,0.95));
+  pointer-events: auto;
+}
+
+/* Fullscreen Bat Overlay Canvas: decoupled from logo container to eliminate all stutter */
+.bat-burst-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.hero-tagline {
+  font: italic 400 clamp(22px, 3.5vw, 36px)/1.2 var(--serif);
+  color: var(--bone);
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 0 20px rgba(148, 23, 34, 0.4);
+  margin-bottom: 28px;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+/* 3D Quick Highlights Bar (Zero Empty Space) */
+.hero-highlights-bar {
+  width: 100%;
+  max-width: 1050px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 10px;
+  transform-style: preserve-3d;
+}
+
+.highlight-box {
+  background: rgba(20, 17, 19, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 18px 16px;
+  text-align: left;
+  border-radius: 4px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(224, 46, 61, 0.15), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.highlight-box:hover::before { opacity: 1; }
+
+.highlight-box:hover {
+  border-color: rgba(224, 46, 61, 0.5);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(148, 23, 34, 0.25);
+}
+
+.highlight-val {
+  font: 700 clamp(18px, 2vw, 24px) var(--serif);
+  color: var(--bone);
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.highlight-lbl {
+  font: 500 10px var(--mono);
+  letter-spacing: 0.2em;
+  color: var(--ash);
+  text-transform: uppercase;
+  display: block;
+}
+
+/* Creepy Peering Eyes in the Dark */
+.shadow-eyes-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 0;
+  position: relative;
+  pointer-events: none;
+}
+
+.creepy-eyes {
+  display: inline-flex;
+  gap: 16px;
+  opacity: 0.85;
+}
+
+.creepy-eye {
+  width: 20px;
+  height: 12px;
+  background: #000;
+  border: 1px solid rgba(224, 46, 61, 0.6);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(224, 46, 61, 0.7);
+  animation: eyeBlink 5s infinite;
+}
+
+@keyframes eyeBlink {
+  0%, 94%, 98%, 100% { transform: scaleY(1); }
+  96% { transform: scaleY(0.08); }
+}
+
+.creepy-pupil {
+  width: 6px;
+  height: 10px;
+  background: #ff1a2a;
+  border-radius: 50%;
+  position: absolute;
+  top: 1px;
+  left: 7px;
+  box-shadow: 0 0 6px #ff0019;
+  transition: transform 0.1s linear;
+}
+
+/* ===== 3D COUNTDOWN SECTION ===== */
+.cd-section {
+  background: linear-gradient(180deg, var(--void) 0%, #0a0608 50%, var(--void) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cd-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 2.5vw, 24px);
+  margin-bottom: 36px;
+  perspective: 1000px;
+}
+
+.cd-card {
+  background: radial-gradient(circle at 50% 20%, rgba(90, 10, 17, 0.25), rgba(15, 12, 14, 0.85));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: clamp(24px, 4vw, 44px) 16px;
+  text-align: center;
+  border-radius: 4px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
+  transform-style: preserve-3d;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+  position: relative;
+}
+
+.cd-card:hover {
+  border-color: var(--crim-bright);
+  box-shadow: 0 18px 45px rgba(148, 23, 34, 0.35);
+}
+
+.cd-num {
+  font: 700 clamp(44px, 7vw, 92px)/1 var(--serif);
+  color: var(--bone);
+  letter-spacing: -0.02em;
+  display: block;
+  text-shadow: 0 0 25px rgba(148, 23, 34, 0.5);
+}
+
+.cd-unit {
+  font: 600 11px var(--mono);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-top: 8px;
+  display: block;
+}
+
+/* ===== ABOUT / DOSSIER SECTION (SMART 2-COL LAYOUT) ===== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(30px, 5vw, 60px);
+  align-items: center;
+}
+
+.dossier-card {
+  background: rgba(18, 14, 16, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: clamp(24px, 4vw, 44px);
+  border-radius: 4px;
+  position: relative;
+}
+
+.dossier-card::before {
+  content: "CLASSIFIED // DOSSIER 1986";
+  position: absolute;
+  top: -10px;
+  left: 24px;
+  background: var(--burg);
+  color: var(--crim-bright);
+  font: 600 9px var(--mono);
+  letter-spacing: 0.25em;
+  padding: 2px 10px;
+  border: 1px solid var(--crim);
+}
+
+.stats-grid-3d {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  perspective: 1000px;
+}
+
+.stat-box-3d {
+  background: rgba(20, 17, 19, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 28px 20px;
+  border-radius: 4px;
+  transition: all 0.3s;
+  transform-style: preserve-3d;
+}
+
+.stat-box-3d:hover {
+  border-color: var(--amber);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 30px var(--amber-glow);
+}
+
+.stat-num {
+  font: 700 clamp(32px, 4vw, 48px)/1 var(--serif);
+  color: var(--bone);
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ===== 3D ARENA CARDS GRID (EVENTS) ===== */
+.rituals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 36px;
+  perspective: 1200px;
+}
+
+.ritual-card {
+  background: linear-gradient(180deg, rgba(24, 18, 21, 0.7) 0%, rgba(12, 9, 11, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 28px 24px;
+  border-radius: 4px;
+  transition: transform 0.25s ease, border-color 0.25s, box-shadow 0.25s;
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ritual-card:hover {
+  border-color: var(--crim);
+  box-shadow: 0 14px 40px rgba(148, 23, 34, 0.35);
+  transform: translateY(-6px) rotateX(4deg);
+}
+
+.ritual-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.ritual-icon {
+  font-size: 24px;
+}
+
+.ritual-num {
+  font: 600 10px var(--mono);
+  letter-spacing: 0.25em;
+  color: var(--crim);
+}
+
+.ritual-title {
+  font: 700 24px var(--serif);
+  color: var(--bone);
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.ritual-desc {
+  font: 400 12px/1.6 var(--sans);
+  color: var(--bone-dim);
+  margin-bottom: 20px;
+}
+
+.ritual-link {
+  font: 600 10px var(--mono);
+  letter-spacing: 0.2em;
+  color: var(--amber);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s, gap 0.2s;
+}
+
+.ritual-card:hover .ritual-link {
+  color: #fff;
+  gap: 10px;
+}
+
+/* ===== 3D PRONITES HEADLINERS ===== */
+.pronite-deck {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+  perspective: 1200px;
+}
+
+.pro-card-3d {
+  position: relative;
+  height: clamp(420px, 50vh, 560px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #080507;
+  transform-style: preserve-3d;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.7);
+}
+
+.pro-card-3d:hover {
+  border-color: var(--crim-bright);
+  box-shadow: 0 20px 50px rgba(148, 23, 34, 0.45);
+  transform: translateY(-8px) scale(1.02);
+}
+
+.pro-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(80%) contrast(1.2) brightness(0.65);
+  transition: filter 0.4s, transform 0.4s;
+  transform: translateZ(-30px) scale(1.08);
+}
+
+.pro-card-3d:hover .pro-bg-img {
+  filter: grayscale(20%) contrast(1.1) brightness(0.85);
+  transform: translateZ(-10px) scale(1.14);
+}
+
+.pro-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4,3,4,0.3) 0%, rgba(4,3,4,0.2) 40%, rgba(4,3,4,0.95) 100%);
+}
+
+.pro-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 24px;
+  transform: translateZ(40px);
+}
+
+.pro-night-tag {
+  font: 600 10px var(--mono);
+  letter-spacing: 0.3em;
+  color: var(--crim-bright);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.pro-name {
+  font: 700 clamp(24px, 3vw, 36px)/1 var(--serif);
+  color: #fff;
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+}
+
+.pro-meta {
+  font: 500 11px var(--mono);
+  letter-spacing: 0.16em;
+  color: var(--bone-dim);
+  text-transform: uppercase;
+}
+
+/* ===== TIMELINE SCHEDULE ===== */
+.schedule-tabs {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+
+.sch-tab {
+  padding: 10px 20px;
+  font: 600 11px var(--mono);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ash);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 0.25s;
+}
+
+.sch-tab:hover { color: var(--bone); border-color: rgba(255,255,255,0.2); }
+
+.sch-tab.active {
+  color: #fff;
+  background: rgba(148, 23, 34, 0.25);
+  border-color: var(--crim);
+  box-shadow: 0 0 15px var(--crim-glow);
+}
+
+.sch-table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sch-row {
+  display: grid;
+  grid-template-columns: 140px 1.5fr 1fr 140px;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: rgba(20, 17, 19, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  transition: all 0.25s;
+}
+
+.sch-row:hover {
+  background: rgba(28, 22, 26, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(6px);
+}
+
+.sch-time {
+  font: 600 12px var(--mono);
+  letter-spacing: 0.14em;
+  color: var(--amber);
+}
+
+.sch-event {
+  font: 700 16px var(--serif);
+  color: var(--bone);
+  letter-spacing: 0.03em;
+}
+
+.sch-venue {
+  font: 500 11px var(--mono);
+  color: var(--ash);
+  letter-spacing: 0.1em;
+}
+
+.sch-cat {
+  font: 600 10px var(--mono);
+  letter-spacing: 0.2em;
+  color: var(--crim-bright);
+  text-transform: uppercase;
+  text-align: right;
+}
+
+/* ===== 3D PASS CLEARANCE TIERS (NEW ON LANDING PAGE) ===== */
+.pass-deck {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+  perspective: 1000px;
+}
+
+.pass-card-3d {
+  background: linear-gradient(180deg, rgba(25, 20, 23, 0.8) 0%, rgba(12, 9, 11, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: 36px 28px;
+  text-align: center;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.pass-card-3d.featured {
+  border-color: var(--crim);
+  box-shadow: 0 0 35px var(--crim-glow);
+  transform: scale(1.04);
+}
+
+.pass-card-3d:hover {
+  transform: translateY(-8px) scale(1.04);
+  border-color: var(--amber);
+  box-shadow: 0 16px 45px var(--amber-glow);
+}
+
+.pass-tier-name {
+  font: 600 11px var(--mono);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-bottom: 12px;
+}
+
+.pass-price {
+  font: 700 clamp(36px, 5vw, 52px) var(--serif);
+  color: var(--bone);
+  margin-bottom: 20px;
+}
+
+.pass-benefits {
+  list-style: none;
+  text-align: left;
+  font: 400 12px/2 var(--sans);
+  color: var(--bone-dim);
+  margin-bottom: 30px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 16px;
+}
+
+.pass-benefits li::before {
+  content: "✦ ";
+  color: var(--crim-bright);
+}
+
+/* ===== 3D EVIDENCE / POLAROID GALLERY ===== */
+.polaroids-3d {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+  perspective: 1200px;
+}
+
+.pol-card {
+  background: #f1ede3;
+  color: #1a1617;
+  padding: 12px 12px 32px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+  border-radius: 2px;
+  transform: rotate(var(--rot, 0deg));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s, z-index 0s;
+}
+
+.pol-card:hover {
+  transform: scale(1.08) rotate(0deg) translateZ(40px);
+  box-shadow: 0 25px 60px rgba(148, 23, 34, 0.6);
+  z-index: 20;
+}
+
+.pol-img-wrap {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #000;
+  margin-bottom: 12px;
+}
+
+.pol-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(70%) sepia(25%) contrast(1.4);
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.pol-card:hover .pol-img-wrap img {
+  filter: grayscale(10%) contrast(1.1);
+  transform: scale(1.05);
+}
+
+.pol-caption {
+  font: 600 10px var(--mono);
+  letter-spacing: 0.15em;
+  color: #403b3d;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* ===== TACTICAL MAP SECTION ===== */
+.map-wrap {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  background: rgba(18, 14, 16, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px;
+  border-radius: 4px;
+}
+
+.map-svg {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #070506;
+}
+
+.map-sector {
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.map-sector:hover {
+  fill: rgba(148, 23, 34, 0.6);
+}
+
+.map-panel {
+  background: rgba(10, 8, 9, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #020102;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 80px var(--pad) 40px;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin: 36px 0;
+}
+
+.footer-link {
+  font: 600 11px var(--mono);
+  letter-spacing: 0.2em;
+  color: var(--ash);
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.footer-link:hover { color: #fff; }
+
+/* Lightbox Modal */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(4, 3, 4, 0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  cursor: zoom-out;
+}
+
+#lightbox.open { display: flex; }
+#lightbox img { max-width: 90vw; max-height: 85vh; border: 4px solid #fff; box-shadow: 0 0 50px rgba(0,0,0,0.9); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav-links { display: none !important; }
+  .burger { display: inline-flex; align-items: center; justify-content: center; }
+  .hero-highlights-bar { grid-template-columns: repeat(2, 1fr); }
+  .cd-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; }
+  .pronite-deck { grid-template-columns: 1fr; }
+  .pass-deck { grid-template-columns: 1fr; }
+  .polaroids-3d { grid-template-columns: repeat(2, 1fr); }
+  .map-wrap { grid-template-columns: 1fr; }
+  .sch-row { grid-template-columns: 1fr; gap: 6px; }
+  .sch-cat { text-align: left; }
+  .lantern-rig, .spider-rig, .spooky-tree-wrap, .pumpkin-left-mini { display: none; }
+  .pumpkin-left { bottom: 35px; left: 10px; width: 62px; }
+  .pumpkin-right { bottom: 35px; right: 10px; width: 62px; }
+}
+
+@media (max-width: 600px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+  }
+  nav.top {
+    padding: calc(10px + env(safe-area-inset-top, 0px)) 16px 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .brand {
+    gap: 8px;
+  }
+  .brand img {
+    height: 32px;
+  }
+  .brand-sub {
+    display: none;
+  }
+  .burger {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+  .goth-tag {
+    font-size: 8px;
+    letter-spacing: 0.10em;
+    padding: 5px 10px;
+    white-space: normal;
+    text-align: center;
+    max-width: 90vw;
+  }
+  .hero-highlights-bar {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 92vw;
+  }
+}
+
+
+</style>
+</head>
+<body id="page-top">
+
+<div class="grain" aria-hidden="true"></div>
+<div class="vig" aria-hidden="true"></div>
+
+<!-- Custom Horror Cursor Elements -->
+<div id="cur-dot" aria-hidden="true"></div>
+<div id="cur-ring" aria-hidden="true"></div>
+
+<!-- Top Navigation -->
+<nav class="top" aria-label="Primary">
+  <!-- ONLY ONE ZEITGEIST: Logo + Subtitle (No duplicate text) -->
+  <a class="brand" href="#page-top" title="Zeitgeist'26 Home">
+    <img src="assets/logo_trans.png" alt="Zeitgeist'26 Logo">
+    <span class="brand-sub">MMXXVI · IIT ROPAR</span>
+  </a>
+
+  <div class="nav-links" id="main-nav">
+    <button class="nav-sound-btn" id="snd-btn" type="button" aria-pressed="false" aria-label="Toggle Atmosphere Sound">
+      <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+      <span id="snd-txt">AUDIO: OFF</span>
+    </button>
+    <a class="nav-link active" href="#hero">Home</a>
+    <a class="nav-link" href="#about">About</a>
+    <a class="nav-link" href="#theme">Theme</a>
+    <a class="nav-link" href="#events">Events</a>
+    <a class="nav-link" href="#pronites">Pronites</a>
+    <a class="nav-link" href="#schedule">Schedule</a>
+    <a class="nav-link" href="#passes">Passes</a>
+    <a class="nav-link" href="sponsors.html">Sponsors</a>
+    <a class="nav-link" href="team.html">Team</a>
+    <a class="nav-link" href="#gallery">Gallery</a>
+    <a class="nav-link" href="#contact">Contact</a>
+  </div>
+
+  <button class="burger" id="burger-btn" type="button" aria-label="Toggle Navigation">MENU</button>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" style="position:fixed; inset:0; z-index:99; background:rgba(4,3,4,0.98); display:none; flex-direction:column; justify-content:center; align-items:center; gap:16px; font:700 20px var(--serif);">
+  <a class="mob-link" href="#hero">Home</a>
+  <a class="mob-link" href="#about">About</a>
+  <a class="mob-link" href="#theme">Theme</a>
+  <a class="mob-link" href="#events">Events</a>
+  <a class="mob-link" href="#pronites">Pronites</a>
+  <a class="mob-link" href="#schedule">Schedule</a>
+  <a class="mob-link" href="#passes">Passes</a>
+  <a class="mob-link" href="sponsors.html">Sponsors</a>
+  <a class="mob-link" href="team.html">Team</a>
+  <a class="mob-link" href="#gallery">Gallery</a>
+  <a class="mob-link" href="#contact">Contact</a>
+  <button id="close-mob" style="margin-top:16px; font:600 11px var(--mono); color:var(--crim); letter-spacing:0.2em; background:none; border:none; cursor:pointer;">[ CLOSE ]</button>
+</div>
+
+<!-- ========================================================
+     HERO SECTION (3D Parallax, Floating Runes & Logo)
+     ======================================================== -->
+<header class="hero" id="hero">
+  <canvas id="hero-cv"></canvas>
+  <canvas id="bat-burst-cv" class="bat-burst-overlay" aria-hidden="true"></canvas>
+
+  <!-- Blood Drip Overlay & Animated Falling Droplets -->
+  <svg class="blood-drip" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="var(--blood)" d="M0,0 L1440,0 L1440,15 Q1380,35 1320,18 Q1240,45 1160,20 Q1060,50 980,15 Q880,55 800,22 Q720,48 640,18 Q540,58 460,20 Q360,50 280,15 Q180,45 100,20 Q40,32 0,15 Z"></path>
+  </svg>
+
+  <div class="blood-droplets" aria-hidden="true">
+    <div class="drop" style="left:8%; --del:0.4s; --dur:4.2s;"></div>
+    <div class="drop" style="left:24%; --del:2.2s; --dur:5.0s;"></div>
+    <div class="drop" style="left:42%; --del:1.1s; --dur:3.6s;"></div>
+    <div class="drop" style="left:64%; --del:3.5s; --dur:4.6s;"></div>
+    <div class="drop" style="left:82%; --del:1.8s; --dur:4.0s;"></div>
+    <div class="drop" style="left:92%; --del:4.2s; --dur:5.4s;"></div>
+  </div>
+
+  <!-- Symmetrical Hanging Gothic Lantern (Left) -->
+  <div class="lantern-rig is-lit" id="lantern-top-left" role="button" tabindex="0" aria-label="Gothic Lantern: click to toggle flame">
+    <div class="lantern-hint">Click to snuff lantern</div>
+    <div class="lantern-chain"></div>
+    <div class="lantern-body">
+      <div class="lantern-cap"></div>
+      <div class="lantern-glass">
+        <div class="lantern-flame"></div>
+      </div>
+      <div class="lantern-base"></div>
+    </div>
+  </div>
+
+  <!-- Symmetrical Hanging Gothic Lantern (Right) -->
+  <div class="lantern-rig lantern-rig-right is-lit" id="lantern-top-right" role="button" tabindex="0" aria-label="Gothic Lantern: click to toggle flame">
+    <div class="lantern-hint">Click to snuff lantern</div>
+    <div class="lantern-chain" style="height:clamp(65px, 9vw, 110px);"></div>
+    <div class="lantern-body">
+      <div class="lantern-cap"></div>
+      <div class="lantern-glass">
+        <div class="lantern-flame" style="animation-delay:-1.4s;"></div>
+      </div>
+      <div class="lantern-base"></div>
+    </div>
+  </div>
+
+  <!-- Symmetrical Ground Pedestal Lantern (Left) -->
+  <div class="lantern-ground lantern-ground-left is-lit" id="lantern-ground-left" role="button" tabindex="0" aria-label="Gothic Lantern: click to toggle flame">
+    <div class="lantern-hint">Click to snuff lantern</div>
+    <div class="lantern-ground-roof"></div>
+    <div class="lantern-ground-body">
+      <div class="lantern-flame" style="width:7px; height:12px;"></div>
+    </div>
+    <div class="lantern-plinth"></div>
+  </div>
+
+  <!-- Symmetrical Ground Pedestal Lantern (Right) -->
+  <div class="lantern-ground lantern-ground-right is-lit" id="lantern-ground-right" role="button" tabindex="0" aria-label="Gothic Lantern: click to toggle flame">
+    <div class="lantern-hint">Click to snuff lantern</div>
+    <div class="lantern-ground-roof"></div>
+    <div class="lantern-ground-body">
+      <div class="lantern-flame" style="width:7px; height:12px; animation-delay:-1.8s;"></div>
+    </div>
+    <div class="lantern-plinth"></div>
+  </div>
+
+  <!-- Creepy Blinking Eyes Peering from Gloom -->
+  <div class="creepy-eyes-pair" style="bottom:130px; left:clamp(45px, 7vw, 110px);" aria-hidden="true">
+    <div class="creepy-eye"></div>
+    <div class="creepy-eye"></div>
+  </div>
+  <div class="creepy-eyes-pair" style="bottom:170px; right:clamp(55px, 8vw, 130px);" aria-hidden="true">
+    <div class="creepy-eye" style="animation-delay: -3.2s;"></div>
+    <div class="creepy-eye" style="animation-delay: -3.16s;"></div>
+  </div>
+  <div class="creepy-eyes-pair" style="top:230px; left:26px;" aria-hidden="true">
+    <div class="creepy-eye" style="animation-delay: -5.1s;"></div>
+    <div class="creepy-eye" style="animation-delay: -5.06s;"></div>
+  </div>
+
+  <!-- Symmetrical Ground Scary Jack-o'-Lanterns (Light ON/OFF) -->
+  <!-- Left Ground Pumpkin -->
+  <div class="scary-pumpkin-wrap pumpkin-left is-lit" id="pump-left" role="button" tabindex="0" aria-label="Cursed Pumpkin: click to toggle flame">
+    <div class="pumpkin-hint">Click to snuff flame</div>
+    <div class="pumpkin-ground-glow"></div>
+    <svg class="jack-lantern-svg" viewBox="0 0 100 90">
+      <defs>
+        <radialGradient id="pumpGrad1" cx="50%" cy="55%" r="50%">
+          <stop offset="0%" stop-color="#f26e1c"/>
+          <stop offset="65%" stop-color="#ab3a08"/>
+          <stop offset="100%" stop-color="#4d1604"/>
+        </radialGradient>
+        <radialGradient id="pumpRibGrad" cx="40%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#db5b14"/>
+          <stop offset="70%" stop-color="#8a2a05"/>
+          <stop offset="100%" stop-color="#360c02"/>
+        </radialGradient>
+        <radialGradient id="fireGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fff9bd"/>
+          <stop offset="35%" stop-color="#ff9900"/>
+          <stop offset="75%" stop-color="#ff3300"/>
+          <stop offset="100%" stop-color="#8b0000"/>
+        </radialGradient>
+        <radialGradient id="darkGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#1f0f0c"/>
+          <stop offset="100%" stop-color="#080203"/>
+        </radialGradient>
+      </defs>
+      <!-- Gnarled Stem & Twisting Vine -->
+      <path d="M47,20 C46,10 52,4 56,2 C58,6 56,12 52,20 Z" fill="#2d3319" stroke="#181c0c" stroke-width="0.8"/>
+      <path d="M53,10 Q62,6 60,14 T66,16" fill="none" stroke="#3e4a20" stroke-width="1.1" stroke-linecap="round"/>
+      <!-- Pumpkin Ribs for 3D Volume -->
+      <ellipse cx="28" cy="52" rx="19" ry="26" fill="url(#pumpRibGrad)"/>
+      <ellipse cx="72" cy="52" rx="19" ry="26" fill="url(#pumpRibGrad)"/>
+      <ellipse cx="38" cy="53" rx="17" ry="28" fill="url(#pumpGrad1)"/>
+      <ellipse cx="62" cy="53" rx="17" ry="28" fill="url(#pumpGrad1)"/>
+      <ellipse cx="50" cy="54" rx="16" ry="29" fill="url(#pumpGrad1)"/>
+      <!-- Creepy Rib Crevices -->
+      <path d="M36,25 C33,40 33,65 36,80" fill="none" stroke="#260702" stroke-width="1.3" opacity="0.6"/>
+      <path d="M64,25 C67,40 67,65 64,80" fill="none" stroke="#260702" stroke-width="1.3" opacity="0.6"/>
+      <!-- Menacing Carved Face (Slanted Eyes, Jagged Fangs) -->
+      <g class="jack-face">
+        <polygon class="jack-carving" points="30,42 41,45 35,49 28,47"/>
+        <polygon class="jack-carving" points="70,42 59,45 65,49 72,47"/>
+        <polygon class="jack-carving" points="50,49 46,55 54,55"/>
+        <path class="jack-carving" d="M26,58 Q50,78 74,58 Q68,64 63,60 Q59,68 56,61 Q52,70 50,62 Q47,69 44,61 Q41,68 37,60 Q32,64 26,58 Z"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Symmetrical Right Ground Pumpkin -->
+  <div class="scary-pumpkin-wrap pumpkin-right is-lit" id="pump-right" role="button" tabindex="0" aria-label="Cursed Pumpkin: click to toggle flame">
+    <div class="pumpkin-hint">Click to snuff flame</div>
+    <div class="pumpkin-ground-glow"></div>
+    <svg class="jack-lantern-svg" viewBox="0 0 100 90">
+      <path d="M53,20 C54,10 48,4 44,2 C42,6 44,12 48,20 Z" fill="#2d3319" stroke="#181c0c" stroke-width="0.8"/>
+      <ellipse cx="28" cy="52" rx="19" ry="26" fill="url(#pumpRibGrad)"/>
+      <ellipse cx="72" cy="52" rx="19" ry="26" fill="url(#pumpRibGrad)"/>
+      <ellipse cx="38" cy="53" rx="17" ry="28" fill="url(#pumpGrad1)"/>
+      <ellipse cx="62" cy="53" rx="17" ry="28" fill="url(#pumpGrad1)"/>
+      <ellipse cx="50" cy="54" rx="16" ry="29" fill="url(#pumpGrad1)"/>
+      <g class="jack-face">
+        <polygon class="jack-carving" points="28,40 42,46 36,50 26,46"/>
+        <polygon class="jack-carving" points="72,40 58,46 64,50 74,46"/>
+        <polygon class="jack-carving" points="50,48 45,55 55,55"/>
+        <path class="jack-carving" d="M24,56 Q50,82 76,56 Q69,65 63,59 Q59,71 56,61 Q52,73 50,62 Q48,73 44,61 Q41,71 37,59 Q31,65 24,56 Z"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Eerie Cemetery Ground Mist Layer -->
+  <div class="cemetery-mist" aria-hidden="true"></div>
+
+  <!-- Dangling Spider on Web Thread (Right) -->
+  <div class="spider-rig" aria-hidden="true">
+    <svg class="corner-web" viewBox="0 0 120 120">
+      <path d="M0,0 Q60,10 120,0 M0,0 Q10,60 0,120 M0,0 L120,120 M0,40 Q40,40 40,0 M0,80 Q80,80 80,0" stroke="rgba(226,219,206,0.2)" stroke-width="1.2" fill="none"/>
+    </svg>
+    <div class="spider-thread">
+      <div class="spider-beast">
+        <div class="spider-body"></div>
+        <div class="spider-legs"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Spooky Animated Gothic Trees (Framing Bottom/Sides of Hero) -->
+  <div class="spooky-tree-wrap spooky-tree-left" aria-hidden="true">
+    <svg viewBox="0 0 300 450" preserveAspectRatio="none">
+      <path fill="#080406" opacity="0.9" d="M0,450 L70,450 C65,390 80,340 75,290 C65,260 40,240 25,210 C15,190 20,165 10,140 C5,125 -5,110 -2,90 C0,70 12,50 5,30 C30,45 25,75 35,95 C45,115 65,130 60,155 C55,180 75,195 80,215 C90,240 95,270 95,310 C105,280 115,250 110,220 C105,190 125,170 135,145 C145,120 135,90 150,70 C145,95 160,110 155,130 C150,155 135,175 130,205 C125,235 110,270 115,320 C125,360 140,400 150,450 Z"/>
+      <path fill="#0d070a" opacity="0.65" d="M0,450 C30,420 40,370 45,320 C50,280 40,240 30,200 C20,160 35,130 30,90 C45,110 55,150 50,190 C65,170 85,150 80,120 C95,140 90,180 80,220 C75,260 70,300 80,350 L110,450 Z"/>
+    </svg>
+  </div>
+
+  <div class="spooky-tree-wrap spooky-tree-right" aria-hidden="true">
+    <svg viewBox="0 0 300 450" preserveAspectRatio="none">
+      <path fill="#080406" opacity="0.9" d="M300,450 L230,450 C235,390 220,340 225,290 C235,260 260,240 275,210 C285,190 280,165 290,140 C295,125 305,110 302,90 C300,70 288,50 295,30 C270,45 275,75 265,95 C255,115 235,130 240,155 C245,180 225,195 220,215 C210,240 205,270 205,310 C195,280 185,250 190,220 C195,190 175,170 165,145 C155,120 165,90 150,70 C155,95 140,110 145,130 C150,155 165,175 170,205 C175,235 190,270 185,320 C175,360 160,400 150,450 Z"/>
+      <path fill="#0d070a" opacity="0.65" d="M300,450 C270,420 260,370 255,320 C250,280 260,240 270,200 C280,160 265,130 270,90 C255,110 245,150 250,190 C235,170 215,150 220,120 C205,140 210,180 220,220 C225,260 230,300 220,350 L190,450 Z"/>
+    </svg>
+  </div>
+
+  <!-- Rotating Occult Sigil (Behind Logo) -->
+  <div class="occult-sigil" aria-hidden="true">
+    <svg viewBox="0 0 400 400">
+      <circle cx="200" cy="200" r="190" stroke="rgba(148,23,34,0.35)" stroke-width="1.5" stroke-dasharray="4 6" fill="none"/>
+      <circle cx="200" cy="200" r="165" stroke="rgba(148,23,34,0.4)" stroke-width="1.5" fill="none"/>
+      <polygon points="200,35 342,283 58,283" stroke="rgba(148,23,34,0.25)" stroke-width="1.5" fill="none"/>
+      <polygon points="200,365 58,117 342,117" stroke="rgba(148,23,34,0.25)" stroke-width="1.5" fill="none"/>
+      <circle cx="200" cy="200" r="110" stroke="rgba(173,95,38,0.3)" stroke-width="1" fill="none"/>
+      <circle cx="200" cy="200" r="80" stroke="rgba(148,23,34,0.2)" stroke-width="1" stroke-dasharray="12 4" fill="none"/>
+    </svg>
+  </div>
+
+  <!-- 3D Floating Occult Runes with Parallax -->
+  <div class="runes-3d" id="runes-box" aria-hidden="true">
+    <span class="rune-3d" style="left:8%; top:22%;" data-depth="0.08">ᚦ</span>
+    <span class="rune-3d" style="right:10%; top:24%;" data-depth="0.12">ᚨ</span>
+    <span class="rune-3d" style="left:6%; top:65%;" data-depth="0.05">ᛉ</span>
+    <span class="rune-3d" style="right:8%; top:68%;" data-depth="0.10">ᛏ</span>
+    <span class="rune-3d" style="left:20%; top:82%;" data-depth="0.14">ᚱ</span>
+    <span class="rune-3d" style="right:18%; top:80%;" data-depth="0.07">ᛋ</span>
+  </div>
+
+  <div class="hero-content">
+    <div class="goth-tag" style="margin-bottom:16px;">
+      <span class="tag-glyph">✦</span>
+      <span>IIT ROPAR · ANNUAL CULTURAL FESTIVAL · MMXXVI</span>
+      <span class="tag-glyph">✦</span>
+    </div>
+
+    <div class="logo-3d-stage" id="logo-stage" title="The Ancient Seal of Zeitgeist">
+      <img class="hero-logo-img" id="hero-logo" src="assets/logo_trans.png" alt="ZEITGEIST'26 — Moonlit Revelry" width="903" height="382" fetchpriority="high" decoding="async">
+    </div>
+
+    <p class="hero-tagline">"The Night We Never Left"</p>
+
+    <div class="hero-cta-group">
+      <a class="btn btn-crim" href="#about">[ Enter the Descent ]</a>
+      <a class="btn btn-amber" href="#passes">[ Claim Passes ]</a>
+    </div>
+
+    <!-- 3D Quick Highlights Bar (Zero Empty Space) -->
+    <div class="hero-highlights-bar">
+      <div class="highlight-box">
+        <span class="highlight-val">OCT 30 – NOV 01</span>
+        <span class="highlight-lbl">Three Nights of Revelry</span>
+      </div>
+      <div class="highlight-box">
+        <span class="highlight-val">60+ ARENAS</span>
+        <span class="highlight-lbl">Music, Dance, Drama & Arts</span>
+      </div>
+      <div class="highlight-box">
+        <span class="highlight-val">12,000+ SOULS</span>
+        <span class="highlight-lbl">250+ Premier Institutes</span>
+      </div>
+      <div class="highlight-box">
+        <span class="highlight-val">₹15,00,000+</span>
+        <span class="highlight-lbl">Cash Bounty & Citations</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- Shadows Creepy Eyes Row -->
+<div class="shadow-eyes-row" aria-hidden="true">
+  <div class="creepy-eyes">
+    <div class="creepy-eye"><div class="creepy-pupil"></div></div>
+    <div class="creepy-eye"><div class="creepy-pupil"></div></div>
+  </div>
+</div>
+
+<!-- ========================================================
+     COUNTDOWN SECTION (3D Cards)
+     ======================================================== -->
+<section class="cd-section" id="countdown">
+  <div class="section-head rv">
+    <div>
+      <p class="eyebrow">[ SCHEDULED CONVERGENCE · OCTOBER 30, 2026 ]</p>
+      <h2 class="disp" style="font-size:clamp(32px, 5.5vw, 68px); margin-top:8px;">The Night Approaches.</h2>
+    </div>
+    <div class="goth-tag">
+      <span class="tag-glyph">☽</span>
+      <span>PUNJAB CAMPUS ARENA</span>
+    </div>
+  </div>
+
+  <div class="cd-grid rv" id="cd-grid" role="timer">
+    <div class="cd-card" data-tilt>
+      <span class="cd-num" id="cd-days">00</span>
+      <span class="cd-unit">Days</span>
+    </div>
+    <div class="cd-card" data-tilt>
+      <span class="cd-num" id="cd-hours">00</span>
+      <span class="cd-unit">Hours</span>
+    </div>
+    <div class="cd-card" data-tilt>
+      <span class="cd-num" id="cd-mins">00</span>
+      <span class="cd-unit">Minutes</span>
+    </div>
+    <div class="cd-card" data-tilt>
+      <span class="cd-num" id="cd-secs">00</span>
+      <span class="cd-unit">Seconds</span>
+    </div>
+  </div>
+
+  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;" class="rv">
+    <p class="eyebrow" style="color:var(--ash);">Venue: Indian Institute of Technology Ropar, Rupnagar, Punjab 140001</p>
+    <div style="display:flex; gap:12px;">
+      <a class="btn" href="events.html" style="padding:10px 18px;">All Arenas →</a>
+      <a class="btn btn-crim" href="#passes" style="padding:10px 18px;">Get Passes →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Shadows Creepy Eyes Row -->
+<div class="shadow-eyes-row" aria-hidden="true" style="justify-content: flex-end; padding-right: 80px;">
+  <div class="creepy-eyes">
+    <div class="creepy-eye"><div class="creepy-pupil"></div></div>
+    <div class="creepy-eye"><div class="creepy-pupil"></div></div>
+  </div>
+</div>
+
+<!-- ========================================================
+     ABOUT / INCIDENT SECTION (High-Density 2-Column)
+     ======================================================== -->
+<section id="about">
+  <div class="section-head rv">
+    <div>
+      <p class="eyebrow">Archive 00 // Festival Lore</p>
+      <h2 class="disp" style="font-size:clamp(32px, 5.5vw, 68px); margin-top:8px;">The 1986 Incident.</h2>
+    </div>
+    <div class="goth-tag">
+      <span class="tag-glyph">✝</span>
+      <span>DECLASSIFIED DOSSIER</span>
+    </div>
+  </div>
+
+  <div class="about-grid">
+    <div class="dossier-card rv">
+      <h3 style="font:700 28px var(--serif); color:var(--bone); margin-bottom:16px;">Three Nights. One Campus. A Thousand Stories.</h3>
+      <p style="font:400 14px/1.8 var(--sans); color:var(--bone-dim); margin-bottom:20px;">
+        Zeitgeist is the flagship annual cultural phenomenon of IIT Ropar. On late October nights, a cold shroud rolls in from the Sutlej River across Rupnagar, transforming the academic grounds into a nocturnal cathedral of theatrical rites, sonic explosions, and competitive fire.
+      </p>
+      <p style="font:400 14px/1.8 var(--sans); color:var(--bone-dim); margin-bottom:24px;">
+        Over 60+ national competitive arenas challenge the finest dancers, orators, dramatists, musicians, and artists across the country, concluding with headline star nights that resonate under the blood moon.
+      </p>
+      <a class="btn btn-amber" href="about.html" style="padding:10px 20px;">Read Complete Lore Dossier →</a>
+    </div>
+
+    <div class="stats-grid-3d rv">
+      <div class="stat-box-3d" data-tilt>
+        <span class="stat-num" style="color:var(--crim-bright);">60+</span>
+        <span class="eyebrow">National Arenas</span>
+      </div>
+      <div class="stat-box-3d" data-tilt>
+        <span class="stat-num" style="color:var(--amber);">12,000+</span>
+        <span class="eyebrow">Expected Revelers</span>
+      </div>
+      <div class="stat-box-3d" data-tilt>
+        <span class="stat-num" style="color:var(--bone);">250+</span>
+        <span class="eyebrow">Colleges Engaged</span>
+      </div>
+      <div class="stat-box-3d" data-tilt>
+        <span class="stat-num" style="color:var(--crim);">₹15L+</span>
+        <span class="eyebrow">Prize Bounty</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     FESTIVAL THEME & OFFICIAL TEASER (Chasing Euphoria)
+     ======================================================== -->
+<section id="theme" style="background:linear-gradient(180deg, var(--void) 0%, #0d060a 50%, var(--void) 100%);">
+  <div class="section-head rv">
+    <div>
+      <p class="eyebrow">Edition Theme // Transcending Timelines</p>
+      <h2 class="disp" style="font-size:clamp(32px, 5.5vw, 68px); margin-top:8px;">Chasing Euphoria.</h2>
+    </div>
+    <div class="goth-tag">
+      <span class="tag-glyph">🎬</span>
+      <span>OFFICIAL TEASER TRAILER</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:36px; align-items:center;" class="rv">
+    <!-- Teaser Video Embed -->
+    <div style="position:relative; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.15); box-shadow:0 12px 40px rgba(0,0,0,0.8), 0 0 25px rgba(148,23,34,0.3); background:#0a0608; aspect-ratio:16/9;">
+      <iframe 
+        style="width:100%; height:100%; border:none;" 
+        src="https://www.youtube.com/embed/7ub0Be3U80Y" 
+        title="Zeitgeist Official Teaser Trailer" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Theme Narrative & Legacy Highlights -->
+    <div class="dossier-card" style="padding:clamp(24px, 3.5vw, 40px); background:rgba(14, 8, 12, 0.85); border:1px solid rgba(255,255,255,0.12); border-radius:8px;">
+      <span class="eyebrow" style="color:var(--crim-bright); margin-bottom:8px; display:block;">"THE NIGHT WE NEVER LEFT"</span>
+      <h3 style="font:700 clamp(22px, 3vw, 32px) var(--serif); color:var(--bone); margin-bottom:16px; line-height:1.2;">
+        Where Freedom and Thrill Collide Under the Blood Moon
+      </h3>
+      <p style="font:400 13px/1.8 var(--sans); color:var(--bone-dim); margin-bottom:16px;">
+        <em>Chasing Euphoria</em> is about chasing those moments that make you feel truly alive—the rush when music is deafening, stage lights blur into mist, and nothing else matters. It's bold, emotional, and unapologetically expressive, blending nocturnal gothic aesthetics with high-octane celebration.
+      </p>
+      <p style="font:400 13px/1.8 var(--sans); color:var(--bone-dim); margin-bottom:24px;">
+        From unforgettable performances by <strong>Diljit Dosanjh, Vishal-Shekhar, Mohit Chauhan, Zakir Khan,</strong> and <strong>Samay Raina</strong> to the fiercest collegiate rivalries in North India, Zeitgeist creates a world where euphoria isn't a place you reach, but a feeling you experience together.
+      </p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn btn-amber" href="pronites.html" style="padding:10px 18px; font-size:10px;">Explore Pronite Rites →</a>
+        <a class="btn" href="about.html" style="padding:10px 18px; font-size:10px; background:transparent;">Festival Legacy</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     EVENTS / RITUALS (3D Grid)
+     ======================================================== -->
+<section id="events" style="background:linear-gradient(180deg, var(--void) 0%, #090507 50%, var(--void) 100%);">
+  <div class="section-head rv">
+    <div>
+      <p class="eyebrow">Archive 01 // The Arenas</p>
+      <h2 class="disp" style="font-size:clamp(32px, 5.5vw, 68px); margin-top:8px;">Choose Your Ritual.</h2>
+    </div>
+    <div class="goth-tag">
+      <span class="tag-glyph">⚡</span>
+      <span>60+ COMPETITIVE ARENAS</span>
+    </div>
+  </div>
+
+  <div class="rituals-grid rv">
+    <div class="ritual-card" data-tilt>
+      <div>
+        <div class="ritual-top"><span class="ritual-icon">🎸</span><span class="ritual-num">SECTOR 01</span></div>
+        <h3 class="ritual-title">Music Arenas</h3>
+        <p class="ritual-desc">Battle of the Bands, Eastern & Western Solo, Rap Cypher, Acoustic Twilight.</p>
+      </div>
+      <a class="ritual-link" href="events.html">Enter Arena →</a>
+    </div>
+
+    <div class="ritual-card" data-tilt>
+      <div>
+        <div class="ritual-top"><span class="ritual-icon">💃</span><span class="ritual-num">SECTOR 02</span></div>
+        <h3 class="ritual-title">Dance Arenas</h3>
+        <p class="ritual-desc">Choreo Night, Street Battles, Solo Showdowns, and Classical Rites.</p>
+      </div>
+      <a class="ritual-link" href="events.html">Enter Arena →</a>
+    </div>
+
+    <div class="ritual-card" data-tilt>
+      <div>
+        <div class="ritual-top"><span class="ritual-icon">🎭</span><span class="ritual-num">SECTOR 03</span></div>
+        <h3 class="ritual-title">Dramatics</h3>
+        <p class="ritual-desc">Annual Stage Play, Nukkad Natak (Street Play), Mono-acts, and Mime.</p>
+      </div>
+      <a class="ritual-link" href="events.html">Enter Arena →</a>
+    </div>
+
+    <div class="ritual-card" data-tilt>
+      <div>
+        <div class="ritual-top"><span class="ritual-icon">👗</span><span class="ritual-num">SECTOR 04</span></div>
+        <h3 class="ritual-title">Fashion Pageant</h3>
+        <p class="ritual-desc">Haute Occult, The Gothic Runway, Couture Craft, and Theme Pageants.</p>
+      </div>
+      <a class="ritual-link" href="events.html">Enter Arena →</a>
+    </div>
+
+    <div class="ritual-card" data-tilt>
+      <div>
+        <div class="ritual-top"><span class="ritual-icon">📜</span><span class="ritual-num">SECTOR 05</span></div>
+        <h3 class="ritual-title">Literary & Quizzing</h3>
+        <p class="ritual-desc">Parliamentary Debate, Poetry Slam, Midnight General Quiz, Creative Writing.</p>
+      </div>
+      <a class="ritual-link" href="events.html">Enter Arena →</a>
+    </div>
+
+    <div class="ritual-card" data-tilt>
+      <div>
+        <div class="ritual-top"><span class="ritual-icon">🎨</span><span class="ritual-num">SECTOR 06</span></div>
+        <h3 class="ritual-title">Fine Arts</h3>
+        <p class="ritual-desc">Charcoal Horror, Murals, Live Canvas, Digital Illustrations, Face Art.</p>
+      </div>
+      <a class="ritual-link" href="events.html">Enter Arena →</a>
+    </div>
+
+    <div class="ritual-card" data-tilt>
+      <div>
+        <div class="ritual-top"><span class="ritual-icon">🎮</span><span class="ritual-num">SECTOR 07</span></div>
+        <h3 class="ritual-title">Gaming Arena</h3>
+        <p class="ritual-desc">Valorant 5v5 LAN, BGMI Squad Tourney, EA FC 25, Fighting Game Showdown.</p>
+      </div>
+      <a class="ritual-link" href="events.html">Enter Arena →</a>
+    </div>
+
+    <div class="ritual-card" data-tilt>
+      <div>
+        <div class="ritual-top"><span class="ritual-icon">🎬</span><span class="ritual-num">SECTOR 08</span></div>
+        <h3 class="ritual-title">Cinematics</h3>
+        <p class="ritual-desc">48-Hour Midnight Film Challenge, Dark Screenplay, Short Film Festival.</p>
+      </div>
+      <a class="ritual-link" href="events.html">Enter Arena →</a>
+    </div>
+  </div>
+
+  <div style="margin-top:40px; text-align:center;" class="rv">
+    <a class="btn btn-crim" href="events.html" style="padding:14px 32px;">OPEN COMPLETE EVENT REGISTRATION SUITE (60+ ARENAS) →</a>
+  </div>
+</section>
+
+<!-- ========================================================
+     PRONITES / THE SUMMONED (3D Artist Showcase)
+     ======================================================== -->
+<section id="pronites">
+  <div class="section-head rv">
+    <div>
+      <p class="eyebrow">Archive 02 // Midnight Headliners</p>
+      <h2 class="disp" style="font-size:clamp(32px, 5.5vw, 68px); margin-top:8px;">The Summoned.</h2>
+    </div>
+    <div class="goth-tag">
+      <span class="tag-glyph">☽</span>
+      <span>MAIN STAGE // 21:00 HRS</span>
+    </div>
+  </div>
+
+  <div class="pronite-deck rv">
+    <article class="pro-card-3d" data-tilt>
+      <img class="pro-bg-img" src="assets/pronites/artist_1.webp" alt="Night 01 Headliner">
+      <div class="pro-overlay"></div>
+      <div class="pro-body">
+        <span class="pro-night-tag">NIGHT 01 // OCTOBER 30</span>
+        <h3 class="pro-name">The Awakening</h3>
+        <p class="pro-meta">ROCK & FUSION STAR NIGHT · MAIN ARENA</p>
+      </div>
+    </article>
+
+    <article class="pro-card-3d" data-tilt>
+      <img class="pro-bg-img" src="assets/pronites/artist_2.webp" alt="Night 02 Headliner">
+      <div class="pro-overlay"></div>
+      <div class="pro-body">
+        <span class="pro-night-tag">NIGHT 02 // OCTOBER 31</span>
+        <h3 class="pro-name">The Eclipse</h3>
+        <p class="pro-meta">BOLLYWOOD STAR ICON · MAIN ARENA</p>
+      </div>
+    </article>
+
+    <article class="pro-card-3d" data-tilt>
+      <img class="pro-bg-img" src="assets/pronites/artist_3.webp" alt="Night 03 Headliner">
+      <div class="pro-overlay"></div>
+      <div class="pro-body">
+        <span class="pro-night-tag">NIGHT 03 // NOVEMBER 01</span>
+        <h3 class="pro-name">The Convergence</h3>
+        <p class="pro-meta">EDM & INTERNATIONAL ACT · MAIN ARENA</p>
+      </div>
+    </article>
+  </div>
+
+  <div style="margin-top:36px; text-align:center;" class="rv">
+    <a class="btn" href="pronites.html">VIEW PRONITE SCHEDULE & SOUNDCHECK PASSES →</a>
+  </div>
+</section>
+
+<!-- ========================================================
+     SCHEDULE / TIMELINE
+     ======================================================== -->
+<section id="schedule" style="background:linear-gradient(180deg, var(--void) 0%, #0c080a 50%, var(--void) 100%);">
+  <div class="section-head rv">
+    <div>
+      <p class="eyebrow">Archive 03 // The Prophecy</p>
+      <h2 class="disp" style="font-size:clamp(32px, 5.5vw, 68px); margin-top:8px;">Festival Timeline.</h2>
+    </div>
+    <div class="goth-tag">
+      <span class="tag-glyph">✦</span>
+      <span>3 DAYS OF RITES</span>
+    </div>
+  </div>
+
+  <div class="schedule-tabs rv" id="sch-tabs">
+    <button class="sch-tab active" data-day="1">Day 01 // The Awakening (Oct 30)</button>
+    <button class="sch-tab" data-day="2">Day 02 // The Eclipse (Oct 31)</button>
+    <button class="sch-tab" data-day="3">Day 03 // The Convergence (Nov 01)</button>
+  </div>
+
+  <div class="sch-table rv" id="sch-content">
+    <!-- Populated by JS -->
+  </div>
+
+  <div style="margin-top:36px; text-align:center;" class="rv">
+    <a class="btn" href="schedule.html">DOWNLOAD FULL TIMELINE (.ICS CALENDAR) →</a>
+  </div>
+</section>
+
+<!-- ========================================================
+     PASSES & CLEARANCE TIERS (NEW ON LANDING PAGE)
+     ======================================================== -->
+<section id="passes">
+  <div class="section-head rv">
+    <div>
+      <p class="eyebrow">Archive 04 // Clearance Tiers</p>
+      <h2 class="disp" style="font-size:clamp(32px, 5.5vw, 68px); margin-top:8px;">Ritual Passes.</h2>
+    </div>
+    <div class="goth-tag">
+      <span class="tag-glyph">🎟️</span>
+      <span>ADMISSION CLEARANCE</span>
+    </div>
+  </div>
+
+  <div class="pass-deck rv">
+    <div class="pass-card-3d" data-tilt>
+      <div>
+        <span class="pass-tier-name">TIER 01 // VISITOR</span>
+        <div class="pass-price">FREE <span style="font-size:14px; color:var(--ash);">/ RSVP</span></div>
+        <ul class="pass-benefits">
+          <li>Daytime Arena Spectator Access</li>
+          <li>Campus Art & Food Street Entry</li>
+          <li>Informal Games & Stalls</li>
+          <li>Standard Entry Queue</li>
+        </ul>
+      </div>
+      <a class="btn" href="passes.html">Register Pass</a>
+    </div>
+
+    <div class="pass-card-3d featured" data-tilt>
+      <div>
+        <span class="pass-tier-name" style="color:var(--crim-bright);">TIER 02 // ALL-ACCESS RITUAL</span>
+        <div class="pass-price" style="color:var(--crim-bright);">₹499 <span style="font-size:14px; color:var(--ash);">/ 3 DAYS</span></div>
+        <ul class="pass-benefits">
+          <li>All 3 Star Pronite Arena Access</li>
+          <li>All Daytime Competitions Entry</li>
+          <li>Official Zeitgeist Wristband</li>
+          <li>Priority Stage Access Zone</li>
+        </ul>
+      </div>
+      <a class="btn btn-crim" href="passes.html">Claim Ritual Pass</a>
+    </div>
+
+    <div class="pass-card-3d" data-tilt>
+      <div>
+        <span class="pass-tier-name">TIER 03 // ASTRAL VIP</span>
+        <div class="pass-price">₹1,299 <span style="font-size:14px; color:var(--ash);">/ VIP</span></div>
+        <ul class="pass-benefits">
+          <li>VIP Front-Row Pronite Pit Access</li>
+          <li>Express VIP Gate & Parking</li>
+          <li>Official Fest Hoodie & Merch Kit</li>
+          <li>Exclusive Star Artist Meet Opportunity</li>
+        </ul>
+      </div>
+      <a class="btn btn-amber" href="passes.html">Acquire VIP Pass</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     TACTICAL CAMPUS MAP
+     ======================================================== -->
+<section id="map" style="background:linear-gradient(180deg, var(--void) 0%, #0b0709 50%, var(--void) 100%);">
+  <div class="section-head rv">
+    <div>
+      <p class="eyebrow">Archive 05 // Tactical Grounds</p>
+      <h2 class="disp" style="font-size:clamp(32px, 5.5vw, 68px); margin-top:8px;">Campus Map.</h2>
+    </div>
+    <div class="goth-tag">
+      <span class="tag-glyph">⌖</span>
+      <span>30.9664° N, 76.5331° E</span>
+    </div>
+  </div>
+
+  <div class="map-wrap rv">
+    <svg class="map-svg" viewBox="0 0 600 380" aria-label="Tactical map of IIT Ropar campus">
+      <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+      
+      <!-- Campus Sectors -->
+      <rect class="map-sector" id="sec-1" x="50" y="50" width="160" height="110" rx="4" fill="rgba(148, 23, 34, 0.2)" stroke="var(--crim)" stroke-width="1.5" />
+      <text x="130" y="110" fill="var(--bone)" font-family="var(--mono)" font-size="11" text-anchor="middle" letter-spacing="1">MAIN AMPHITHEATRE</text>
+
+      <rect class="map-sector" id="sec-2" x="250" y="40" width="150" height="100" rx="4" fill="rgba(173, 95, 38, 0.15)" stroke="var(--amber)" stroke-width="1.5" />
+      <text x="325" y="95" fill="var(--bone)" font-family="var(--mono)" font-size="11" text-anchor="middle" letter-spacing="1">LECTURE COMPLEX</text>
+
+      <rect class="map-sector" id="sec-3" x="430" y="60" width="130" height="120" rx="4" fill="rgba(255, 255, 255, 0.08)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+      <text x="495" y="125" fill="var(--bone)" font-family="var(--mono)" font-size="11" text-anchor="middle" letter-spacing="1">SAC ARENA</text>
+
+      <rect class="map-sector" id="sec-4" x="70" y="210" width="140" height="120" rx="4" fill="rgba(255, 255, 255, 0.08)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+      <text x="140" y="275" fill="var(--bone)" font-family="var(--mono)" font-size="11" text-anchor="middle" letter-spacing="1">OAT THEATRE</text>
+
+      <rect class="map-sector" id="sec-5" x="240" y="190" width="170" height="130" rx="4" fill="rgba(148, 23, 34, 0.25)" stroke="var(--crim-bright)" stroke-width="1.5" />
+      <text x="325" y="260" fill="var(--bone)" font-family="var(--mono)" font-size="11" text-anchor="middle" letter-spacing="1">SPORTS ARENA</text>
+
+      <rect class="map-sector" id="sec-6" x="440" y="230" width="120" height="90" rx="4" fill="rgba(173, 95, 38, 0.15)" stroke="var(--amber)" stroke-width="1.5" />
+      <text x="500" y="280" fill="var(--bone)" font-family="var(--mono)" font-size="11" text-anchor="middle" letter-spacing="1">CENTRAL LAWNS</text>
+    </svg>
+
+    <div class="map-panel" id="map-info">
+      <div>
+        <p class="eyebrow" id="map-sec-tag" style="color:var(--crim-bright);">SECTOR 01 // SELECTED</p>
+        <h3 id="map-sec-title" style="font:700 24px var(--serif); color:var(--bone); margin:8px 0 14px;">Main Amphitheatre</h3>
+        <p id="map-sec-desc" style="font:400 13px/1.7 var(--sans); color:var(--bone-dim);">
+          Primary festival open-air stage accommodating 6,000+ souls. Host to Headline Pronites, Star Rites, and inaugural celebrations.
+        </p>
+      </div>
+      <div style="margin-top:20px;">
+        <span class="eyebrow" style="display:block; margin-bottom:6px;">COORDINATES</span>
+        <p style="font:500 11px var(--mono); color:var(--ash);">GRID 30.9664° N, 76.5331° E</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     GALLERY / EVIDENCE (3D Polaroids)
+     ======================================================== -->
+<section id="gallery">
+  <div class="section-head rv">
+    <div>
+      <p class="eyebrow">Archive 06 // Recovered Footage</p>
+      <h2 class="disp" style="font-size:clamp(32px, 5.5vw, 68px); margin-top:8px;">The Evidence.</h2>
+    </div>
+    <div class="goth-tag">
+      <span class="tag-glyph">📷</span>
+      <span>1986 POLAROID DOSSIER</span>
+    </div>
+  </div>
+
+  <div class="polaroids-3d rv">
+    <div class="pol-card" style="--rot:-2.5deg;" onclick="openLightbox('assets/gallery/polaroid_1.webp')">
+      <div class="pol-img-wrap">
+        <img src="assets/gallery/polaroid_1.webp" alt="Archive Polaroid 01">
+      </div>
+      <p class="pol-caption">CAM 01 // MIDNIGHT CROWD</p>
+    </div>
+
+    <div class="pol-card" style="--rot:2deg;" onclick="openLightbox('assets/gallery/polaroid_2.webp')">
+      <div class="pol-img-wrap">
+        <img src="assets/gallery/polaroid_2.webp" alt="Archive Polaroid 02">
+      </div>
+      <p class="pol-caption">CAM 02 // STAGE RITUALS</p>
+    </div>
+
+    <div class="pol-card" style="--rot:-1.8deg;" onclick="openLightbox('assets/gallery/polaroid_3.webp')">
+      <div class="pol-img-wrap">
+        <img src="assets/gallery/polaroid_3.webp" alt="Archive Polaroid 03">
+      </div>
+      <p class="pol-caption">CAM 03 // ARENA ILLUMINATION</p>
+    </div>
+
+    <div class="pol-card" style="--rot:3deg;" onclick="openLightbox('assets/gallery/polaroid_4.webp')">
+      <div class="pol-img-wrap">
+        <img src="assets/gallery/polaroid_4.webp" alt="Archive Polaroid 04">
+      </div>
+      <p class="pol-caption">CAM 04 // THE NIGHT WE NEVER LEFT</p>
+    </div>
+  </div>
+
+  <div style="margin-top:36px; text-align:center;" class="rv">
+    <a class="btn" href="gallery.html">EXPLORE CCTV ARCHIVES & POLAROIDS →</a>
+  </div>
+</section>
+
+<!-- ========================================================
+     CONTACT / LIAISONS
+     ======================================================== -->
+<section id="contact" style="background:linear-gradient(180deg, var(--void) 0%, #0a0608 50%, var(--void) 100%);">
+  <div class="section-head rv">
+    <div>
+      <p class="eyebrow">Archive 07 // Communication Rites</p>
+      <h2 class="disp" style="font-size:clamp(32px, 5.5vw, 68px); margin-top:8px;">Contact Liaisons.</h2>
+    </div>
+    <div class="goth-tag">
+      <span class="tag-glyph">✉</span>
+      <span>ORGANIZING COUNCIL</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:20px;" class="rv">
+    <div class="highlight-box">
+      <span class="highlight-val" style="font-size:18px;">Festival Secretariat</span>
+      <p style="font:400 12px/1.6 var(--sans); color:var(--bone-dim); margin-top:6px;">General queries, registrations, and institutional invites.</p>
+      <span class="eyebrow" style="color:var(--amber); margin-top:12px; display:block;">zeitgeist@iitrpr.ac.in</span>
+    </div>
+    <div class="highlight-box">
+      <span class="highlight-val" style="font-size:18px;">Events & Arenas</span>
+      <p style="font:400 12px/1.6 var(--sans); color:var(--bone-dim); margin-top:6px;">Arena rules, participation schedules, and team dockets.</p>
+      <span class="eyebrow" style="color:var(--amber); margin-top:12px; display:block;">events.zeitgeist@iitrpr.ac.in</span>
+    </div>
+    <div class="highlight-box">
+      <span class="highlight-val" style="font-size:18px;">Hospitality & Stay</span>
+      <p style="font:400 12px/1.6 var(--sans); color:var(--bone-dim); margin-top:6px;">Hostel accommodation, travel shuttles, and meal passes.</p>
+      <span class="eyebrow" style="color:var(--amber); margin-top:12px; display:block;">hospitality@iitrpr.ac.in</span>
+    </div>
+    <div class="highlight-box">
+      <span class="highlight-val" style="font-size:18px;">Emergency Dispatch</span>
+      <p style="font:400 12px/1.6 var(--sans); color:var(--bone-dim); margin-top:6px;">24/7 Security control room & medical dispatch on campus.</p>
+      <span class="eyebrow" style="color:var(--crim-bright); margin-top:12px; display:block;">+91 1881 242 112</span>
+    </div>
+  </div>
+<!-- ========================================================
+     SPONSORS & PARTNERS (Corporate Benefactors Showcase)
+     ======================================================== -->
+<section id="sponsors" style="background:linear-gradient(180deg, var(--void) 0%, #080406 50%, var(--void) 100%);">
+  <div class="section-head rv">
+    <div>
+      <p class="eyebrow">Archive 08 // Corporate Benefactors</p>
+      <h2 class="disp" style="font-size:clamp(32px, 5.5vw, 68px); margin-top:8px;">Our Partners.</h2>
+    </div>
+    <div class="goth-tag">
+      <span class="tag-glyph">✦</span>
+      <span>OFFICIAL ALLIANCES</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:20px; margin-bottom:36px;" class="rv">
+    <div class="highlight-box" style="text-align:center;">
+      <span class="eyebrow" style="color:var(--crim-bright);">POWERED BY</span>
+      <h3 style="font:700 20px var(--serif); color:var(--bone); margin:8px 0 4px;">Realty Nation</h3>
+      <p style="font:400 11px var(--mono); color:var(--ash);">Title Benefactor</p>
+    </div>
+    <div class="highlight-box" style="text-align:center;">
+      <span class="eyebrow" style="color:var(--amber);">CO-POWERED BY</span>
+      <h3 style="font:700 20px var(--serif); color:var(--bone); margin:8px 0 4px;">Tata Steel</h3>
+      <p style="font:400 11px var(--mono); color:var(--ash);">Industrial Vanguard</p>
+    </div>
+    <div class="highlight-box" style="text-align:center;">
+      <span class="eyebrow" style="color:var(--bone-dim);">IN ASSOCIATION WITH</span>
+      <h3 style="font:700 20px var(--serif); color:var(--bone); margin:8px 0 4px;">Verka · Desi Urban Chai</h3>
+      <p style="font:400 11px var(--mono); color:var(--ash);">Food & Beverage Alliance</p>
+    </div>
+    <div class="highlight-box" style="text-align:center;">
+      <span class="eyebrow" style="color:var(--bone-dim);">LIFESTYLE & STREAMING</span>
+      <h3 style="font:700 20px var(--serif); color:var(--bone); margin:8px 0 4px;">JioSaavn · MYOP · 2.Oh!</h3>
+      <p style="font:400 11px var(--mono); color:var(--ash);">Media & Fragrance Leads</p>
+    </div>
+  </div>
+
+  <div style="text-align:center;" class="rv">
+    <a class="btn btn-amber" href="sponsors.html">VIEW ALL 15+ CORPORATE BENEFACTORS & ALLIANCES →</a>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <h2 class="disp" style="font-size:clamp(32px, 6vw, 64px); color:var(--bone);">The night ends.</h2>
+  <h2 class="disp" style="font-size:clamp(32px, 6vw, 64px); color:var(--crim-bright); margin-top:-6px;">The memories don't.</h2>
+
+  <div class="footer-links">
+    <a class="footer-link" href="#hero">Home</a>
+    <a class="footer-link" href="about.html">About</a>
+    <a class="footer-link" href="#theme">Theme</a>
+    <a class="footer-link" href="events.html">Events</a>
+    <a class="footer-link" href="pronites.html">Pronites</a>
+    <a class="footer-link" href="schedule.html">Schedule</a>
+    <a class="footer-link" href="passes.html">Passes</a>
+    <a class="footer-link" href="sponsors.html">Sponsors</a>
+    <a class="footer-link" href="team.html">Team</a>
+    <a class="footer-link" href="gallery.html">Gallery</a>
+    <a class="footer-link" href="contact.html">Contact</a>
+  </div>
+
+  <p class="eyebrow" style="margin-top:20px;">
+    ZEITGEIST'26 · INDIAN INSTITUTE OF TECHNOLOGY ROPAR, PUNJAB, INDIA
+  </p>
+</footer>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" onclick="closeLightbox()"><img id="lightbox-img" src="" alt="Enlarged Archive Evidence"></div>
+
+<!-- ========================================================
+     JAVASCRIPT: 3D PARTICLES, GHOSTS, EYES, TILT, BATS & AUDIO
+     ======================================================== -->
+<script>
+// ============================================================================
+// ZEITGEIST'26 DEFENSE GRID: DOM INTEGRITY SEAL & DEVTOOLS TAMPER SHIELD
+// ============================================================================
+(function initSecurityShield() {
+  'use strict';
+
+  // Purge any stale HUD alert from previous sessions
+  try {
+    const staleHud = document.getElementById('sec-hud-alert');
+    if (staleHud) staleHud.remove();
+    document.querySelectorAll('.security-alert-hud').forEach(el => el.remove());
+  } catch (_) {}
+
+  // 1. Silent Background DevTools Shortcuts Blocking
+  window.addEventListener('keydown', (e) => {
+    const isF12 = e.key === 'F12' || e.keyCode === 123;
+    const isInspect = (e.ctrlKey || e.metaKey) && e.shiftKey && ['I','i','C','c','J','j'].includes(e.key);
+    const isMacInspect = e.metaKey && e.altKey && ['i','I','c','C','j','J'].includes(e.key);
+    const isViewSource = (e.ctrlKey || (e.metaKey && e.altKey)) && ['u','U'].includes(e.key);
+    const isSavePage = (e.ctrlKey || e.metaKey) && ['s','S'].includes(e.key);
+
+    if (isF12 || isInspect || isMacInspect || isViewSource || isSavePage) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }, { capture: true });
+
+  // 2. Silent Background Right-Click Context Menu Blocking
+  window.addEventListener('contextmenu', (e) => {
+    if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  }, { capture: true });
+
+  // 3. Silent Targeted DOM Integrity Guard (Auto-restore in background)
+  let isRestoring = false;
+  function setupDOMIntegrity() {
+    const protectedElements = document.querySelectorAll(
+      '.pass-card, .ticket-card, .price, .hero-tag, .hero-subtitle, .sch-time, .sch-title, .brand-sub'
+    );
+    const snapshots = new WeakMap();
+
+    protectedElements.forEach((el) => {
+      snapshots.set(el, el.innerHTML);
+
+      const observer = new MutationObserver(() => {
+        if (isRestoring) return;
+        const savedHTML = snapshots.get(el);
+        if (savedHTML && el.innerHTML !== savedHTML) {
+          isRestoring = true;
+          el.innerHTML = savedHTML;
+          setTimeout(() => { isRestoring = false; }, 50);
+        }
+      });
+
+      observer.observe(el, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupDOMIntegrity);
+  } else {
+    setupDOMIntegrity();
+  }
+
+  // 4. Freeze Core Security Constants
+  window.ZG_SECURITY_SEAL = Object.freeze({
+    festival: "ZEITGEIST'26",
+    dates: "OCT 30 - NOV 01, 2026",
+    host: "IIT Ropar",
+    status: "CLASSIFIED",
+    tamperProof: true,
+    integrityVersion: "2.6.4"
+  });
+})();
+
+// ----- 1. REVEAL OBSERVER -----
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+
+// ----- 2. NAVBAR SCROLLSPY & SMOOTH SCROLL -----
+const sections = document.querySelectorAll('section[id], header[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  const scrollY = window.pageYOffset;
+  sections.forEach(sec => {
+    const top = sec.offsetTop - 120;
+    const height = sec.offsetHeight;
+    if (scrollY >= top && scrollY < top + height) {
+      current = sec.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+}, { passive: true });
+
+// Mobile menu toggle
+const burger = document.getElementById('burger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const closeMob = document.getElementById('close-mob');
+if (burger) {
+  burger.onclick = () => mobileMenu.style.display = 'flex';
+}
+if (closeMob) {
+  closeMob.onclick = () => mobileMenu.style.display = 'none';
+}
+document.querySelectorAll('.mob-link').forEach(l => {
+  l.onclick = () => mobileMenu.style.display = 'none';
+});
+
+// ----- 3. CUSTOM HORROR CURSOR & EMBER SPARKS -----
+const curDot = document.getElementById('cur-dot');
+const curRing = document.getElementById('cur-ring');
+
+if (window.matchMedia('(pointer: fine)').matches && curDot && curRing) {
+  let mouseX = -100, mouseY = -100;
+  let ringX = -100, ringY = -100;
+
+  window.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    curDot.style.left = mouseX + 'px';
+    curDot.style.top = mouseY + 'px';
+  });
+
+  // Smooth ring follow
+  function renderCursor() {
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+    curRing.style.left = ringX + 'px';
+    curRing.style.top = ringY + 'px';
+    requestAnimationFrame(renderCursor);
+  }
+  renderCursor();
+
+  // Hover detection
+  const clickables = document.querySelectorAll('a, button, [data-tilt], .pol-card, .highlight-box, .ritual-card');
+  clickables.forEach(el => {
+    el.addEventListener('mouseenter', () => curRing.classList.add('hover'));
+    el.addEventListener('mouseleave', () => curRing.classList.remove('hover'));
+  });
+
+  window.addEventListener('mousedown', () => curRing.classList.add('active'));
+  window.addEventListener('mouseup', () => curRing.classList.remove('active'));
+}
+
+// ----- 4. LIVE COUNTDOWN TO OCT 30, 2026 -----
+const targetDate = new Date('2026-10-30T18:00:00+05:30').getTime();
+function updateCountdown() {
+  const now = Date.now();
+  const diff = Math.max(0, targetDate - now);
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const m = Math.floor((diff / (1000 * 60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
+
+  document.getElementById('cd-days').textContent = String(d).padStart(2, '0');
+  document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+  document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+  document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// ----- 5. TIMELINE SCHEDULE DATA & TABS -----
+const SCHEDULE_DATA = {
+  1: [
+    { time: "10:00 AM", name: "Inaugural Rites & Consecration", venue: "Main Amphitheatre", cat: "Ceremony" },
+    { time: "12:30 PM", name: "Battle of the Bands (Prelims)", venue: "OAT Theatre", cat: "Music" },
+    { time: "02:45 PM", name: "Street Play (Nukkad Natak)", venue: "Central Lawns", cat: "Drama" },
+    { time: "05:00 PM", name: "Haute Occult Fashion Rites", venue: "SAC Arena", cat: "Fashion" },
+    { time: "07:30 PM", name: "EDM Dusk Soundcheck", venue: "Sports Arena", cat: "Music" },
+    { time: "09:30 PM", name: "Night 01 Pronite: The Awakening", venue: "Main Amphitheatre", cat: "Star Night" }
+  ],
+  2: [
+    { time: "10:30 AM", name: "Choreo Night Western Solo", venue: "OAT Theatre", cat: "Dance" },
+    { time: "01:00 PM", name: "National Parliamentary Debate", venue: "Lecture Complex", cat: "Literary" },
+    { time: "03:30 PM", name: "Charcoal Horror & Canvas Live", venue: "Central Lawns", cat: "Fine Arts" },
+    { time: "05:30 PM", name: "Choreo Group Showcase", venue: "Main Amphitheatre", cat: "Dance" },
+    { time: "08:00 PM", name: "Acoustic Unplugged Twilight", venue: "SAC Arena", cat: "Music" },
+    { time: "09:30 PM", name: "Night 02 Pronite: The Eclipse", venue: "Main Amphitheatre", cat: "Star Night" }
+  ],
+  3: [
+    { time: "11:00 AM", name: "48-Hour Film Screenings", venue: "Lecture Complex", cat: "Cinema" },
+    { time: "01:30 PM", name: "Valorant LAN Grand Finals", venue: "SAC Arena", cat: "Gaming" },
+    { time: "04:00 PM", name: "Battle of the Bands Finals", venue: "OAT Theatre", cat: "Music" },
+    { time: "06:30 PM", name: "Grand Valedictory & Awards", venue: "Main Amphitheatre", cat: "Ceremony" },
+    { time: "09:30 PM", name: "Night 03 Pronite: The Convergence", venue: "Main Amphitheatre", cat: "Star Night" }
+  ]
+};
+
+function renderSchedule(day) {
+  const container = document.getElementById('sch-content');
+  const items = SCHEDULE_DATA[day] || [];
+  container.innerHTML = items.map(it => `
+    <div class="sch-row">
+      <span class="sch-time">${it.time}</span>
+      <span class="sch-event">${it.name}</span>
+      <span class="sch-venue">📍 ${it.venue}</span>
+      <span class="sch-cat">${it.cat}</span>
+    </div>
+  `).join('');
+}
+
+document.querySelectorAll('.sch-tab').forEach(tab => {
+  tab.onclick = () => {
+    document.querySelectorAll('.sch-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    renderSchedule(tab.dataset.day);
+  };
+});
+renderSchedule(1);
+
+// ----- 6. TACTICAL MAP INTERACTION -----
+const MAP_SECTORS = {
+  'sec-1': { tag: 'SECTOR 01 // SELECTED', title: 'Main Amphitheatre', desc: 'Primary open-air arena for 6,000+ revelers. Venue for Headline Pronites and Opening Ceremonies.' },
+  'sec-2': { tag: 'SECTOR 02 // SELECTED', title: 'Lecture Complex', desc: 'State-of-the-art auditoriums for Parliamentary Debate, Quiz rituals, and Film Screenings.' },
+  'sec-3': { tag: 'SECTOR 03 // SELECTED', title: 'SAC Arena', desc: 'Student Activity Centre hosting the Gaming LAN arenas, Fashion green rooms, and Acoustic jams.' },
+  'sec-4': { tag: 'SECTOR 04 // SELECTED', title: 'Open Air Theatre (OAT)', desc: 'Intimate tiered stone theatre for Street Play, Theatrical Monologues, and Rock prelims.' },
+  'sec-5': { tag: 'SECTOR 05 // SELECTED', title: 'Sports Grounds', desc: 'Expansive field for mega food streets, experiential brand arenas, and informal cultural games.' },
+  'sec-6': { tag: 'SECTOR 06 // SELECTED', title: 'Central Lawns', desc: 'Lush green lawns for live charcoal sketching, photography exhibitions, and open-air poetry.' }
+};
+
+document.querySelectorAll('.map-sector').forEach(sec => {
+  sec.onclick = () => {
+    const data = MAP_SECTORS[sec.id];
+    if (data) {
+      document.getElementById('map-sec-tag').textContent = data.tag;
+      document.getElementById('map-sec-title').textContent = data.title;
+      document.getElementById('map-sec-desc').textContent = data.desc;
+    }
+  };
+});
+
+// ----- 7. LIGHTBOX MODAL -----
+function openLightbox(src) {
+  const lb = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  img.src = src;
+  lb.classList.add('open');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+
+// ----- 8. 3D CARD TILT WITH DYNAMIC GLARE & PUPIL TRACKING -----
+if (window.matchMedia('(pointer: fine)').matches) {
+  document.querySelectorAll('[data-tilt]').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const dx = (x - cx) / cx;
+      const dy = (y - cy) / cy;
+      card.style.transform = `perspective(1000px) rotateX(${-dy * 8}deg) rotateY(${dx * 8}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  // 3D Parallax Runes & Pupil Tracking
+  const runes = document.querySelectorAll('.rune-3d');
+  const pupils = document.querySelectorAll('.creepy-pupil');
+
+  window.addEventListener('mousemove', e => {
+    const mx = (e.clientX - window.innerWidth / 2) / 100;
+    const my = (e.clientY - window.innerHeight / 2) / 100;
+    runes.forEach(r => {
+      const d = parseFloat(r.dataset.depth || 0.1);
+      r.style.transform = `translate3d(${mx * d * 80}px, ${my * d * 80}px, 0)`;
+    });
+
+    // Pupils follow cursor
+    pupils.forEach(p => {
+      const rect = p.getBoundingClientRect();
+      const dx = e.clientX - (rect.left + rect.width / 2);
+      const dy = e.clientY - (rect.top + rect.height / 2);
+      const angle = Math.atan2(dy, dx);
+      const dist = Math.min(3, Math.hypot(dx, dy) / 40);
+      p.style.transform = `translate(${Math.cos(angle) * dist}px, ${Math.sin(angle) * dist}px)`;
+    });
+  });
+}
+
+// ----- 9. UNIFIED 3D PARTICLE, BAT & GHOST CANVAS -----
+const canvas = document.getElementById('hero-cv');
+if (canvas) {
+  const ctx = canvas.getContext('2d');
+  let width, height;
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Particles (Embers & Spectral Dust)
+  const particles = Array.from({ length: 48 }, () => ({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    size: Math.random() * 2.5 + 0.8,
+    speedY: -(Math.random() * 0.8 + 0.3),
+    speedX: (Math.random() - 0.5) * 0.5,
+    opacity: Math.random() * 0.7 + 0.2,
+    color: Math.random() > 0.4 ? 'rgba(224, 46, 61,' : 'rgba(226, 219, 206,'
+  }));
+
+  // Fluttering Bats
+  const bats = Array.from({ length: 6 }, () => ({
+    x: Math.random() * width,
+    y: Math.random() * height * 0.65,
+    speedX: Math.random() * 2.2 + 1.2,
+    speedY: (Math.random() - 0.5) * 1.2,
+    wing: Math.random() * Math.PI,
+    size: Math.random() * 12 + 16
+  }));
+
+  // Floating Spectral Phantoms / Ghost Wisps (8 Articulated Ethereal Apparitions)
+  let heroMouseX = -9999, heroMouseY = -9999;
+  window.addEventListener('mousemove', e => {
+    heroMouseX = e.clientX;
+    heroMouseY = e.clientY;
+  });
+
+  const ghosts = Array.from({ length: 8 }, (_, idx) => ({
+    x: Math.random() * width,
+    y: Math.random() * (height * 0.72) + 30,
+    vx: (Math.random() - 0.5) * 0.7,
+    vy: (Math.random() - 0.5) * 0.5,
+    wave: Math.random() * Math.PI * 2,
+    waveSpeed: Math.random() * 0.028 + 0.018,
+    radius: Math.random() * 18 + 24,
+    alpha: Math.random() * 0.45 + 0.38,
+    eyeColor: idx % 3 === 0 ? 'rgba(255, 170, 51,' : 'rgba(224, 46, 61,'
+  }));
+
+  let isHeroVisible = true;
+  if ('IntersectionObserver' in window && canvas) {
+    const heroObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { isHeroVisible = entry.isIntersecting; });
+    }, { threshold: 0.05 });
+    heroObs.observe(canvas);
+  }
+
+  function animate() {
+    if (!isHeroVisible || document.hidden) {
+      requestAnimationFrame(animate);
+      return;
+    }
+    ctx.clearRect(0, 0, width, height);
+
+    // 1. Draw Embers & Dust
+    particles.forEach(p => {
+      p.y += p.speedY;
+      p.x += p.speedX;
+      if (p.y < 0) { p.y = height; p.x = Math.random() * width; }
+      ctx.fillStyle = `${p.color} ${p.opacity})`;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    // 2. Draw 8 Articulated Hooded Spectral Phantoms
+    ghosts.forEach(g => {
+      g.wave += g.waveSpeed;
+
+      // Mouse repulsion: ghosts drift away when mortals get too close
+      const dx = g.x - heroMouseX;
+      const dy = g.y - heroMouseY;
+      const dist = Math.hypot(dx, dy);
+      if (dist < 140 && dist > 1) {
+        const force = (140 - dist) / 140;
+        g.vx += (dx / dist) * force * 0.45;
+        g.vy += (dy / dist) * force * 0.45;
+      }
+
+      // Gentle organic drift with speed limits
+      g.vx *= 0.99;
+      g.vy *= 0.99;
+      g.x += g.vx + Math.sin(g.wave) * 0.3;
+      g.y += g.vy + Math.cos(g.wave * 0.8) * 0.25;
+
+      if (g.x < -80) g.x = width + 80;
+      if (g.x > width + 80) g.x = -80;
+      if (g.y < 20 || g.y > height - 70) g.vy *= -1;
+
+      ctx.save();
+      ctx.translate(g.x, g.y);
+
+      // Outer Spectral Halo
+      const grad = ctx.createRadialGradient(0, 0, 2, 0, 0, g.radius * 1.6);
+      grad.addColorStop(0, `rgba(226, 219, 206, ${g.alpha * 0.9})`);
+      grad.addColorStop(0.45, `rgba(148, 23, 34, ${g.alpha * 0.45})`);
+      grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(0, 0, g.radius * 1.6, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Flowing Ghostly Hood & Robes
+      ctx.fillStyle = `rgba(235, 228, 220, ${g.alpha * 0.85})`;
+      ctx.shadowColor = 'rgba(224, 46, 61, 0.4)';
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      // Dome head
+      ctx.arc(0, -g.radius * 0.25, g.radius * 0.55, Math.PI, 0);
+      // Right shroud drapery
+      const sway = Math.sin(g.wave) * (g.radius * 0.4);
+      ctx.quadraticCurveTo(g.radius * 0.7, g.radius * 0.4, g.radius * 0.3 + sway, g.radius * 1.6);
+      // Wispy bottom fringe
+      ctx.quadraticCurveTo(0, g.radius * 1.2, -g.radius * 0.3 + sway, g.radius * 1.6);
+      // Left shroud drapery
+      ctx.quadraticCurveTo(-g.radius * 0.7, g.radius * 0.4, -g.radius * 0.55, -g.radius * 0.25);
+      ctx.fill();
+
+      // Glowing Hollow Slit Eyes
+      ctx.fillStyle = `${g.eyeColor} 1.0)`;
+      ctx.shadowColor = '#ff2a3b';
+      ctx.shadowBlur = 12;
+      ctx.beginPath();
+      ctx.ellipse(-g.radius * 0.18, -g.radius * 0.2, 2.8, 1.5, -0.15, 0, Math.PI * 2);
+      ctx.ellipse(g.radius * 0.18, -g.radius * 0.2, 2.8, 1.5, 0.15, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.restore();
+    });
+
+    // 3. Draw Fluttering Bats
+    bats.forEach(b => {
+      b.x += b.speedX;
+      b.y += b.speedY;
+      b.wing += 0.25;
+      if (b.x > width + 40) { b.x = -40; b.y = Math.random() * height * 0.65; }
+
+      ctx.save();
+      ctx.translate(b.x, b.y);
+      ctx.fillStyle = 'rgba(12, 8, 10, 0.78)';
+      ctx.beginPath();
+      const wingY = Math.sin(b.wing) * (b.size * 0.42);
+      ctx.moveTo(0, 0);
+      ctx.quadraticCurveTo(-b.size * 0.5, -b.size * 0.5 + wingY, -b.size, wingY);
+      ctx.quadraticCurveTo(-b.size * 0.5, b.size * 0.3, 0, b.size * 0.3);
+      ctx.quadraticCurveTo(b.size * 0.5, b.size * 0.3, b.size, wingY);
+      ctx.quadraticCurveTo(b.size * 0.5, -b.size * 0.5 + wingY, 0, 0);
+      ctx.fill();
+      ctx.restore();
+    });
+
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
+
+// ----- 10. FAST-EVOLVING PRECISION BATS FROM EXACT CURSOR ON PNG (ZERO STUTTER) -----
+const burstCanvas = document.getElementById('bat-burst-cv');
+const heroLogo = document.getElementById('hero-logo');
+const heroSec = document.getElementById('hero');
+
+if (burstCanvas && heroLogo && heroSec) {
+  const bCtx = burstCanvas.getContext('2d');
+  let bWidth = 0, bHeight = 0;
+  let cachedHeroRect = null;
+
+  function initBurstDims() {
+    cachedHeroRect = heroSec.getBoundingClientRect();
+    bWidth = burstCanvas.width = heroSec.offsetWidth || window.innerWidth;
+    bHeight = burstCanvas.height = heroSec.offsetHeight || window.innerHeight;
+  }
+  initBurstDims();
+  window.addEventListener('resize', initBurstDims);
+  window.addEventListener('scroll', () => {
+    cachedHeroRect = heroSec.getBoundingClientRect();
+  }, { passive: true });
+
+  let burstBats = [];
+
+  function spawnBatAt(originX, originY, isBig = false) {
+    // Fast initial burst velocity
+    const angle = -Math.PI / 2 + (Math.random() - 0.5) * 1.5;
+    const speed = Math.random() * 3.8 + (isBig ? 4.2 : 2.8);
+    burstBats.push({
+      x: originX,
+      y: originY,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      size: Math.random() * 6 + (isBig ? 15 : 10),
+      wing: Math.random() * Math.PI,
+      wingSpeed: Math.random() * 0.32 + 0.28, // Fast, swift energetic flapping!
+      alpha: 1,
+      decay: Math.random() * 0.007 + 0.005,
+      curve: (Math.random() - 0.5) * 0.2
+    });
+  }
+
+  // Precision Bat Eruption on MOUSEMOVE:
+  let lastMoveSpawn = 0;
+  let lastX = 0, lastY = 0;
+
+  heroLogo.addEventListener('mousemove', (e) => {
+    if (!cachedHeroRect) cachedHeroRect = heroSec.getBoundingClientRect();
+    const originX = e.clientX - cachedHeroRect.left;
+    const originY = e.clientY - cachedHeroRect.top;
+
+    const now = performance.now();
+    const dist = Math.hypot(originX - lastX, originY - lastY);
+
+    if (now - lastMoveSpawn > 45 || dist > 14) {
+      spawnBatAt(originX + (Math.random() - 0.5) * 6, originY + (Math.random() - 0.5) * 6, false);
+      lastMoveSpawn = now;
+      lastX = originX;
+      lastY = originY;
+
+      if (typeof playBatFlutterSFX === 'function' && Math.random() > 0.5) {
+        playBatFlutterSFX();
+      }
+    }
+  }, { passive: true });
+
+  // Precision Bat Burst & Scary Horror SFX on CLICK:
+  heroLogo.addEventListener('click', (e) => {
+    if (!cachedHeroRect) cachedHeroRect = heroSec.getBoundingClientRect();
+    const originX = e.clientX - cachedHeroRect.left;
+    const originY = e.clientY - cachedHeroRect.top;
+
+    // Erupt a grand swarm of 28 bats bursting outward from the exact click coordinate!
+    for (let i = 0; i < 28; i++) {
+      const angle = (Math.PI * 2 * (i / 28)) + (Math.random() - 0.5) * 0.5;
+      const speed = Math.random() * 4.6 + 3.0;
+      burstBats.push({
+        x: originX + (Math.random() - 0.5) * 20,
+        y: originY + (Math.random() - 0.5) * 20,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed - 1.6, // upward lift bias
+        size: Math.random() * 8 + 12,
+        wing: Math.random() * Math.PI,
+        wingSpeed: Math.random() * 0.38 + 0.32,
+        alpha: 1,
+        decay: Math.random() * 0.007 + 0.004,
+        curve: (Math.random() - 0.5) * 0.28
+      });
+    }
+
+    // Play demonic/scary procedural horror sound effect on click
+    if (typeof playScaryLogoSound === 'function') {
+      playScaryLogoSound();
+    }
+
+    // 3D shockwave impulse on the logo
+    targetTransZ = 38;
+    heroLogo.style.filter = 'drop-shadow(0 0 60px rgba(224, 46, 61, 0.95)) drop-shadow(0 0 100px rgba(148, 23, 34, 0.8)) drop-shadow(0 20px 40px rgba(0,0,0,0.95))';
+    setTimeout(() => {
+      if (isHoveringLogo) targetTransZ = 18;
+      else targetTransZ = 0;
+    }, 280);
+  });
+
+  function animateBurst() {
+    bCtx.clearRect(0, 0, bWidth, bHeight);
+
+    for (let i = burstBats.length - 1; i >= 0; i--) {
+      const b = burstBats[i];
+      // Fast aerodynamic evolution: upward lift & swift evasion
+      b.vx += b.curve;
+      b.vy -= 0.07;
+      b.vx *= 0.99;
+      b.vy *= 0.985;
+      b.x += b.vx;
+      b.y += b.vy;
+      b.wing += b.wingSpeed;
+      b.alpha -= b.decay;
+
+      if (b.alpha <= 0 || b.x < -40 || b.x > bWidth + 40 || b.y < -40) {
+        burstBats.splice(i, 1);
+        continue;
+      }
+
+      bCtx.save();
+      bCtx.translate(b.x, b.y);
+      bCtx.fillStyle = `rgba(16, 10, 13, ${b.alpha * 0.92})`;
+      bCtx.shadowColor = 'rgba(224, 46, 61, 0.4)';
+      bCtx.shadowBlur = 6;
+      bCtx.beginPath();
+      const wingY = Math.sin(b.wing) * (b.size * 0.44);
+      bCtx.moveTo(0, 0);
+      bCtx.quadraticCurveTo(-b.size * 0.5, -b.size * 0.5 + wingY, -b.size, wingY);
+      bCtx.quadraticCurveTo(-b.size * 0.5, b.size * 0.28, 0, b.size * 0.28);
+      bCtx.quadraticCurveTo(b.size * 0.5, b.size * 0.28, b.size, wingY);
+      bCtx.quadraticCurveTo(b.size * 0.5, -b.size * 0.5 + wingY, 0, 0);
+      bCtx.fill();
+      bCtx.restore();
+    }
+
+    requestAnimationFrame(animateBurst);
+  }
+  animateBurst();
+
+  // 3D Parallax Tilt for Zeitgeist PNG Logo (Silky Lerped 60fps Loop - Zero Stutter)
+  let targetRotX = 0, targetRotY = 0, targetTransZ = 0;
+  let curRotX = 0, curRotY = 0, curTransZ = 0;
+  let isHoveringLogo = false;
+  const sigil = document.querySelector('.occult-sigil');
+
+  heroLogo.addEventListener('mouseenter', () => {
+    isHoveringLogo = true;
+    targetTransZ = 18;
+  });
+
+  heroLogo.addEventListener('mousemove', (e) => {
+    const rect = heroLogo.getBoundingClientRect();
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const dx = (x - cx) / cx;
+    const dy = (y - cy) / cy;
+
+    targetRotX = -dy * 8.5;
+    targetRotY = dx * 8.5;
+  }, { passive: true });
+
+  heroLogo.addEventListener('mouseleave', () => {
+    isHoveringLogo = false;
+    targetRotX = 0;
+    targetRotY = 0;
+    targetTransZ = 0;
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isHoveringLogo && e.clientY < window.innerHeight) {
+      const mx = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
+      const my = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
+      targetRotX = -my * 4.0;
+      targetRotY = mx * 4.0;
+    }
+  }, { passive: true });
+
+  function renderLogo3D() {
+    curRotX += (targetRotX - curRotX) * 0.08;
+    curRotY += (targetRotY - curRotY) * 0.08;
+    curTransZ += (targetTransZ - curTransZ) * 0.08;
+
+    heroLogo.style.transform = `perspective(1000px) rotateX(${curRotX.toFixed(2)}deg) rotateY(${curRotY.toFixed(2)}deg) translateZ(${curTransZ.toFixed(1)}px)`;
+
+    const shadowX = -curRotY * 1.6;
+    const shadowY = Math.abs(curRotX) * 1.4 + 14;
+    heroLogo.style.filter = `drop-shadow(${shadowX.toFixed(1)}px ${shadowY.toFixed(1)}px 32px rgba(148, 23, 34, 0.65)) drop-shadow(0 15px 30px rgba(0,0,0,0.95))`;
+
+    if (sigil) {
+      sigil.style.transform = `translate(calc(-50% + ${(-curRotY * 2.2).toFixed(1)}px), calc(-50% + ${(curRotX * 2.2).toFixed(1)}px))`;
+    }
+
+    requestAnimationFrame(renderLogo3D);
+  }
+  renderLogo3D();
+}
+
+// ----- 11. PROCEDURAL CINEMATIC HORROR SOUNDSCAPE (SUB-BASS DRONE, HOWLING WIND, OCCULT BELL, BAT FLUTTER & SCARY LOGO SFX) -----
+let audioCtx = null, isPlaying = false;
+let subOsc1 = null, subOsc2 = null, subFilter = null, subGain = null, droneLFO = null;
+let windNode = null, windFilter = null, windGain = null, windLFO = null, bellTimer = null;
+
+function getAudioCtx() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+  return audioCtx;
+}
+
+function createNoiseBuffer(ctx) {
+  const bufferSize = ctx.sampleRate * 2;
+  const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+  const data = buffer.getChannelData(0);
+  let lastOut = 0.0;
+  for (let i = 0; i < bufferSize; i++) {
+    const white = Math.random() * 2 - 1;
+    data[i] = (lastOut + (0.02 * white)) / 1.02;
+    lastOut = data[i];
+    data[i] *= 3.5;
+  }
+  return buffer;
+}
+
+// Atmospheric Eerie Horror SFX triggered on Logo Click (Ghostly breath, distant chime, soft bat flurry — NO dum boom, NO harsh click)
+function playScaryLogoSound() {
+  try {
+    const ctx = getAudioCtx();
+    if (!ctx) return;
+    const now = ctx.currentTime;
+
+    // 1. Ghostly Spectral Wind / Spooky Breath (Atmospheric gentle noise sweep)
+    const noiseBuf = createNoiseBuffer(ctx);
+    const windNode = ctx.createBufferSource();
+    windNode.buffer = noiseBuf;
+
+    const windFilter = ctx.createBiquadFilter();
+    windFilter.type = 'bandpass';
+    windFilter.frequency.setValueAtTime(380, now);
+    windFilter.frequency.exponentialRampToValueAtTime(720, now + 0.35);
+    windFilter.frequency.exponentialRampToValueAtTime(260, now + 1.25);
+    windFilter.Q.setValueAtTime(3.6, now);
+
+    const windGain = ctx.createGain();
+    windGain.gain.setValueAtTime(0.001, now);
+    windGain.gain.linearRampToValueAtTime(0.08, now + 0.12);
+    windGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.35);
+
+    windNode.connect(windFilter);
+    windFilter.connect(windGain);
+    windGain.connect(ctx.destination);
+    windNode.start(now);
+    windNode.stop(now + 1.4);
+
+    // 2. Distant Eerie Hollow Chime (Pure ethereal sine resonance: 220Hz & 311.13Hz)
+    const chimeFreqs = [220, 311.13];
+    const chimeGain = ctx.createGain();
+    chimeGain.gain.setValueAtTime(0.045, now);
+    chimeGain.gain.exponentialRampToValueAtTime(0.00001, now + 2.4);
+    chimeGain.connect(ctx.destination);
+
+    chimeFreqs.forEach((freq) => {
+      const osc = ctx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, now);
+      osc.frequency.exponentialRampToValueAtTime(freq * 0.98, now + 2.2);
+      osc.connect(chimeGain);
+      osc.start(now);
+      osc.stop(now + 2.5);
+    });
+
+    // 3. Subtle Bat Flutter Whispering Flurry
+    const flutterGain = ctx.createGain();
+    flutterGain.gain.setValueAtTime(0.032, now);
+    flutterGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.65);
+
+    const flutterNode = ctx.createBufferSource();
+    flutterNode.buffer = noiseBuf;
+    const fFilter = ctx.createBiquadFilter();
+    fFilter.type = 'bandpass';
+    fFilter.frequency.setValueAtTime(1100, now);
+    fFilter.Q.setValueAtTime(3.2, now);
+
+    flutterNode.connect(fFilter);
+    fFilter.connect(flutterGain);
+    flutterGain.connect(ctx.destination);
+    flutterNode.start(now);
+    flutterNode.stop(now + 0.7);
+  } catch(e) {
+    console.warn("Scary audio error:", e);
+  }
+}
+
+function playOccultBell() {
+  if (!audioCtx || !isPlaying) return;
+  const now = audioCtx.currentTime;
+  const freqs = [108, 162, 271, 410, 615];
+  const bellGain = audioCtx.createGain();
+  bellGain.gain.setValueAtTime(0.045, now);
+  bellGain.gain.exponentialRampToValueAtTime(0.00001, now + 4.8);
+  bellGain.connect(audioCtx.destination);
+
+  freqs.forEach((f, idx) => {
+    const osc = audioCtx.createOscillator();
+    osc.type = idx === 0 ? 'sine' : 'triangle';
+    osc.frequency.setValueAtTime(f, now);
+    osc.connect(bellGain);
+    osc.start(now);
+    osc.stop(now + 5.0);
+  });
+
+  const nextTime = Math.random() * 7000 + 9000;
+  bellTimer = setTimeout(playOccultBell, nextTime);
+}
+
+function playBatFlutterSFX() {
+  if (!audioCtx || !isPlaying) return;
+  try {
+    const now = audioCtx.currentTime;
+    const flutterGain = audioCtx.createGain();
+    flutterGain.gain.setValueAtTime(0.04, now);
+    flutterGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.7);
+
+    const noiseBuf = createNoiseBuffer(audioCtx);
+    const noiseSource = audioCtx.createBufferSource();
+    noiseSource.buffer = noiseBuf;
+
+    const bFilter = audioCtx.createBiquadFilter();
+    bFilter.type = 'bandpass';
+    bFilter.frequency.setValueAtTime(1200, now);
+    bFilter.Q.setValueAtTime(3.5, now);
+
+    noiseSource.connect(bFilter);
+    bFilter.connect(flutterGain);
+    flutterGain.connect(audioCtx.destination);
+
+    noiseSource.start(now);
+    noiseSource.stop(now + 0.75);
+  } catch(_) {}
+}
+
+// Procedural Flame Ignite & Snuff Sound Effects (Used by both Pumpkins and Lanterns)
+function playFlameIgniteSFX() {
+  try {
+    const ctx = getAudioCtx();
+    if (!ctx) return;
+    const now = ctx.currentTime;
+
+    // Match strike / ember flare whoosh
+    const noiseBuf = createNoiseBuffer(ctx);
+    const noiseSrc = ctx.createBufferSource();
+    noiseSrc.buffer = noiseBuf;
+
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'bandpass';
+    filter.frequency.setValueAtTime(450, now);
+    filter.frequency.exponentialRampToValueAtTime(2600, now + 0.1);
+    filter.frequency.exponentialRampToValueAtTime(650, now + 0.38);
+    filter.Q.setValueAtTime(3.0, now);
+
+    const gain = ctx.createGain();
+    gain.gain.setValueAtTime(0.18, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+
+    noiseSrc.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+    noiseSrc.start(now);
+    noiseSrc.stop(now + 0.5);
+
+    // Warm subtle flame resonance chord (330Hz, 440Hz)
+    [330, 440].forEach(f => {
+      const osc = ctx.createOscillator();
+      const oGain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(f, now);
+      osc.frequency.exponentialRampToValueAtTime(f * 1.05, now + 0.3);
+      oGain.gain.setValueAtTime(0.025, now);
+      oGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.35);
+      osc.connect(oGain);
+      oGain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.4);
+    });
+  } catch(_) {}
+}
+
+function playFlameSnuffSFX() {
+  try {
+    const ctx = getAudioCtx();
+    if (!ctx) return;
+    const now = ctx.currentTime;
+
+    // Soft cold breath / candle blow-out whoosh
+    const noiseBuf = createNoiseBuffer(ctx);
+    const noiseSrc = ctx.createBufferSource();
+    noiseSrc.buffer = noiseBuf;
+
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(950, now);
+    filter.frequency.exponentialRampToValueAtTime(180, now + 0.35);
+
+    const gain = ctx.createGain();
+    gain.gain.setValueAtTime(0.14, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.4);
+
+    noiseSrc.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+    noiseSrc.start(now);
+    noiseSrc.stop(now + 0.45);
+  } catch(_) {}
+}
+
+const playPumpkinIgniteSFX = playFlameIgniteSFX;
+const playPumpkinSnuffSFX = playFlameSnuffSFX;
+
+function toggleAudio() {
+  const btn = document.getElementById('snd-btn');
+  const txt = document.getElementById('snd-txt');
+  if (!isPlaying) {
+    try {
+      audioCtx = getAudioCtx();
+      const now = audioCtx.currentTime;
+
+      // 1. Subterranean Drone (43Hz + 44.5Hz beating dissonance)
+      subOsc1 = audioCtx.createOscillator();
+      subOsc2 = audioCtx.createOscillator();
+      subFilter = audioCtx.createBiquadFilter();
+      subGain = audioCtx.createGain();
+
+      subOsc1.type = 'sawtooth';
+      subOsc1.frequency.setValueAtTime(43, now);
+      subOsc2.type = 'sine';
+      subOsc2.frequency.setValueAtTime(44.5, now);
+
+      subFilter.type = 'lowpass';
+      subFilter.frequency.setValueAtTime(115, now);
+      subFilter.Q.setValueAtTime(3.5, now);
+
+      droneLFO = audioCtx.createOscillator();
+      const droneLFOGain = audioCtx.createGain();
+      droneLFO.frequency.setValueAtTime(0.12, now);
+      droneLFOGain.gain.setValueAtTime(35, now);
+      droneLFO.connect(droneLFOGain);
+      droneLFOGain.connect(subFilter.frequency);
+
+      subGain.gain.setValueAtTime(0.001, now);
+      subGain.gain.linearRampToValueAtTime(0.12, now + 1.5);
+
+      subOsc1.connect(subFilter);
+      subOsc2.connect(subFilter);
+      subFilter.connect(subGain);
+      subGain.connect(audioCtx.destination);
+
+      subOsc1.start();
+      subOsc2.start();
+      droneLFO.start();
+
+      // 2. Howling Spectral Wind (Continuous pink noise through sweeping bandpass)
+      const noiseBuffer = createNoiseBuffer(audioCtx);
+      windNode = audioCtx.createBufferSource();
+      windNode.buffer = noiseBuffer;
+      windNode.loop = true;
+
+      windFilter = audioCtx.createBiquadFilter();
+      windFilter.type = 'bandpass';
+      windFilter.frequency.setValueAtTime(340, now);
+      windFilter.Q.setValueAtTime(4.2, now);
+
+      windLFO = audioCtx.createOscillator();
+      const windLFOGain = audioCtx.createGain();
+      windLFO.frequency.setValueAtTime(0.16, now);
+      windLFOGain.gain.setValueAtTime(220, now);
+      windLFO.connect(windLFOGain);
+      windLFOGain.connect(windFilter.frequency);
+
+      windGain = audioCtx.createGain();
+      windGain.gain.setValueAtTime(0.001, now);
+      windGain.gain.linearRampToValueAtTime(0.08, now + 2.0);
+
+      windNode.connect(windFilter);
+      windFilter.connect(windGain);
+      windGain.connect(audioCtx.destination);
+
+      windNode.start();
+      windLFO.start();
+
+      // 3. Occult Death Bell Tolls
+      bellTimer = setTimeout(playOccultBell, 2200);
+
+      isPlaying = true;
+      btn.setAttribute('aria-pressed', 'true');
+      txt.textContent = 'AUDIO: ON';
+    } catch(e) {
+      console.warn("Web Audio not supported", e);
+    }
+  } else {
+    if (audioCtx) {
+      if (subGain) subGain.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.6);
+      if (windGain) windGain.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.6);
+      clearTimeout(bellTimer);
+      setTimeout(() => {
+        try {
+          if (subOsc1) { subOsc1.stop(); subOsc1.disconnect(); }
+          if (subOsc2) { subOsc2.stop(); subOsc2.disconnect(); }
+          if (droneLFO) { droneLFO.stop(); droneLFO.disconnect(); }
+          if (windNode) { windNode.stop(); windNode.disconnect(); }
+          if (windLFO) { windLFO.stop(); windLFO.disconnect(); }
+          if (audioCtx) {
+            audioCtx.close();
+            audioCtx = null;
+          }
+        } catch(_) {}
+      }, 650);
+    }
+    isPlaying = false;
+    btn.setAttribute('aria-pressed', 'false');
+    txt.textContent = 'AUDIO: OFF';
+  }
+}
+document.getElementById('snd-btn').onclick = toggleAudio;
+
+// Interactive Spooky Light Sources (Lanterns & Pumpkins: Light Toggle ON/OFF)
+document.querySelectorAll('.scary-pumpkin-wrap, .lantern-rig, .lantern-ground').forEach(el => {
+  function toggleLight(e) {
+    if (e) e.stopPropagation();
+    const isLit = el.classList.contains('is-lit');
+    const isPumpkin = el.classList.contains('scary-pumpkin-wrap');
+    const hint = el.querySelector('.pumpkin-hint, .lantern-hint');
+    const noun = isPumpkin ? 'pumpkin' : 'lantern';
+
+    if (isLit) {
+      el.classList.remove('is-lit');
+      el.classList.add('is-extinguished');
+      if (hint) hint.textContent = `Click to ignite ${noun}`;
+      playFlameSnuffSFX();
+    } else {
+      el.classList.remove('is-extinguished');
+      el.classList.add('is-lit');
+      if (hint) hint.textContent = `Click to snuff ${noun}`;
+      playFlameIgniteSFX();
+    }
+  }
+
+  el.addEventListener('click', toggleLight);
+  el.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleLight(e);
+    }
+  });
+});
+</script>
+</body>
+</html>

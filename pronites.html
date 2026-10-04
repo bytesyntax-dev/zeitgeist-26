@@ -1,0 +1,2119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Midnight Lineup — Pronites | ZEITGEIST'26 | IIT Ropar</title>
+<meta name="description" content="Three nights of auditory exorcism. Experience headline rock bands, international EDM DJs, and grand Bollywood vocalists at ZEITGEIST'26.">
+<meta property="og:title" content="The Midnight Lineup — Pronites | ZEITGEIST'26 | IIT Ropar">
+<meta property="og:description" content="Three nights of auditory exorcism. Experience headline rock bands, international EDM DJs, and grand Bollywood vocalists at ZEITGEIST'26.">
+<meta name="theme-color" content="#040304">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<!-- High-Speed Resource Hints & Preloads -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preload" as="image" href="assets/logo_trans.png" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;700&family=Syncopate:wght@400;700&family=Eater&family=Creepster&display=swap" rel="stylesheet">
+<script type="application/ld+json" id="ld">{}</script>
+
+<style>
+
+:root {
+  --void: #040304;
+  --char: #0d0a0c;
+  --surface: #141113;
+  --surface-hover: #1c171b;
+  --bone: #e2dbce;
+  --bone-dim: #9e978c;
+  --ash: #736f68;
+  --blood: #5a0a11;
+  --crim: #941722;
+  --crim-glow: rgba(148, 23, 34, 0.45);
+  --crim-bright: #e61c30;
+  --burg: #240508;
+  --amber: #ad5f26;
+  --amber-glow: rgba(173, 95, 38, 0.35);
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Syncopate", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --disp-sans: "Syncopate", sans-serif;
+  --horror: "Creepster", "Eater", cursive;
+  --pad: clamp(20px, 5.5vw, 88px);
+  color-scheme: dark;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+  background: var(--void);
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--void);
+  color: var(--bone);
+  font: 400 15px/1.65 var(--sans);
+  overflow-x: hidden;
+  min-height: 100vh;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 4px;
+}
+
+/* Atmospheric Overlays */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 92;
+  pointer-events: none;
+  opacity: 0.07;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: gr 7s steps(10) infinite;
+}
+
+@keyframes gr {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(2%, -2%); }
+  50% { transform: translate(-2%, 2%); }
+  75% { transform: translate(2%, 1%); }
+  100% { transform: translate(0, 0); }
+}
+
+.vig {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 50%, transparent 45%, rgba(4,3,4,0.45) 75%, rgba(0,0,0,0.88) 100%);
+}
+
+.scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: 91;
+  pointer-events: none;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  opacity: 0.22;
+}
+
+/* Atmosphere Layers */
+.atm {
+  position: fixed;
+  inset: 0;
+  z-index: 89;
+  pointer-events: none;
+  transition: opacity 0.8s;
+  overflow: hidden;
+}
+
+.atm-layer {
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s, transform 1s, filter 1s;
+}
+
+.atm-grain {
+  background: url('assets/atmosphere/01_film_grain_overlay.png') repeat;
+  opacity: 0.08;
+  animation: noise 0.2s infinite;
+  mix-blend-mode: overlay;
+  background-size: auto;
+}
+
+@keyframes noise {
+  0%, 100% { background-position: 0 0; }
+  50% { background-position: -5% -5%; }
+}
+
+.atm-fog {
+  background: url('assets/atmosphere/02_fog_overlay.png') no-repeat center/cover;
+  mix-blend-mode: screen;
+  opacity: 0.14;
+  animation: drift 24s linear infinite alternate;
+}
+
+.atm-vignette {
+  background: url('assets/atmosphere/03_vignette_overlay.png') no-repeat center/cover;
+  mix-blend-mode: multiply;
+  opacity: 0.7;
+}
+
+.atm-scratches {
+  background: url('assets/atmosphere/07_crimson_scratches.png') no-repeat center/cover;
+  mix-blend-mode: color-dodge;
+  opacity: 0.1;
+}
+
+.atm-leak {
+  background: url('assets/atmosphere/05_crimson_light_leak.png') no-repeat center/cover;
+  mix-blend-mode: screen;
+  opacity: 0.08;
+}
+
+@keyframes drift {
+  from { transform: translateX(-2%) scale(1.03); }
+  to { transform: translateX(2%) scale(1.07); }
+}
+
+/* Typography */
+.eyebrow {
+  font: 500 11px/1 var(--mono);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+
+.disp {
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.disp-sans {
+  font-family: var(--disp-sans);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+/* Shared Navigation */
+nav.top {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(14px + env(safe-area-inset-top, 0px)) var(--pad) 14px;
+  background: rgba(4, 3, 4, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brand {
+  font: 700 22px var(--serif);
+  letter-spacing: 0.14em;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.brand small {
+  font: 500 9px var(--mono);
+  letter-spacing: 0.25em;
+  color: var(--crim);
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.nav-link {
+  font: 600 10px var(--mono);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ash);
+  padding: 6px 11px;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+  position: relative;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.nav-link:hover {
+  color: #fff;
+  background: rgba(165, 29, 41, 0.15);
+  border-color: rgba(165, 29, 41, 0.4);
+  text-shadow: 0 0 10px rgba(224, 46, 61, 0.6);
+}
+
+.nav-link.active {
+  color: #fff;
+  background: rgba(165, 29, 41, 0.28);
+  border: 1px solid rgba(224, 46, 61, 0.55);
+  box-shadow: 0 0 15px rgba(165, 29, 41, 0.4), inset 0 0 10px rgba(224, 46, 61, 0.2);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 18%;
+  right: 18%;
+  height: 2px;
+  background: var(--crim-bright, #e02e3d);
+  box-shadow: 0 0 8px var(--crim-bright, #e02e3d);
+  border-radius: 2px;
+}
+
+.nav-sound-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(20, 17, 19, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font: 500 10px var(--mono);
+  letter-spacing: 0.18em;
+  color: var(--bone-dim);
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: all 0.3s;
+  margin-right: 6px;
+}
+
+.nav-sound-btn:hover {
+  color: #fff;
+  border-color: var(--crim);
+}
+
+.nav-sound-btn[aria-pressed="true"] {
+  border-color: var(--crim);
+  color: var(--crim-bright);
+  box-shadow: 0 0 12px var(--crim-glow);
+}
+
+.nav-sound-btn svg {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+}
+
+/* Button Component */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--surface);
+  padding: 16px 28px;
+  font: 500 10px var(--mono);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--bone);
+  min-height: 48px;
+  transition: color 0.35s, border-color 0.35s, box-shadow 0.35s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bone);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 0;
+}
+
+.btn:hover {
+  border-color: var(--bone);
+  color: var(--void);
+}
+
+.btn:hover::before {
+  transform: scaleY(1);
+}
+
+.btn.btn-crim {
+  border-color: var(--crim);
+  background: var(--burg);
+  color: var(--bone);
+}
+
+.btn.btn-crim::before {
+  background: var(--crim);
+}
+
+.btn.btn-crim:hover {
+  color: var(--bone);
+  box-shadow: 0 0 24px var(--crim-glow);
+}
+
+.btn.btn-amber {
+  border-color: var(--amber);
+  background: rgba(173, 95, 38, 0.15);
+  color: var(--bone);
+}
+
+.btn.btn-amber::before {
+  background: var(--amber);
+}
+
+.btn.btn-amber:hover {
+  color: var(--void);
+  box-shadow: 0 0 20px var(--amber-glow);
+}
+
+.btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-mini {
+  padding: 8px 16px;
+  min-height: 38px;
+  font: 500 9px var(--mono);
+  letter-spacing: 0.2em;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--surface);
+  color: var(--bone-dim);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s;
+}
+
+.btn-mini:hover {
+  border-color: var(--crim);
+  color: var(--bone);
+}
+
+/* Main Layout */
+main {
+  flex: 1;
+  padding: calc(110px + env(safe-area-inset-top, 0px)) var(--pad) 100px;
+  animation: fx 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fx {
+  from { opacity: 0; transform: translateY(18px); filter: blur(5px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+/* Shared Footer */
+footer.foot {
+  background: #070506;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 60px var(--pad) calc(40px + env(safe-area-inset-bottom, 0px));
+  position: relative;
+  z-index: 50;
+}
+
+.foot-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.foot-brand h3 {
+  font: 700 28px var(--serif);
+  letter-spacing: 0.12em;
+}
+
+.foot-brand p {
+  font: 400 12px var(--mono);
+  color: var(--ash);
+  margin-top: 10px;
+  max-width: 36ch;
+}
+
+.foot-col h4 {
+  font: 500 10px var(--mono);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 18px;
+}
+
+.foot-col ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.foot-col a {
+  font: 400 11px var(--mono);
+  color: var(--bone-dim);
+  transition: color 0.3s;
+}
+
+.foot-col a:hover {
+  color: var(--crim-bright);
+}
+
+.foot-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font: 400 10px var(--mono);
+  color: var(--ash);
+}
+
+.foot-disclaimer {
+  color: var(--crim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Toast */
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: 80px;
+  transform: translate(-50%, 20px);
+  z-index: 200;
+  background: var(--burg);
+  border: 1px solid var(--crim);
+  padding: 16px 30px;
+  font: 500 12px var(--mono);
+  letter-spacing: 0.15em;
+  color: var(--bone);
+  opacity: 0;
+  transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  text-align: center;
+  max-width: 90vw;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 24px var(--crim-glow);
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* Magnetic Cursor */
+#cur {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 300;
+  pointer-events: none;
+  display: none;
+}
+
+#cur .cd {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  margin: -3px;
+  background: var(--bone);
+  border-radius: 50%;
+}
+
+#cur .cr {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  margin: -19px;
+  border: 1px solid rgba(226, 219, 206, 0.45);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font: 500 8px var(--mono);
+  letter-spacing: 0.2em;
+  color: var(--bone);
+  transition: width 0.3s, height 0.3s, margin 0.3s, background 0.3s, border-color 0.3s;
+}
+
+#cur.big .cr {
+  width: 84px;
+  height: 84px;
+  margin: -42px;
+  background: rgba(148, 23, 34, 0.35);
+  border-color: var(--crim);
+}
+
+body.cur, body.cur * {
+  cursor: none !important;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  body.cur, body.cur * { cursor: auto !important; }
+  #cur { display: none !important; }
+}
+
+.burger {
+  display: none;
+  font: 600 11px var(--mono);
+  letter-spacing: 0.2em;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--surface);
+  color: var(--bone);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none !important; }
+  .burger { display: inline-flex; align-items: center; justify-content: center; }
+}
+
+@media (max-width: 600px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+  }
+  nav.top {
+    padding: calc(10px + env(safe-area-inset-top, 0px)) 16px 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .brand {
+    gap: 8px;
+  }
+  .brand img {
+    height: 32px !important;
+  }
+  .brand-sub {
+    display: none !important;
+  }
+  .burger {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 6px 12px;
+    font-size: 10px;
+  }
+  .foot-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== GLOBAL HALLOWEEN ATMOSPHERE ===== */
+
+/* Eerie section divider */
+.sect-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--crim), var(--amber), var(--crim), transparent);
+  margin: 60px 0;
+  box-shadow: 0 0 12px var(--crim-glow);
+  opacity: 0.6;
+}
+
+/* Pulsing blood glow on scroll */
+body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--crim), transparent);
+  box-shadow: 0 0 20px var(--crim), 0 0 40px var(--crim-glow);
+  z-index: 99;
+  opacity: 0.5;
+  animation: bottomPulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes bottomPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+/* Enhanced footer glow */
+footer.foot::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(180deg, transparent, rgba(148, 23, 34, 0.08));
+  pointer-events: none;
+}
+
+/* Scroll reveal utility class */
+.scroll-rv {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-rv.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== SHARED HORROR ANIMATIONS & ATMOSPHERE ===== */
+
+/* 1. Hanging Gothic Lantern */
+.lantern-rig {
+  position: fixed;
+  top: 65px;
+  left: clamp(10px, 2.5vw, 36px);
+  z-index: 95;
+  transform-origin: top center;
+  animation: lanternSway 7s ease-in-out infinite alternate;
+  pointer-events: auto;
+  cursor: pointer;
+  user-select: none;
+}
+
+.lantern-rig:hover {
+  filter: drop-shadow(0 0 25px rgba(255, 140, 20, 0.7));
+}
+
+@keyframes lanternSway {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
+
+.lantern-chain {
+  width: 2px;
+  height: clamp(40px, 6vw, 75px);
+  background: repeating-linear-gradient(180deg, #504449, #504449 4px, #1a1617 4px, #1a1617 8px);
+  margin: 0 auto;
+}
+
+.lantern-body {
+  width: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 0 18px rgba(173, 95, 38, 0.55));
+}
+
+.lantern-cap {
+  width: 30px;
+  height: 8px;
+  background: #2b2226;
+  border: 1px solid #635058;
+  clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
+}
+
+.lantern-glass {
+  width: 24px;
+  height: 38px;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 170, 51, 0.35) 0%, rgba(173, 95, 38, 0.15) 70%, transparent 100%);
+  border: 1px solid #57444c;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 28px rgba(220, 120, 30, 0.45), inset 0 0 12px rgba(255, 170, 51, 0.25);
+  animation: lanternGlowBreath 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes lanternGlowBreath {
+  0% { box-shadow: 0 0 20px rgba(220, 120, 30, 0.35), inset 0 0 10px rgba(255, 170, 51, 0.2); }
+  100% { box-shadow: 0 0 35px rgba(255, 140, 20, 0.55), inset 0 0 16px rgba(255, 180, 60, 0.35); }
+}
+
+.lantern-flame {
+  width: 8px;
+  height: 14px;
+  background: radial-gradient(ellipse at 50% 80%, #fff 0%, #ffaa22 50%, #cc5500 100%);
+  border-radius: 50% 50% 35% 35%;
+  box-shadow: 0 0 12px #ff8800, 0 0 24px rgba(255, 170, 0, 0.6);
+  animation: flameBreath 2.8s ease-in-out infinite alternate;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+@keyframes flameBreath {
+  0% { transform: scale(0.96) translateY(0.5px); }
+  100% { transform: scale(1.04) translateY(-0.5px); }
+}
+
+.lantern-base {
+  width: 26px;
+  height: 6px;
+  background: #2b2226;
+  border: 1px solid #635058;
+}
+
+.lantern-rig.is-extinguished .lantern-flame,
+.lantern-ground.is-extinguished .lantern-flame {
+  opacity: 0 !important;
+  transform: scale(0.15) !important;
+}
+
+.lantern-rig.is-extinguished .lantern-glass,
+.lantern-ground.is-extinguished .lantern-ground-body {
+  background: radial-gradient(circle at 50% 50%, rgba(30, 20, 25, 0.3) 0%, rgba(15, 10, 12, 0.5) 100%) !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+.lantern-hint {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(14, 8, 11, 0.92);
+  border: 1px solid rgba(220, 100, 30, 0.55);
+  color: var(--bone);
+  font: italic 500 11px/1 var(--serif);
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 20;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.85);
+}
+
+.lantern-rig:hover .lantern-hint,
+.lantern-ground:hover .lantern-hint {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* 2. Top-Right Dangling Spider Rig */
+.spider-rig {
+  position: fixed;
+  top: 60px;
+  right: clamp(10px, 3vw, 36px);
+  z-index: 95;
+  pointer-events: none;
+}
+
+.corner-web {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.55;
+}
+
+.spider-thread {
+  position: absolute;
+  top: 0;
+  right: 22px;
+  width: 1px;
+  height: 0;
+  background: rgba(226, 219, 206, 0.3);
+  animation: spiderDrop 15s ease-in-out infinite;
+}
+
+.spider-beast {
+  position: absolute;
+  bottom: 0;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+}
+
+.spider-body {
+  width: 12px;
+  height: 14px;
+  background: #090507;
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: 0 0 6px rgba(148, 23, 34, 0.6);
+  position: relative;
+}
+
+.spider-body::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 2px;
+  width: 8px;
+  height: 4px;
+  background: #e02e3d;
+  border-radius: 50%;
+  box-shadow: 0 0 4px #ff2a3b;
+}
+
+@keyframes spiderDrop {
+  0%, 100% { height: 16px; transform: rotate(0deg); }
+  25% { height: 70px; transform: rotate(8deg); }
+  50% { height: 35px; transform: rotate(-6deg); }
+  75% { height: 95px; transform: rotate(5deg); }
+}
+
+/* 3. Interactive Scary Jack-o'-Lantern Pumpkin (Footer Mist Perch) */
+.subpage-pumpkin-perch {
+  position: relative;
+  width: 100%;
+  margin-top: -36px;
+  height: 60px;
+  z-index: 45;
+  pointer-events: none;
+}
+
+.scary-pumpkin-wrap {
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: auto;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.scary-pumpkin-wrap:hover {
+  transform: scale(1.08) translateY(-4px);
+}
+
+.scary-pumpkin-wrap:active {
+  transform: scale(0.96) translateY(2px);
+}
+
+.pumpkin-subpage,
+.pumpkin-subpage-right {
+  bottom: 6px;
+  right: clamp(60px, 9vw, 150px);
+  width: clamp(70px, 7.5vw, 100px);
+  transform: rotate(4deg);
+}
+
+.pumpkin-subpage:hover,
+.pumpkin-subpage-right:hover {
+  transform: rotate(4deg) scale(1.08) translateY(-4px);
+}
+
+.pumpkin-subpage-left {
+  bottom: 6px;
+  left: clamp(60px, 9vw, 150px);
+  width: clamp(70px, 7.5vw, 100px);
+  transform: rotate(-4deg);
+}
+
+.pumpkin-subpage-left:hover {
+  transform: rotate(-4deg) scale(1.08) translateY(-4px);
+}
+
+/* Ground Pedestal Lanterns */
+.lantern-ground {
+  position: absolute;
+  bottom: 6px;
+  z-index: 6;
+  cursor: pointer;
+  user-select: none;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.lantern-ground:hover {
+  transform: scale(1.08) translateY(-2px);
+}
+
+.lantern-ground-left {
+  left: clamp(15px, 3.5vw, 60px);
+}
+
+.lantern-ground-right {
+  right: clamp(15px, 3.5vw, 60px);
+}
+
+.lantern-plinth {
+  width: 34px;
+  height: 9px;
+  background: #181114;
+  border: 1px solid #5a454e;
+  border-radius: 2px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.85);
+}
+
+.lantern-ground-body {
+  width: 26px;
+  height: 38px;
+  position: relative;
+  background: radial-gradient(circle at 50% 60%, rgba(255, 170, 51, 0.45) 0%, rgba(173, 95, 38, 0.2) 70%, transparent 100%);
+  border: 1px solid #6e5560;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 28px rgba(220, 120, 30, 0.55);
+  animation: lanternGlowBreath 4s ease-in-out infinite alternate;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.lantern-ground-roof {
+  width: 32px;
+  height: 11px;
+  background: #2b2025;
+  border: 1px solid #6e5560;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.jack-lantern-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: filter 0.35s ease;
+}
+
+.pumpkin-ground-glow {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(255, 120, 20, 0.65) 0%, rgba(220, 40, 10, 0.3) 50%, transparent 80%);
+  filter: blur(8px);
+  pointer-events: none;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  z-index: -1;
+}
+
+.scary-pumpkin-wrap.is-lit .jack-carving {
+  fill: url(#fireGrad);
+  filter: drop-shadow(0 0 4px #ffe633) drop-shadow(0 0 12px #ff4800);
+  animation: jackFlicker 3s infinite alternate ease-in-out;
+}
+
+.scary-pumpkin-wrap.is-lit .jack-lantern-svg {
+  filter: drop-shadow(0 0 22px rgba(255, 120, 20, 0.65)) drop-shadow(0 8px 18px rgba(0,0,0,0.95));
+}
+
+.scary-pumpkin-wrap.is-lit .pumpkin-ground-glow {
+  opacity: 0.92;
+  transform: translateX(-50%) scale(1);
+}
+
+.scary-pumpkin-wrap.is-extinguished .jack-carving {
+  fill: url(#darkGrad);
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.95));
+  animation: none;
+}
+
+.scary-pumpkin-wrap.is-extinguished .jack-lantern-svg {
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.95)) brightness(0.62);
+}
+
+.scary-pumpkin-wrap.is-extinguished .pumpkin-ground-glow {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.35);
+}
+
+@keyframes jackFlicker {
+  0%, 100% { filter: drop-shadow(0 0 4px #ffe633) drop-shadow(0 0 12px #ff4800); opacity: 0.98; }
+  20% { filter: drop-shadow(0 0 2px #ffa200) drop-shadow(0 0 8px #d62200); opacity: 0.88; }
+  40% { filter: drop-shadow(0 0 6px #fff3a8) drop-shadow(0 0 16px #ff6600); opacity: 1; }
+  60% { filter: drop-shadow(0 0 3px #ff9900) drop-shadow(0 0 10px #c41500); opacity: 0.92; }
+  80% { filter: drop-shadow(0 0 7px #ffe040) drop-shadow(0 0 15px #ff5000); opacity: 1; }
+}
+
+.pumpkin-hint {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(14, 8, 11, 0.92);
+  border: 1px solid rgba(220, 100, 30, 0.55);
+  color: var(--bone);
+  font: italic 500 11px/1 var(--serif);
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.85);
+}
+
+.scary-pumpkin-wrap:hover .pumpkin-hint {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* 4. Cemetery Ground Mist & Blinking Eyes */
+.cemetery-mist {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  pointer-events: none;
+  z-index: 3;
+  background: linear-gradient(0deg, rgba(8,4,6,0.95) 0%, rgba(148,23,34,0.06) 50%, transparent 100%);
+}
+
+.creepy-eyes-pair {
+  position: absolute;
+  display: flex;
+  gap: 8px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.creepy-eye {
+  width: 6px;
+  height: 3px;
+  background: #e02e3d;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ff2a3b, 0 0 16px rgba(224, 46, 61, 0.85);
+  animation: eyeBlink 6.5s infinite;
+}
+
+.creepy-eye:nth-child(2) {
+  animation-delay: 0.04s;
+}
+
+@keyframes eyeBlink {
+  0%, 42%, 46%, 92%, 96%, 100% { transform: scaleY(1); opacity: 0.85; }
+  44%, 94% { transform: scaleY(0.08); opacity: 0.08; }
+}
+
+/* 5. Consistent 3D Card Hover Lift & Border Shimmer Across All Pages */
+.card, .ev-card, .timeline-card, .polaroid-card, .ticket-card, .lineup-card, .sector-card, .council-card, .portal-card, .faq-item, .stat-tile, .pass-card {
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
+}
+
+.card:hover, .ev-card:hover, .timeline-card:hover, .ticket-card:hover, .lineup-card:hover, .sector-card:hover, .council-card:hover, .portal-card:hover, .pass-card:hover {
+  transform: translateY(-6px) perspective(1000px) rotateX(1.5deg) !important;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.9), 0 0 25px rgba(148, 23, 34, 0.35) !important;
+  border-color: rgba(224, 46, 61, 0.5) !important;
+}
+
+/* 6. Ambient Flying Bats Across Pages */
+.ambient-bat-wrap {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 88;
+  overflow: hidden;
+}
+
+.ambient-bat {
+  position: absolute;
+  width: 28px;
+  height: 16px;
+  fill: rgba(14, 9, 12, 0.75);
+  filter: drop-shadow(0 0 4px rgba(224, 46, 61, 0.3));
+  animation: batGlide 20s linear infinite;
+}
+
+@keyframes batGlide {
+  0% { transform: translate(-40px, 15vh) scale(0.7); opacity: 0; }
+  10% { opacity: 0.85; }
+  50% { transform: translate(55vw, 30vh) scale(1.05); }
+  90% { opacity: 0.85; }
+  100% { transform: translate(105vw, 18vh) scale(0.8); opacity: 0; }
+}
+
+@media (max-width: 900px) {
+  .lantern-rig, .spider-rig, .ambient-bat-wrap { display: none !important; }
+  .pumpkin-subpage { right: 12px; width: 62px; }
+}
+
+
+
+
+
+/* Pronites Lineup Styles */
+.lineup-hero {
+  margin-bottom: 50px;
+}
+
+.lineup-hero h1 {
+  font-size: clamp(40px, 8vw, 90px);
+  margin-top: 14px;
+}
+
+.lineup-hero p {
+  color: var(--bone-dim);
+  font: italic 400 clamp(18px, 2.5vw, 28px) var(--serif);
+  max-width: 38ch;
+  margin-top: 12px;
+}
+
+.lineup-grid {
+  display: grid;
+  gap: 60px;
+  margin-bottom: 80px;
+  perspective: 1400px;
+}
+
+.lineup-card {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  background: #0d0a0c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: clamp(24px, 4vw, 44px);
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out, border-color 0.4s, box-shadow 0.4s;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+}
+
+.lineup-card .lineup-glare {
+  position: absolute;
+  inset: -50%;
+  pointer-events: none;
+  background: radial-gradient(circle 350px at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.12), rgba(165, 29, 41, 0.15) 35%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  mix-blend-mode: screen;
+  z-index: 10;
+}
+
+.lineup-card:hover .lineup-glare {
+  opacity: 1;
+}
+
+.lineup-card:hover {
+  border-color: var(--crim);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.95), 0 0 40px var(--crim-glow);
+}
+
+.lineup-card:nth-child(even) {
+  grid-template-columns: 1fr 1.1fr;
+}
+
+.lineup-card:nth-child(even) .lineup-img-wrap {
+  order: 2;
+}
+
+.lineup-img-wrap {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--char);
+  transform: translateZ(30px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.lineup-card:hover .lineup-img-wrap {
+  transform: translateZ(44px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.95), 0 0 30px var(--crim-glow);
+}
+
+.lineup-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(85%) contrast(120%) brightness(0.85);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.lineup-card:hover .lineup-img-wrap img {
+  transform: scale(1.06);
+  filter: grayscale(0%) contrast(110%) brightness(0.95);
+}
+
+.lineup-overlay-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(4, 3, 4, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--crim);
+  color: var(--crim-bright);
+  font: 500 10px var(--mono);
+  letter-spacing: 0.25em;
+  padding: 6px 12px;
+  text-transform: uppercase;
+  transform: translateZ(48px);
+}
+
+.lineup-info-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 500 11px var(--mono);
+  letter-spacing: 0.25em;
+  color: var(--amber);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  transform: translateZ(28px);
+}
+
+.lineup-card h2 {
+  font: 700 clamp(28px, 4vw, 44px)/1 var(--disp-sans);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  transform: translateZ(32px);
+}
+
+.lineup-artist-name {
+  font: italic 600 clamp(20px, 2.5vw, 26px) var(--serif);
+  color: var(--bone);
+  margin-bottom: 16px;
+  display: block;
+  transform: translateZ(26px);
+}
+
+.lineup-desc {
+  color: var(--bone-dim);
+  font: 400 13px/1.7 var(--sans);
+  margin-bottom: 24px;
+  max-width: 52ch;
+  transform: translateZ(20px);
+}
+
+.lineup-meta-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 20px;
+  margin-bottom: 28px;
+  font: 400 11px var(--mono);
+  transform: translateZ(24px);
+}
+
+.lineup-action-wrap {
+  transform: translateZ(32px);
+}
+
+/* 3D Audio Equalizer Spectrum */
+.lineup-eq-3d {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 18px;
+  margin-left: 10px;
+  vertical-align: middle;
+  transform: translateZ(36px);
+}
+
+.lineup-eq-3d span {
+  width: 3px;
+  height: 100%;
+  background: var(--crim-bright);
+  box-shadow: 0 0 8px var(--crim-glow);
+  transform-origin: bottom;
+  animation: eqBounce 1.2s ease-in-out infinite alternate;
+}
+
+.lineup-eq-3d span:nth-child(1) { height: 40%; animation-delay: 0.1s; }
+.lineup-eq-3d span:nth-child(2) { height: 95%; animation-delay: 0.35s; }
+.lineup-eq-3d span:nth-child(3) { height: 60%; animation-delay: 0.18s; }
+.lineup-eq-3d span:nth-child(4) { height: 100%; animation-delay: 0.45s; }
+.lineup-eq-3d span:nth-child(5) { height: 50%; animation-delay: 0.22s; }
+
+@keyframes eqBounce {
+  0% { transform: scaleY(0.2); }
+  100% { transform: scaleY(1); }
+}
+
+.lineup-meta-list dt {
+  color: var(--ash);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.lineup-meta-list dd {
+  font-size: 13px;
+  color: var(--bone);
+  font-weight: 500;
+}
+
+.guidelines-box {
+  background: rgba(20, 17, 19, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: clamp(28px, 4vw, 44px);
+  margin-bottom: 80px;
+}
+
+.guidelines-box h3 {
+  font: 700 22px var(--disp-sans);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: var(--amber);
+}
+
+.guidelines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  font: 400 12px/1.6 var(--mono);
+  color: var(--bone-dim);
+}
+
+.guidelines-grid div strong {
+  display: block;
+  color: var(--bone);
+  margin-bottom: 6px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 900px) {
+  .lineup-card, .lineup-card:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+  .lineup-card:nth-child(even) .lineup-img-wrap {
+    order: 0;
+  }
+}
+
+</style>
+</head>
+<body data-atm="events">
+
+<!-- Header Navigation -->
+<nav class="top" aria-label="Primary">
+  <a class="brand" href="index.html" data-c="CAMPUS" style="display:inline-flex; align-items:center; gap:12px;">
+    <img src="assets/logo_trans.png" alt="Zeitgeist'26 Logo" style="height:38px; width:auto; filter:drop-shadow(0 2px 8px rgba(0,0,0,0.8));">
+    <span class="brand-sub" style="font:600 9px var(--mono); color:var(--crim-bright); letter-spacing:0.25em; border-left:1px solid rgba(255,255,255,0.2); padding-left:10px;">MMXXVI · IIT ROPAR</span>
+  </a>
+  <div class="nav-links">
+    <button class="nav-sound-btn" id="snd-btn" type="button" aria-pressed="false" data-c="AUDIO">
+      <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+      <span id="snd-label">AUDIO: OFF</span>
+    </button>
+    <a class="nav-link" href="index.html" data-c="HOME">Home</a>
+<a class="nav-link" href="about.html" data-c="ABOUT">About</a>
+<a class="nav-link" href="index.html#theme" data-c="THEME">Theme</a>
+<a class="nav-link" href="events.html" data-c="EVENTS">Events</a>
+<a class="nav-link active" href="pronites.html" data-c="PRONITES">Pronites</a>
+<a class="nav-link" href="schedule.html" data-c="SCHEDULE">Schedule</a>
+<a class="nav-link" href="passes.html" data-c="PASSES">Passes</a>
+<a class="nav-link" href="sponsors.html" data-c="SPONSORS">Sponsors</a>
+<a class="nav-link" href="team.html" data-c="TEAM">Team</a>
+<a class="nav-link" href="gallery.html" data-c="GALLERY">Gallery</a>
+<a class="nav-link" href="contact.html" data-c="CONTACT">Contact</a>
+
+  </div>
+  <button class="burger" id="burger-btn" type="button" aria-label="Toggle Navigation">MENU</button>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" style="position:fixed; inset:0; z-index:9999; background:rgba(4,3,4,0.98); display:none; flex-direction:column; justify-content:center; align-items:center; gap:18px; font:700 22px var(--serif);">
+  <a class="mob-link" href="index.html">Home</a>
+<a class="mob-link" href="about.html">About</a>
+<a class="mob-link" href="index.html#theme">Theme</a>
+<a class="mob-link" href="events.html">Events</a>
+<a class="mob-link active" href="pronites.html">Pronites</a>
+<a class="mob-link" href="schedule.html">Schedule</a>
+<a class="mob-link" href="passes.html">Passes</a>
+<a class="mob-link" href="sponsors.html">Sponsors</a>
+<a class="mob-link" href="team.html">Team</a>
+<a class="mob-link" href="gallery.html">Gallery</a>
+<a class="mob-link" href="contact.html">Contact</a>
+
+  <button id="close-mob" style="margin-top:20px; font:600 11px var(--mono); color:var(--crim); letter-spacing:0.2em; background:none; border:none; cursor:pointer;">[ CLOSE ]</button>
+</div>
+
+<div class="atm" aria-hidden="true">
+  <div class="atm-layer atm-grain"></div>
+  <div class="atm-layer atm-fog"></div>
+  <div class="atm-layer atm-vignette"></div>
+  <div class="atm-layer atm-scratches"></div>
+  <div class="atm-layer atm-leak"></div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="vig" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- Atmospheric Hanging Lantern & Spider -->
+<div class="lantern-rig is-lit" id="subpage-lantern" role="button" tabindex="0" aria-label="Gothic Lantern: click to toggle flame">
+  <div class="lantern-hint">Click to snuff lantern</div>
+  <div class="lantern-chain"></div>
+  <div class="lantern-body">
+    <div class="lantern-cap"></div>
+    <div class="lantern-glass">
+      <div class="lantern-flame"></div>
+    </div>
+    <div class="lantern-base"></div>
+  </div>
+</div>
+
+<div class="spider-rig" aria-hidden="true">
+  <svg class="corner-web" viewBox="0 0 120 120">
+    <path d="M0,0 Q60,10 120,0 M0,0 Q10,60 0,120 M0,0 L120,120 M0,40 Q40,40 40,0 M0,80 Q80,80 80,0" stroke="rgba(226,219,206,0.25)" stroke-width="1.2" fill="none"/>
+  </svg>
+  <div class="spider-thread">
+    <div class="spider-beast">
+      <div class="spider-body"></div>
+    </div>
+  </div>
+</div>
+
+<div class="ambient-bat-wrap" aria-hidden="true">
+  <svg class="ambient-bat" viewBox="0 0 40 24" style="animation-delay: -3s;">
+    <path d="M20,10 Q14,2 4,6 Q10,14 16,14 Q18,17 20,20 Q22,17 24,14 Q30,14 36,6 Q26,2 20,10 Z"/>
+  </svg>
+  <svg class="ambient-bat" viewBox="0 0 40 24" style="animation-delay: -11s; animation-duration: 24s; top: 25vh;">
+    <path d="M20,10 Q14,2 4,6 Q10,14 16,14 Q18,17 20,20 Q22,17 24,14 Q30,14 36,6 Q26,2 20,10 Z"/>
+  </svg>
+</div>
+
+<div id="cur" aria-hidden="true">
+  <div class="cd"></div>
+  <div class="cr"><span class="cl"></span></div>
+</div>
+
+<div id="toast" role="status"></div>
+
+
+<main id="pronites">
+  <div class="lineup-hero">
+    <span class="eyebrow" style="color:var(--crim);">THE CELEBRITY ARENA // MMXXVI</span>
+    <h1 class="disp">THE MIDNIGHT LINEUP</h1>
+    <p>"When the Punjab sun sinks beyond the Sutlej River, the main festival arena transforms under blinding strobes and thunderous sub-bass."</p>
+  </div>
+
+  <div class="lineup-grid">
+    <!-- Night 01: Rock & Metal -->
+    <article class="lineup-card" aria-label="Night 01 Pronite">
+      <div class="lineup-glare" aria-hidden="true"></div>
+      <div class="lineup-img-wrap">
+        <img src="assets/pronites/artist_1.webp" alt="Rock Band Headliner at Zeitgeist" loading="lazy">
+        <span class="lineup-overlay-badge">OCTOBER 30 // 08:30 PM</span>
+      </div>
+      <div>
+        <div class="lineup-info-badge">
+          NIGHT 01 · ROCK & METAL ARENA
+          <span class="lineup-eq-3d" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
+        </div>
+        <h2>NIRVANA'S ECLIPSE</h2>
+        <span class="lineup-artist-name">THE LOST PARIAHS & EASTERN METAL ENSEMBLE</span>
+        <p class="lineup-desc">
+          An electrifying headline assault of progressive post-rock and crushing alt-metal rhythms. Twin electric guitars, full stage fire cannons, and haunting gothic vocals echoing across the Open Air Amphitheatre.
+        </p>
+        <dl class="lineup-meta-list">
+          <div><dt>ARENA VENUE</dt><dd>Open Air Amphitheatre (Sector 03)</dd></div>
+          <div><dt>GATES OPEN</dt><dd>06:30 PM</dd></div>
+          <div><dt>STAGE DURATION</dt><dd>150 Minutes</dd></div>
+          <div><dt>ENTRY PROTOCOL</dt><dd>Pronite Pass Required</dd></div>
+        </dl>
+        <div class="lineup-action-wrap" style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn btn-crim" href="passes.html" data-c="PASS"><span>CLAIM PRONITE PASS</span></a>
+          <button class="btn-mini" type="button" onclick="playChime(180); toast('SOUNDCHECK 01: 44.1 kHz STEREO CONFIRMED.');" data-c="SOUNDCHECK">🔊 SOUNDCHECK</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Night 02: EDM Rave -->
+    <article class="lineup-card" aria-label="Night 02 Pronite">
+      <div class="lineup-glare" aria-hidden="true"></div>
+      <div class="lineup-img-wrap">
+        <img src="assets/pronites/artist_2.webp" alt="EDM DJ Producer at Zeitgeist" loading="lazy">
+        <span class="lineup-overlay-badge">OCTOBER 31 // 09:00 PM</span>
+      </div>
+      <div>
+        <div class="lineup-info-badge" style="color:var(--crim-bright);">
+          NIGHT 02 · HALLOWEEN MIDNIGHT RAVE
+          <span class="lineup-eq-3d" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
+        </div>
+        <h2>THE PHANTOM RAVE</h2>
+        <span class="lineup-artist-name">KRYPTIC PHANTOM & GUEST ELECTRONIC PRODUCERS</span>
+        <p class="lineup-desc">
+          A full-scale audiovisual invasion. Powered by an unyielding 60-foot LED monolith, cryogenic fog jets, and synchronized laser grid choreography. Prepare for four relentless hours of bone-shaking bass.
+        </p>
+        <dl class="lineup-meta-list">
+          <div><dt>ARENA VENUE</dt><dd>Main Sports Complex (Sector 01)</dd></div>
+          <div><dt>GATES OPEN</dt><dd>07:00 PM</dd></div>
+          <div><dt>STAGE DURATION</dt><dd>240 Minutes</dd></div>
+          <div><dt>ENTRY PROTOCOL</dt><dd>Wristband & Clearance Scan</dd></div>
+        </dl>
+        <div class="lineup-action-wrap" style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn btn-crim" href="passes.html" data-c="PASS"><span>CLAIM PRONITE PASS</span></a>
+          <button class="btn-mini" type="button" onclick="playGlitch(); toast('SUB-BASS TRANSDUCERS ENGAGED: 32Hz BASS HIT.');" data-c="BASS">⚡ BASS HIT</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Night 03: Bollywood Grand Finale -->
+    <article class="lineup-card" aria-label="Night 03 Pronite">
+      <div class="lineup-glare" aria-hidden="true"></div>
+      <div class="lineup-img-wrap">
+        <img src="assets/pronites/artist_3.webp" alt="Bollywood Sensation at Zeitgeist" loading="lazy">
+        <span class="lineup-overlay-badge">NOVEMBER 01 // 08:00 PM</span>
+      </div>
+      <div>
+        <div class="lineup-info-badge">
+          NIGHT 03 · GRAND BOLLYWOOD FINALE
+          <span class="lineup-eq-3d" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
+        </div>
+        <h2>SYMPHONY OF SOULS</h2>
+        <span class="lineup-artist-name">AARYAV & 16-PIECE STRINGS ORCHESTRA</span>
+        <p class="lineup-desc">
+          The festival's emotional farewell. Chart-topping Bollywood anthems merged seamlessly with classical Sufi crescendo and live violins under midnight candle flame. A collective singing ritual under the Punjab stars.
+        </p>
+        <dl class="lineup-meta-list">
+          <div><dt>ARENA VENUE</dt><dd>Senate Amphitheatre (Sector 02)</dd></div>
+          <div><dt>GATES OPEN</dt><dd>06:00 PM</dd></div>
+          <div><dt>STAGE DURATION</dt><dd>180 Minutes</dd></div>
+          <div><dt>ENTRY PROTOCOL</dt><dd>All-Access / VIP Pass</dd></div>
+        </dl>
+        <div class="lineup-action-wrap" style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn btn-crim" href="passes.html" data-c="PASS"><span>CLAIM PRONITE PASS</span></a>
+          <button class="btn-mini" type="button" onclick="playChime(440); toast('ORCHESTRAL A4 TUNING CONFIRMED.');" data-c="TUNE">🎻 TUNE</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- Pronite Guidelines Box -->
+  <div class="guidelines-box">
+    <h3>PRONITE SECTOR PROTOCOLS & SAFETY DIRECTIVES</h3>
+    <div class="guidelines-grid">
+      <div>
+        <strong>01. ACCREDITATION VERIFICATION</strong>
+        Every attendee must wear their verified RFID festival wristband issued at Sector 01 (Main Gate Checkpoint). Tampered or detached wristbands are immediately invalid.
+      </div>
+      <div>
+        <strong>02. BAGGAGE & PROHIBITED GEAR</strong>
+        Laser pointers, glass containers, aerosol sprays, alcohol, and contraband substances are strictly forbidden. Campus security and local police frisking active at all perimeter portals.
+      </div>
+      <div>
+        <strong>03. MEDICAL & STROBE ADVISORY</strong>
+        Night 02 (The Phantom Rave) contains intense high-frequency strobe lights and dense theatrical fog. Paramedic units and ambulances on standby at Sector 01 and Sector 03.
+      </div>
+      <div>
+        <strong>04. MIDNIGHT GATES CLOSURE</strong>
+        Curfew enforcement begins at 01:30 AM across hostel corridors. Outstation attendees must carry their hostel clearance docket and college photo identification.
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<!-- Symmetrical Cemetery Mist, Ground Lanterns & Interactive Pumpkins before Footer -->
+<div class="subpage-pumpkin-perch" aria-hidden="true">
+  <div class="cemetery-mist"></div>
+  
+  <div class="creepy-eyes-pair" style="bottom: 22px; left: clamp(30px, 6vw, 110px);">
+    <div class="creepy-eye"></div>
+    <div class="creepy-eye"></div>
+  </div>
+  <div class="creepy-eyes-pair" style="bottom: 26px; right: clamp(30px, 6vw, 110px);">
+    <div class="creepy-eye" style="animation-delay: -2.8s;"></div>
+    <div class="creepy-eye" style="animation-delay: -2.76s;"></div>
+  </div>
+
+  <!-- Left Ground Lantern -->
+  <div class="lantern-ground lantern-ground-left is-lit" id="sub-lantern-left" role="button" tabindex="0" aria-label="Gothic Lantern: click to toggle flame">
+    <div class="lantern-hint">Click to snuff lantern</div>
+    <div class="lantern-ground-roof"></div>
+    <div class="lantern-ground-body">
+      <div class="lantern-flame" style="width:7px; height:12px;"></div>
+    </div>
+    <div class="lantern-plinth"></div>
+  </div>
+
+  <!-- Left Pumpkin -->
+  <div class="scary-pumpkin-wrap pumpkin-subpage-left is-lit" id="sub-pump-left" role="button" tabindex="0" aria-label="Cursed Pumpkin: click to toggle flame">
+    <div class="pumpkin-hint">Click to snuff flame</div>
+    <div class="pumpkin-ground-glow"></div>
+    <svg class="jack-lantern-svg" viewBox="0 0 100 90">
+      <defs>
+        <radialGradient id="pumpGrad1" cx="50%" cy="55%" r="50%">
+          <stop offset="0%" stop-color="#f26e1c"/>
+          <stop offset="65%" stop-color="#ab3a08"/>
+          <stop offset="100%" stop-color="#4d1604"/>
+        </radialGradient>
+        <radialGradient id="pumpRibGrad" cx="40%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#db5b14"/>
+          <stop offset="70%" stop-color="#8a2a05"/>
+          <stop offset="100%" stop-color="#360c02"/>
+        </radialGradient>
+        <radialGradient id="fireGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fff9bd"/>
+          <stop offset="35%" stop-color="#ff9900"/>
+          <stop offset="75%" stop-color="#ff3300"/>
+          <stop offset="100%" stop-color="#8b0000"/>
+        </radialGradient>
+        <radialGradient id="darkGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#1f0f0c"/>
+          <stop offset="100%" stop-color="#080203"/>
+        </radialGradient>
+      </defs>
+      <path d="M47,20 C46,10 52,4 56,2 C58,6 56,12 52,20 Z" fill="#2d3319" stroke="#181c0c" stroke-width="0.8"/>
+      <path d="M53,10 Q62,6 60,14 T66,16" fill="none" stroke="#3e4a20" stroke-width="1.1" stroke-linecap="round"/>
+      <ellipse cx="28" cy="52" rx="19" ry="26" fill="url(#pumpRibGrad)"/>
+      <ellipse cx="72" cy="52" rx="19" ry="26" fill="url(#pumpRibGrad)"/>
+      <ellipse cx="38" cy="53" rx="17" ry="28" fill="url(#pumpGrad1)"/>
+      <ellipse cx="62" cy="53" rx="17" ry="28" fill="url(#pumpGrad1)"/>
+      <ellipse cx="50" cy="54" rx="16" ry="29" fill="url(#pumpGrad1)"/>
+      <path d="M36,25 C33,40 33,65 36,80" fill="none" stroke="#260702" stroke-width="1.3" opacity="0.6"/>
+      <path d="M64,25 C67,40 67,65 64,80" fill="none" stroke="#260702" stroke-width="1.3" opacity="0.6"/>
+      <g class="jack-face">
+        <polygon class="jack-carving" points="30,42 41,45 35,49 28,47"/>
+        <polygon class="jack-carving" points="70,42 59,45 65,49 72,47"/>
+        <polygon class="jack-carving" points="50,49 46,55 54,55"/>
+        <path class="jack-carving" d="M26,58 Q50,78 74,58 Q68,64 63,60 Q59,68 56,61 Q52,70 50,62 Q47,69 44,61 Q41,68 37,60 Q32,64 26,58 Z"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Right Pumpkin -->
+  <div class="scary-pumpkin-wrap pumpkin-subpage-right is-lit" id="sub-pump-right" role="button" tabindex="0" aria-label="Cursed Pumpkin: click to toggle flame">
+    <div class="pumpkin-hint">Click to snuff flame</div>
+    <div class="pumpkin-ground-glow"></div>
+    <svg class="jack-lantern-svg" viewBox="0 0 100 90">
+      <path d="M53,20 C54,10 48,4 44,2 C42,6 44,12 48,20 Z" fill="#2d3319" stroke="#181c0c" stroke-width="0.8"/>
+      <ellipse cx="28" cy="52" rx="19" ry="26" fill="url(#pumpRibGrad)"/>
+      <ellipse cx="72" cy="52" rx="19" ry="26" fill="url(#pumpRibGrad)"/>
+      <ellipse cx="38" cy="53" rx="17" ry="28" fill="url(#pumpGrad1)"/>
+      <ellipse cx="62" cy="53" rx="17" ry="28" fill="url(#pumpGrad1)"/>
+      <ellipse cx="50" cy="54" rx="16" ry="29" fill="url(#pumpGrad1)"/>
+      <g class="jack-face">
+        <polygon class="jack-carving" points="28,40 42,46 36,50 26,46"/>
+        <polygon class="jack-carving" points="72,40 58,46 64,50 74,46"/>
+        <polygon class="jack-carving" points="50,48 45,55 55,55"/>
+        <path class="jack-carving" d="M24,56 Q50,82 76,56 Q69,65 63,59 Q59,71 56,61 Q52,73 50,62 Q48,73 44,61 Q41,71 37,59 Q31,65 24,56 Z"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Right Ground Lantern -->
+  <div class="lantern-ground lantern-ground-right is-lit" id="sub-lantern-right" role="button" tabindex="0" aria-label="Gothic Lantern: click to toggle flame">
+    <div class="lantern-hint">Click to snuff lantern</div>
+    <div class="lantern-ground-roof"></div>
+    <div class="lantern-ground-body">
+      <div class="lantern-flame" style="width:7px; height:12px; animation-delay:-1.6s;"></div>
+    </div>
+    <div class="lantern-plinth"></div>
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a href="index.html" style="display:inline-block; margin-bottom:14px;">
+        <img src="assets/logo_trans.png" alt="Zeitgeist Logo" style="width:min(100%, 260px); height:auto; filter:drop-shadow(0 4px 16px rgba(0,0,0,0.8));">
+      </a>
+      <h3>ZEITGEIST'26</h3>
+      <p>The annual socio-cultural festival of Indian Institute of Technology Ropar. Three nights of declassified competitive arts, sonic ecstasy, and mist-laden horror.</p>
+      <p style="margin-top:16px; color:var(--amber);">OCTOBER 30 – NOVEMBER 01, 2026 // RUPNAGAR, PUNJAB</p>
+    </div>
+    
+    <div class="foot-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">The Grounds (Home)</a></li>
+        <li><a href="events.html">Classified Arenas (Events)</a></li>
+        <li><a href="pronites.html">Midnight Lineup (Pronites)</a></li>
+        <li><a href="schedule.html">Festival Timeline (Schedule)</a></li>
+        <li><a href="sponsors.html">Official Benefactors (Sponsors)</a></li>
+      </ul>
+    </div>
+    
+    <div class="foot-col">
+      <h4>Clearance</h4>
+      <ul>
+        <li><a href="passes.html">Festival Passes & Stay</a></li>
+        <li><a href="team.html">The Council (Our Team)</a></li>
+        <li><a href="gallery.html">Recovered Polaroids & Tape</a></li>
+        <li><a href="contact.html">Sector Command & Travel</a></li>
+      </ul>
+    </div>
+    
+    <div class="foot-col">
+      <h4>Transmission</h4>
+      <ul>
+        <li><a href="mailto:zeitgeist@iitrpr.ac.in">zeitgeist@iitrpr.ac.in</a></li>
+        <li><a href="tel:+919876543210">+91 98765 43210 (Control Room)</a></li>
+        <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">@zeitgeist_iitrpr</a></li>
+        <li><a href="https://youtube.com" target="_blank" rel="noopener noreferrer">Zeitgeist Archives</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="foot-bottom">
+    <span>© MMXXVI ZEITGEIST CULTURAL COUNCIL · IIT ROPAR · ALL PROTOCOLS DECLASSIFIED</span>
+    <span class="foot-disclaimer">WARNING: CURFEW APPLIES PAST MIDNIGHT ACROSS PUNJAB MIST SECTORS</span>
+  </div>
+</footer>
+
+<script>
+// ============================================================================
+// ZEITGEIST'26 DEFENSE GRID: DOM INTEGRITY SEAL & DEVTOOLS TAMPER SHIELD
+// ============================================================================
+(function initSecurityShield() {
+  'use strict';
+
+  // Purge any stale HUD alert from previous sessions
+  try {
+    const staleHud = document.getElementById('sec-hud-alert');
+    if (staleHud) staleHud.remove();
+    document.querySelectorAll('.security-alert-hud').forEach(el => el.remove());
+  } catch (_) {}
+
+  // 1. Silent Background DevTools Shortcuts Blocking
+  window.addEventListener('keydown', (e) => {
+    const isF12 = e.key === 'F12' || e.keyCode === 123;
+    const isInspect = (e.ctrlKey || e.metaKey) && e.shiftKey && ['I','i','C','c','J','j'].includes(e.key);
+    const isMacInspect = e.metaKey && e.altKey && ['i','I','c','C','j','J'].includes(e.key);
+    const isViewSource = (e.ctrlKey || (e.metaKey && e.altKey)) && ['u','U'].includes(e.key);
+    const isSavePage = (e.ctrlKey || e.metaKey) && ['s','S'].includes(e.key);
+
+    if (isF12 || isInspect || isMacInspect || isViewSource || isSavePage) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }, { capture: true });
+
+  // 2. Silent Background Right-Click Context Menu Blocking
+  window.addEventListener('contextmenu', (e) => {
+    if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  }, { capture: true });
+
+  // 3. Silent Targeted DOM Integrity Guard (Auto-restore in background)
+  let isRestoring = false;
+  function setupDOMIntegrity() {
+    const protectedElements = document.querySelectorAll(
+      '.pass-card, .ticket-card, .price, .hero-tag, .hero-subtitle, .sch-time, .sch-title, .brand-sub, .tier-price, .ticket-meta'
+    );
+    const snapshots = new WeakMap();
+
+    protectedElements.forEach((el) => {
+      snapshots.set(el, el.innerHTML);
+
+      const observer = new MutationObserver(() => {
+        if (isRestoring) return;
+        const savedHTML = snapshots.get(el);
+        if (savedHTML && el.innerHTML !== savedHTML) {
+          isRestoring = true;
+          el.innerHTML = savedHTML;
+          setTimeout(() => { isRestoring = false; }, 50);
+        }
+      });
+
+      observer.observe(el, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupDOMIntegrity);
+  } else {
+    setupDOMIntegrity();
+  }
+
+  // 4. Freeze Core Security Constants
+  window.ZG_SECURITY_SEAL = Object.freeze({
+    festival: "ZEITGEIST'26",
+    dates: "OCT 30 - NOV 01, 2026",
+    host: "IIT Ropar",
+    status: "CLASSIFIED",
+    tamperProof: true,
+    integrityVersion: "2.6.4"
+  });
+})();
+
+/* Shared Audio Synthesizer */
+let AC, masterGain;
+let audioEnabled = localStorage.getItem("zg_audio") === "true";
+
+function initAudio() {
+  if (AC) return;
+  try {
+    AC = new (window.AudioContext || window.webkitAudioContext)();
+    masterGain = AC.createGain();
+    masterGain.gain.value = audioEnabled ? 0.6 : 0;
+    masterGain.connect(AC.destination);
+
+    const lp = AC.createBiquadFilter();
+    lp.type = "lowpass";
+    lp.frequency.value = 140;
+    lp.connect(masterGain);
+
+    [45.0, 67.5].forEach((freq) => {
+      const osc = AC.createOscillator();
+      osc.type = "sine";
+      osc.frequency.value = freq;
+      const g = AC.createGain();
+      g.gain.value = 0.07;
+      osc.connect(g).connect(lp);
+      osc.start();
+    });
+  } catch (e) {}
+}
+
+function playClick(freq = 880) {
+  if (!AC || !audioEnabled) return;
+  try {
+    const osc = AC.createOscillator();
+    const g = AC.createGain();
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(freq, AC.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(120, AC.currentTime + 0.04);
+    g.gain.setValueAtTime(0.1, AC.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, AC.currentTime + 0.04);
+    osc.connect(g).connect(masterGain);
+    osc.start();
+    osc.stop(AC.currentTime + 0.04);
+  } catch (e) {}
+}
+
+function playChime(freq = 320) {
+  if (!AC || !audioEnabled) return;
+  try {
+    const osc = AC.createOscillator();
+    const g = AC.createGain();
+    osc.type = "triangle";
+    osc.frequency.setValueAtTime(freq, AC.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(freq * 0.45, AC.currentTime + 0.8);
+    g.gain.setValueAtTime(0.2, AC.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, AC.currentTime + 0.8);
+    osc.connect(g).connect(masterGain);
+    osc.start();
+    osc.stop(AC.currentTime + 0.8);
+  } catch (e) {}
+}
+
+function playGlitch() {
+  if (!AC || !audioEnabled) return;
+  try {
+    const osc = AC.createOscillator();
+    const g = AC.createGain();
+    osc.type = "sawtooth";
+    osc.frequency.setValueAtTime(160 + Math.random() * 400, AC.currentTime);
+    g.gain.setValueAtTime(0.12, AC.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, AC.currentTime + 0.07);
+    osc.connect(g).connect(masterGain);
+    osc.start();
+    osc.stop(AC.currentTime + 0.07);
+  } catch (e) {}
+}
+
+const toast = m => {
+  const t = document.getElementById("toast");
+  if (!t) return;
+  t.textContent = m;
+  t.classList.add("show");
+  clearTimeout(toast.t);
+  toast.t = setTimeout(() => t.classList.remove("show"), 3200);
+};
+
+const sndBtn = document.getElementById("snd-btn");
+if (sndBtn) {
+  if (audioEnabled) {
+    sndBtn.setAttribute("aria-pressed", "true");
+    document.getElementById("snd-label").textContent = "SOUND: ON";
+  }
+  sndBtn.onclick = () => {
+    initAudio();
+    audioEnabled = !audioEnabled;
+    localStorage.setItem("zg_audio", audioEnabled ? "true" : "false");
+    sndBtn.setAttribute("aria-pressed", audioEnabled);
+    document.getElementById("snd-label").textContent = audioEnabled ? "SOUND: ON" : "SOUND: OFF";
+    if (AC && AC.state === "suspended") AC.resume();
+    if (masterGain) {
+      masterGain.gain.linearRampToValueAtTime(audioEnabled ? 0.6 : 0, AC.currentTime + 0.5);
+    }
+    toast(audioEnabled ? "CAMPUS AUDIO TRANSDUCER ACTIVE." : "AUDIO FEED MUTED.");
+    if (audioEnabled) playChime(440);
+  };
+}
+
+/* Magnetic Horror Cursor */
+if (matchMedia("(pointer: fine)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const cur = document.getElementById("cur");
+  if (cur) {
+    const cr = cur.querySelector(".cr"), cl = cur.querySelector(".cl");
+    let initialized = false;
+    let x = 0, y = 0, tx = 0, ty = 0;
+    
+    window.addEventListener("pointermove", e => {
+      tx = e.clientX;
+      ty = e.clientY;
+      if (!initialized) {
+        x = tx;
+        y = ty;
+        cur.style.display = "block";
+        document.body.classList.add("cur");
+        initialized = true;
+      }
+    });
+
+    window.addEventListener("pointerleave", () => { cur.style.opacity = "0"; });
+    window.addEventListener("pointerenter", () => { cur.style.opacity = "1"; });
+    
+    (function l() {
+      x += (tx - x) * 0.22;
+      y += (ty - y) * 0.22;
+      cur.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      requestAnimationFrame(l);
+    })();
+    
+    document.addEventListener("pointerover", e => {
+      const t = e.target.closest("[data-c], a, button, select, input, .ev, .chip, .ticket-card, .polaroid-card, .lineup-card, .portal-card");
+      cur.classList.toggle("big", !!t);
+      if (cl) cl.textContent = t ? (t.dataset.c || "") : "";
+    });
+  }
+}
+
+/* Keyboard Easter Eggs */
+let keyBuffer = "";
+window.addEventListener("keydown", e => {
+  if (e.target.matches("input, select, textarea")) return;
+  keyBuffer = (keyBuffer + e.key.toLowerCase()).slice(-8);
+  if (keyBuffer.endsWith("night")) {
+    toast("YOU NEVER LEFT THE CAMPUS.");
+    playGlitch();
+    document.body.style.filter = "invert(1)";
+    setTimeout(() => document.body.style.filter = "", 150);
+  } else if (keyBuffer.endsWith("ritual")) {
+    toast("THE RITUAL WAS SEALED DECADES AGO.");
+    playChime(120);
+  }
+});
+
+/* Procedural Flame Ignite & Snuff Audio Synthesis */
+function playFlameIgniteSFX() {
+  if (!AC || !audioEnabled) return;
+  try {
+    const osc = AC.createOscillator();
+    const g = AC.createGain();
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(330, AC.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(480, AC.currentTime + 0.32);
+    g.gain.setValueAtTime(0.14, AC.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, AC.currentTime + 0.38);
+    osc.connect(g).connect(masterGain);
+    osc.start();
+    osc.stop(AC.currentTime + 0.4);
+  } catch (e) {}
+}
+
+function playFlameSnuffSFX() {
+  if (!AC || !audioEnabled) return;
+  try {
+    const osc = AC.createOscillator();
+    const g = AC.createGain();
+    osc.type = "triangle";
+    osc.frequency.setValueAtTime(180, AC.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(50, AC.currentTime + 0.32);
+    g.gain.setValueAtTime(0.12, AC.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, AC.currentTime + 0.36);
+    osc.connect(g).connect(masterGain);
+    osc.start();
+    osc.stop(AC.currentTime + 0.38);
+  } catch (e) {}
+}
+
+const playPumpkinIgniteSFX = playFlameIgniteSFX;
+const playPumpkinSnuffSFX = playFlameSnuffSFX;
+
+/* Interactive Light Toggle Handlers (Lanterns & Pumpkins) */
+document.querySelectorAll('.scary-pumpkin-wrap, .lantern-rig, .lantern-ground').forEach(el => {
+  function toggleLight(e) {
+    if (e) e.stopPropagation();
+    initAudio();
+    const isLit = el.classList.contains('is-lit');
+    const isPumpkin = el.classList.contains('scary-pumpkin-wrap');
+    const hint = el.querySelector('.pumpkin-hint, .lantern-hint');
+    const noun = isPumpkin ? 'flame' : 'lantern';
+
+    if (isLit) {
+      el.classList.remove('is-lit');
+      el.classList.add('is-extinguished');
+      if (hint) hint.textContent = `Click to ignite ${noun}`;
+      playFlameSnuffSFX();
+    } else {
+      el.classList.remove('is-extinguished');
+      el.classList.add('is-lit');
+      if (hint) hint.textContent = `Click to snuff ${noun}`;
+      playFlameIgniteSFX();
+    }
+  }
+
+  el.addEventListener('click', toggleLight);
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleLight(e);
+    }
+  });
+});
+
+// Mobile menu toggle
+const burger = document.getElementById('burger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const closeMob = document.getElementById('close-mob');
+if (burger && mobileMenu) {
+  burger.onclick = () => mobileMenu.style.display = 'flex';
+}
+if (closeMob && mobileMenu) {
+  closeMob.onclick = () => mobileMenu.style.display = 'none';
+}
+document.querySelectorAll('.mob-link').forEach(l => {
+  l.onclick = () => { if (mobileMenu) mobileMenu.style.display = 'none'; };
+});
+
+
+// 3D Lineup Card Tilt Physics
+document.querySelectorAll('.lineup-card').forEach(card => {
+  card.addEventListener('pointermove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const rx = ((y - cy) / cy) * -6;
+    const ry = ((x - cx) / cx) * 6;
+    card.style.transform = `perspective(1200px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateZ(14px)`;
+    card.style.setProperty('--mx', `${(x / rect.width * 100).toFixed(1)}%`);
+    card.style.setProperty('--my', `${(y / rect.height * 100).toFixed(1)}%`);
+  });
+  card.addEventListener('pointerleave', () => {
+    card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+  });
+});
+
+</script>
+</body>
+</html>

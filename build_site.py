@@ -1,6 +1,11 @@
 # Master Multi-Page Website Builder for ZEITGEIST'26 | IIT Ropar
 # Generates all 7 pages + backward-compatible aliases
 import os
+import sys
+
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
 
 # ==============================================================================
 # GLOBAL SHARED ASSETS & SHELL
@@ -1779,7 +1784,7 @@ def build_all():
 
     # Execute build_homepage.py for the full horror homepage with logo & all effects
     import subprocess
-    subprocess.run(["python3", "build_homepage.py"], check=True)
+    subprocess.run([sys.executable, "build_homepage.py"], check=True)
     print("✓ Synced master index.html")
 
     print("\n--- ALL 9 FESTIVAL PAGES COMPILED FLAWLESSLY ---")

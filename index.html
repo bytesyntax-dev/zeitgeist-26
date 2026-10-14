@@ -76,6 +76,17 @@ button { font: inherit; color: inherit; background: none; border: 0; }
   }
 }
 
+body.screen-jolt {
+  animation: screenJolt 0.22s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes screenJolt {
+  10%, 90% { transform: translate3d(-3px, 2px, 0); }
+  20%, 80% { transform: translate3d(4px, -3px, 0); }
+  30%, 50%, 70% { transform: translate3d(-5px, 3px, 0); }
+  40%, 60% { transform: translate3d(4px, -2px, 0); }
+}
+
 #cur-dot {
   position: fixed;
   top: -100px;
@@ -117,6 +128,70 @@ button { font: inherit; color: inherit; background: none; border: 0; }
 
 #cur-ring.active {
   transform: translate(-50%, -50%) scale(0.78);
+}
+
+/* ===== HORROR JUMPSCARE & SCROLL ATMOSPHERE ENGINE ===== */
+#jumpscare-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9995;
+  overflow: hidden;
+}
+
+#jumpscare-bat-cv {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#jumpscare-blood-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.jumpscare-handprint {
+  position: absolute;
+  width: clamp(150px, 20vw, 260px);
+  height: clamp(180px, 24vw, 310px);
+  opacity: 0;
+  transform: scale(1.4) rotate(var(--rot, -12deg));
+  transition: opacity 0.04s ease-out, transform 0.1s cubic-bezier(0.1, 0.9, 0.2, 1);
+  filter: drop-shadow(0 0 18px rgba(220, 20, 35, 0.95)) drop-shadow(0 8px 25px rgba(0,0,0,0.95));
+}
+
+.jumpscare-handprint.slam {
+  opacity: 0.94;
+  transform: scale(1) rotate(var(--rot, -12deg));
+}
+
+.jumpscare-handprint.fade-out {
+  opacity: 0;
+  transform: scale(0.96) translateY(32px) rotate(var(--rot, -12deg));
+  transition: opacity 2.2s ease-in, transform 2.2s ease-in;
+}
+
+.phantom-ghost-flash {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  width: min(580px, 90vw);
+  height: min(580px, 90vw);
+  background: radial-gradient(circle, rgba(235, 220, 215, 0.28) 0%, rgba(180, 25, 40, 0.2) 40%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9996;
+  filter: blur(2px) contrast(1.6);
+  transition: opacity 0.08s ease-out;
+}
+
+.phantom-ghost-flash.scream {
+  opacity: 0.92;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 /* Atmospheric Overlays */
@@ -408,6 +483,32 @@ nav.top {
   height: 100%;
   pointer-events: none;
   z-index: 1;
+}
+
+/* Thunderstorm & Dramatic Lightning Overlays */
+.storm-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.storm-flash-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+  opacity: 0;
+  background: radial-gradient(circle at var(--flash-x, 50%) var(--flash-y, 25%), rgba(255, 255, 255, 0.96) 0%, rgba(210, 230, 255, 0.65) 28%, rgba(190, 25, 45, 0.45) 55%, rgba(4, 3, 4, 0) 85%);
+  mix-blend-mode: screen;
+  transition: opacity 0.03s cubic-bezier(0.1, 0.9, 0.2, 1);
+  will-change: opacity, background;
+}
+
+.storm-flash-overlay.is-flashing {
+  opacity: 1;
 }
 
 /* Blood Drip SVG & Animated Droplets */
@@ -708,10 +809,11 @@ nav.top {
 }
 
 .pumpkin-left {
-  bottom: clamp(55px, 10vh, 105px);
-  left: clamp(80px, 11.5vw, 185px);
-  width: clamp(75px, 8vw, 110px);
+  bottom: clamp(15px, 3vh, 45px);
+  left: clamp(10px, 3.5vw, 65px);
+  width: clamp(140px, 16vw, 215px);
   transform: rotate(-4deg);
+  filter: drop-shadow(0 0 35px rgba(220, 25, 40, 0.65)) drop-shadow(0 15px 30px rgba(0,0,0,0.95));
 }
 
 .pumpkin-left:hover {
@@ -719,15 +821,18 @@ nav.top {
 }
 
 .pumpkin-right {
-  bottom: clamp(55px, 10vh, 105px);
-  right: clamp(80px, 11.5vw, 185px);
-  width: clamp(75px, 8vw, 110px);
+  bottom: clamp(15px, 3vh, 45px);
+  right: clamp(10px, 3.5vw, 65px);
+  width: clamp(140px, 16vw, 215px);
   transform: rotate(4deg);
+  filter: drop-shadow(0 0 35px rgba(220, 25, 40, 0.65)) drop-shadow(0 15px 30px rgba(0,0,0,0.95));
 }
 
 .pumpkin-right:hover {
   transform: rotate(4deg) scale(1.08) translateY(-4px);
 }
+
+
 
 .jack-lantern-svg {
   width: 100%;
@@ -1604,41 +1709,7 @@ nav.top {
   text-transform: uppercase;
 }
 
-/* ===== TACTICAL MAP SECTION ===== */
-.map-wrap {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 24px;
-  background: rgba(18, 14, 16, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 24px;
-  border-radius: 4px;
-}
 
-.map-svg {
-  width: 100%;
-  height: auto;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: #070506;
-}
-
-.map-sector {
-  cursor: pointer;
-  transition: all 0.25s;
-}
-
-.map-sector:hover {
-  fill: rgba(148, 23, 34, 0.6);
-}
-
-.map-panel {
-  background: rgba(10, 8, 9, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
 
 /* ===== FOOTER ===== */
 footer {
@@ -1754,6 +1825,22 @@ footer {
 <div id="cur-dot" aria-hidden="true"></div>
 <div id="cur-ring" aria-hidden="true"></div>
 
+<!-- Fullscreen Horror Jumpscare Overlay System -->
+<div id="jumpscare-overlay" aria-hidden="true">
+  <canvas id="jumpscare-bat-cv"></canvas>
+  <div id="jumpscare-blood-container"></div>
+  <div id="phantom-ghost-flash" class="phantom-ghost-flash">
+    <svg viewBox="0 0 200 200" style="width:100%; height:100%; filter:drop-shadow(0 0 35px #ff1e38);">
+      <path fill="#f0ebe1" opacity="0.88" d="M100,20 C60,20 40,60 40,110 C40,150 20,180 35,190 C50,180 70,195 90,180 C110,195 130,180 145,190 C160,180 140,150 140,110 C140,60 120,20 100,20 Z"/>
+      <ellipse cx="80" cy="85" rx="14" ry="22" fill="#080204"/>
+      <ellipse cx="120" cy="85" rx="14" ry="22" fill="#080204"/>
+      <ellipse cx="100" cy="135" rx="18" ry="32" fill="#080204"/>
+      <ellipse cx="80" cy="85" rx="4" ry="6" fill="#ff2233"/>
+      <ellipse cx="120" cy="85" rx="4" ry="6" fill="#ff2233"/>
+    </svg>
+  </div>
+</div>
+
 <!-- Top Navigation -->
 <nav class="top" aria-label="Primary">
   <!-- ONLY ONE ZEITGEIST: Logo + Subtitle (No duplicate text) -->
@@ -1805,6 +1892,8 @@ footer {
 <header class="hero" id="hero">
   <canvas id="hero-cv"></canvas>
   <canvas id="bat-burst-cv" class="bat-burst-overlay" aria-hidden="true"></canvas>
+  <canvas id="storm-cv" class="storm-canvas" aria-hidden="true"></canvas>
+  <div id="storm-flash" class="storm-flash-overlay" aria-hidden="true"></div>
 
   <!-- Blood Drip Overlay & Animated Falling Droplets -->
   <svg class="blood-drip" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
@@ -1927,6 +2016,20 @@ footer {
         <polygon class="jack-carving" points="50,49 46,55 54,55"/>
         <path class="jack-carving" d="M26,58 Q50,78 74,58 Q68,64 63,60 Q59,68 56,61 Q52,70 50,62 Q47,69 44,61 Q41,68 37,60 Q32,64 26,58 Z"/>
       </g>
+      <!-- Visceral Bloody Gore & Dripping Tears -->
+      <g class="pumpkin-blood-gore">
+        <path d="M30,48 Q32,62 30,73 Q29,81 31,85 Q33,81 32,70 Q34,58 35,50 Z" fill="#990510"/>
+        <circle cx="31" cy="87" r="2.2" fill="#d90b1c"/>
+        <path d="M68,48 Q66,63 68,74 Q69,82 67,86 Q65,82 66,71 Q64,57 63,50 Z" fill="#990510"/>
+        <circle cx="67" cy="88" r="2.2" fill="#d90b1c"/>
+        <path d="M42,66 Q43,76 41,85 Q40,90 42,92 Q44,89 43,80 Q45,70 44,66 Z" fill="#78020a"/>
+        <circle cx="42" cy="93" r="2.4" fill="#ba0c1a"/>
+        <path d="M57,66 Q56,76 58,85 Q59,89 57,92 Q55,88 56,80 Q57,72 58,66 Z" fill="#78020a"/>
+        <circle cx="57" cy="93" r="2.2" fill="#ba0c1a"/>
+        <!-- Slash Wounds -->
+        <path d="M20,36 Q28,39 36,33" stroke="#660309" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M64,33 Q72,39 80,35" stroke="#660309" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </g>
     </svg>
   </div>
 
@@ -1946,6 +2049,19 @@ footer {
         <polygon class="jack-carving" points="72,40 58,46 64,50 74,46"/>
         <polygon class="jack-carving" points="50,48 45,55 55,55"/>
         <path class="jack-carving" d="M24,56 Q50,82 76,56 Q69,65 63,59 Q59,71 56,61 Q52,73 50,62 Q48,73 44,61 Q41,71 37,59 Q31,65 24,56 Z"/>
+      </g>
+      <!-- Visceral Bloody Gore & Dripping Tears -->
+      <g class="pumpkin-blood-gore">
+        <path d="M28,47 Q30,61 29,72 Q28,80 30,84 Q32,80 31,70 Q33,57 34,49 Z" fill="#990510"/>
+        <circle cx="30" cy="86" r="2.2" fill="#d90b1c"/>
+        <path d="M70,47 Q68,62 70,73 Q71,81 69,85 Q67,81 68,70 Q66,57 65,49 Z" fill="#990510"/>
+        <circle cx="69" cy="87" r="2.2" fill="#d90b1c"/>
+        <path d="M40,65 Q41,75 39,84 Q38,89 40,91 Q42,88 41,79 Q43,69 42,65 Z" fill="#78020a"/>
+        <circle cx="40" cy="92" r="2.4" fill="#ba0c1a"/>
+        <path d="M59,65 Q58,75 60,84 Q61,88 59,91 Q57,87 58,79 Q59,71 60,65 Z" fill="#78020a"/>
+        <circle cx="59" cy="92" r="2.2" fill="#ba0c1a"/>
+        <path d="M18,34 Q26,38 34,31" stroke="#660309" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M66,31 Q74,38 82,33" stroke="#660309" stroke-width="2.5" fill="none" stroke-linecap="round"/>
       </g>
     </svg>
   </div>
@@ -2004,12 +2120,6 @@ footer {
   </div>
 
   <div class="hero-content">
-    <div class="goth-tag" style="margin-bottom:16px;">
-      <span class="tag-glyph">✦</span>
-      <span>IIT ROPAR · ANNUAL CULTURAL FESTIVAL · MMXXVI</span>
-      <span class="tag-glyph">✦</span>
-    </div>
-
     <div class="logo-3d-stage" id="logo-stage" title="The Ancient Seal of Zeitgeist">
       <img class="hero-logo-img" id="hero-logo" src="assets/logo_trans.png" alt="ZEITGEIST'26 — Moonlit Revelry" width="903" height="382" fetchpriority="high" decoding="async">
     </div>
@@ -2021,7 +2131,7 @@ footer {
       <a class="btn btn-amber" href="#passes">[ Claim Passes ]</a>
     </div>
 
-    <!-- 3D Quick Highlights Bar (Zero Empty Space) -->
+    <!-- 3D Quick Highlights Bar -->
     <div class="hero-highlights-bar">
       <div class="highlight-box">
         <span class="highlight-val">OCT 30 – NOV 01</span>
@@ -2436,64 +2546,7 @@ footer {
 </section>
 
 <!-- ========================================================
-     TACTICAL CAMPUS MAP
-     ======================================================== -->
-<section id="map" style="background:linear-gradient(180deg, var(--void) 0%, #0b0709 50%, var(--void) 100%);">
-  <div class="section-head rv">
-    <div>
-      <p class="eyebrow">Archive 05 // Tactical Grounds</p>
-      <h2 class="disp" style="font-size:clamp(32px, 5.5vw, 68px); margin-top:8px;">Campus Map.</h2>
-    </div>
-    <div class="goth-tag">
-      <span class="tag-glyph">⌖</span>
-      <span>30.9664° N, 76.5331° E</span>
-    </div>
-  </div>
 
-  <div class="map-wrap rv">
-    <svg class="map-svg" viewBox="0 0 600 380" aria-label="Tactical map of IIT Ropar campus">
-      <defs>
-        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#grid)" />
-      
-      <!-- Campus Sectors -->
-      <rect class="map-sector" id="sec-1" x="50" y="50" width="160" height="110" rx="4" fill="rgba(148, 23, 34, 0.2)" stroke="var(--crim)" stroke-width="1.5" />
-      <text x="130" y="110" fill="var(--bone)" font-family="var(--mono)" font-size="11" text-anchor="middle" letter-spacing="1">MAIN AMPHITHEATRE</text>
-
-      <rect class="map-sector" id="sec-2" x="250" y="40" width="150" height="100" rx="4" fill="rgba(173, 95, 38, 0.15)" stroke="var(--amber)" stroke-width="1.5" />
-      <text x="325" y="95" fill="var(--bone)" font-family="var(--mono)" font-size="11" text-anchor="middle" letter-spacing="1">LECTURE COMPLEX</text>
-
-      <rect class="map-sector" id="sec-3" x="430" y="60" width="130" height="120" rx="4" fill="rgba(255, 255, 255, 0.08)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-      <text x="495" y="125" fill="var(--bone)" font-family="var(--mono)" font-size="11" text-anchor="middle" letter-spacing="1">SAC ARENA</text>
-
-      <rect class="map-sector" id="sec-4" x="70" y="210" width="140" height="120" rx="4" fill="rgba(255, 255, 255, 0.08)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-      <text x="140" y="275" fill="var(--bone)" font-family="var(--mono)" font-size="11" text-anchor="middle" letter-spacing="1">OAT THEATRE</text>
-
-      <rect class="map-sector" id="sec-5" x="240" y="190" width="170" height="130" rx="4" fill="rgba(148, 23, 34, 0.25)" stroke="var(--crim-bright)" stroke-width="1.5" />
-      <text x="325" y="260" fill="var(--bone)" font-family="var(--mono)" font-size="11" text-anchor="middle" letter-spacing="1">SPORTS ARENA</text>
-
-      <rect class="map-sector" id="sec-6" x="440" y="230" width="120" height="90" rx="4" fill="rgba(173, 95, 38, 0.15)" stroke="var(--amber)" stroke-width="1.5" />
-      <text x="500" y="280" fill="var(--bone)" font-family="var(--mono)" font-size="11" text-anchor="middle" letter-spacing="1">CENTRAL LAWNS</text>
-    </svg>
-
-    <div class="map-panel" id="map-info">
-      <div>
-        <p class="eyebrow" id="map-sec-tag" style="color:var(--crim-bright);">SECTOR 01 // SELECTED</p>
-        <h3 id="map-sec-title" style="font:700 24px var(--serif); color:var(--bone); margin:8px 0 14px;">Main Amphitheatre</h3>
-        <p id="map-sec-desc" style="font:400 13px/1.7 var(--sans); color:var(--bone-dim);">
-          Primary festival open-air stage accommodating 6,000+ souls. Host to Headline Pronites, Star Rites, and inaugural celebrations.
-        </p>
-      </div>
-      <div style="margin-top:20px;">
-        <span class="eyebrow" style="display:block; margin-bottom:6px;">COORDINATES</span>
-        <p style="font:500 11px var(--mono); color:var(--ash);">GRID 30.9664° N, 76.5331° E</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ========================================================
      GALLERY / EVIDENCE (3D Polaroids)
@@ -2813,7 +2866,7 @@ if (window.matchMedia('(pointer: fine)').matches && curDot && curRing) {
   renderCursor();
 
   // Hover detection
-  const clickables = document.querySelectorAll('a, button, [data-tilt], .pol-card, .highlight-box, .ritual-card');
+  const clickables = document.querySelectorAll('a, button, [data-tilt], .pol-card, .highlight-box, .cd-card, .ritual-card, .scary-pumpkin-wrap');
   clickables.forEach(el => {
     el.addEventListener('mouseenter', () => curRing.classList.add('hover'));
     el.addEventListener('mouseleave', () => curRing.classList.remove('hover'));
@@ -2890,26 +2943,7 @@ document.querySelectorAll('.sch-tab').forEach(tab => {
 });
 renderSchedule(1);
 
-// ----- 6. TACTICAL MAP INTERACTION -----
-const MAP_SECTORS = {
-  'sec-1': { tag: 'SECTOR 01 // SELECTED', title: 'Main Amphitheatre', desc: 'Primary open-air arena for 6,000+ revelers. Venue for Headline Pronites and Opening Ceremonies.' },
-  'sec-2': { tag: 'SECTOR 02 // SELECTED', title: 'Lecture Complex', desc: 'State-of-the-art auditoriums for Parliamentary Debate, Quiz rituals, and Film Screenings.' },
-  'sec-3': { tag: 'SECTOR 03 // SELECTED', title: 'SAC Arena', desc: 'Student Activity Centre hosting the Gaming LAN arenas, Fashion green rooms, and Acoustic jams.' },
-  'sec-4': { tag: 'SECTOR 04 // SELECTED', title: 'Open Air Theatre (OAT)', desc: 'Intimate tiered stone theatre for Street Play, Theatrical Monologues, and Rock prelims.' },
-  'sec-5': { tag: 'SECTOR 05 // SELECTED', title: 'Sports Grounds', desc: 'Expansive field for mega food streets, experiential brand arenas, and informal cultural games.' },
-  'sec-6': { tag: 'SECTOR 06 // SELECTED', title: 'Central Lawns', desc: 'Lush green lawns for live charcoal sketching, photography exhibitions, and open-air poetry.' }
-};
 
-document.querySelectorAll('.map-sector').forEach(sec => {
-  sec.onclick = () => {
-    const data = MAP_SECTORS[sec.id];
-    if (data) {
-      document.getElementById('map-sec-tag').textContent = data.tag;
-      document.getElementById('map-sec-title').textContent = data.title;
-      document.getElementById('map-sec-desc').textContent = data.desc;
-    }
-  };
-});
 
 // ----- 7. LIGHTBOX MODAL -----
 function openLightbox(src) {
@@ -3336,6 +3370,569 @@ if (burstCanvas && heroLogo && heroSec) {
   renderLogo3D();
 }
 
+// ----- 10.5 PROCEDURAL CINEMATIC THUNDERSTORM & DRAMATIC LIGHTNING ENGINE -----
+const stormCanvas = document.getElementById('storm-cv');
+const stormFlash = document.getElementById('storm-flash');
+if (stormCanvas && stormFlash) {
+  const sCtx = stormCanvas.getContext('2d');
+  let sWidth = 0, sHeight = 0;
+
+  function resizeStorm() {
+    const heroEl = stormCanvas.parentElement;
+    sWidth = stormCanvas.width = heroEl ? heroEl.offsetWidth : window.innerWidth;
+    sHeight = stormCanvas.height = heroEl ? heroEl.offsetHeight : window.innerHeight;
+  }
+  resizeStorm();
+  window.addEventListener('resize', resizeStorm);
+
+  const activeStrikes = [];
+  let flashBrightness = 0;
+
+  // Cinematic Storm Rain Engine (Wind-swept driving rain streaks)
+  const rainDrops = [];
+  const numRainDrops = 140;
+  for (let i = 0; i < numRainDrops; i++) {
+    rainDrops.push({
+      x: Math.random() * (window.innerWidth || 1400),
+      y: Math.random() * (window.innerHeight || 900),
+      length: Math.random() * 22 + 14,
+      speed: Math.random() * 12 + 18,
+      slant: -0.22,
+      alpha: Math.random() * 0.28 + 0.16
+    });
+  }
+
+  // Storm Bats startled by lightning strikes
+  const stormBats = [];
+  function spawnLightningBats(originX, originY) {
+    const count = Math.floor(Math.random() * 5) + 7; // 7 to 11 bats per burst
+    for (let i = 0; i < count; i++) {
+      const angle = (Math.random() - 0.5) * Math.PI * 1.2 - Math.PI * 0.45;
+      const speed = Math.random() * 5.2 + 3.2;
+      stormBats.push({
+        x: originX + (Math.random() - 0.5) * 60,
+        y: originY + (Math.random() - 0.5) * 60,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        size: Math.random() * 8 + 10,
+        wing: Math.random() * Math.PI,
+        wingSpeed: Math.random() * 0.45 + 0.35,
+        alpha: 1.0,
+        decay: Math.random() * 0.012 + 0.007
+      });
+    }
+    if (typeof playBatFlutterSFX === 'function') {
+      playBatFlutterSFX();
+    }
+  }
+
+  // Midpoint fractal recursive subdivision for hyper-realistic jagged lightning
+  function subdivide(p1, p2, maxDisplace, depth) {
+    if (depth <= 0) return [p1, p2];
+    const midX = (p1.x + p2.x) / 2 + (Math.random() - 0.5) * maxDisplace;
+    const midY = (p1.y + p2.y) / 2 + (Math.random() - 0.5) * (maxDisplace * 0.45);
+    const mid = { x: midX, y: midY };
+    const left = subdivide(p1, mid, maxDisplace * 0.55, depth - 1);
+    const right = subdivide(mid, p2, maxDisplace * 0.55, depth - 1);
+    return left.slice(0, -1).concat(right);
+  }
+
+  // Build a multi-branched lightning bolt
+  function generateBolt(x1, y1, x2, y2) {
+    const trunk = subdivide({ x: x1, y: y1 }, { x: x2, y: y2 }, 95, 5);
+    const branches = [];
+    const numBranches = Math.floor(Math.random() * 4) + 3;
+
+    for (let i = 0; i < numBranches; i++) {
+      const nodeIdx = Math.floor((Math.random() * 0.65 + 0.15) * trunk.length);
+      const origin = trunk[nodeIdx];
+      if (!origin) continue;
+      const angle = Math.atan2(y2 - y1, x2 - x1) + (Math.random() > 0.5 ? 1 : -1) * (0.35 + Math.random() * 0.55);
+      const branchLen = (Math.random() * 0.35 + 0.18) * sHeight;
+      const bx2 = origin.x + Math.cos(angle) * branchLen;
+      const by2 = origin.y + Math.sin(angle) * branchLen;
+      const branchPoints = subdivide(origin, { x: bx2, y: by2 }, 45, 4);
+      branches.push(branchPoints);
+    }
+
+    return { trunk, branches };
+  }
+
+  // Trigger high-voltage lightning strike
+  function triggerThunderstormStrike(targetX, targetY) {
+    if (sWidth === 0 || sHeight === 0) resizeStorm();
+    const startX = targetX !== undefined ? targetX + (Math.random() - 0.5) * 80 : (Math.random() * 0.7 + 0.15) * sWidth;
+    const startY = -10;
+    const endX = targetX !== undefined ? targetX : startX + (Math.random() - 0.5) * 360;
+    const endY = targetY !== undefined ? targetY : sHeight * (0.75 + Math.random() * 0.28);
+
+    const boltData = generateBolt(startX, startY, endX, endY);
+    const now = performance.now();
+    const color = Math.random() > 0.35 ? 'rgba(215, 235, 255,' : 'rgba(255, 175, 195,';
+
+    activeStrikes.push({
+      trunk: boltData.trunk,
+      branches: boltData.branches,
+      birth: now,
+      duration: 360,
+      startX: startX,
+      startY: startY,
+      endX: endX,
+      endY: endY,
+      color: color
+    });
+
+    // Bats flee near the lightning bolt!
+    spawnLightningBats(startX + (endX - startX) * 0.3, Math.max(50, endY * 0.35));
+    if (Math.random() > 0.4) {
+      spawnLightningBats(startX, 60);
+    }
+
+    // Occasional twin bolt (30% chance)
+    if (Math.random() < 0.3) {
+      setTimeout(() => {
+        const tx = startX + (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 220 + 90);
+        const b2 = generateBolt(tx, -10, tx + (Math.random() - 0.5) * 200, sHeight * 0.85);
+        activeStrikes.push({
+          trunk: b2.trunk,
+          branches: b2.branches,
+          birth: performance.now(),
+          duration: 320,
+          startX: tx,
+          startY: -10,
+          endX: tx,
+          endY: sHeight * 0.85,
+          color: 'rgba(240, 245, 255,'
+        });
+        spawnLightningBats(tx, 70);
+      }, 65);
+    }
+
+    // Multi-strobe realistic sky flash
+    const flashPctX = Math.round((startX / sWidth) * 100);
+    const flashPctY = Math.round((Math.max(40, startY + 60) / sHeight) * 100);
+    stormFlash.style.setProperty('--flash-x', flashPctX + '%');
+    stormFlash.style.setProperty('--flash-y', flashPctY + '%');
+
+    flashBrightness = 1.0;
+    stormFlash.style.opacity = '0.96';
+    stormFlash.classList.add('is-flashing');
+
+    // Illuminate the 3D hero logo during strike
+    if (heroLogo) {
+      heroLogo.style.filter = 'drop-shadow(0 0 55px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 100px rgba(180, 220, 255, 0.8)) drop-shadow(0 20px 40px rgba(0,0,0,0.95)) brightness(1.22)';
+      setTimeout(() => {
+        if (heroLogo) heroLogo.style.filter = '';
+      }, 240);
+    }
+
+    // Strobe sequence
+    setTimeout(() => {
+      stormFlash.style.opacity = '0.35';
+      flashBrightness = 0.35;
+    }, 45);
+
+    setTimeout(() => {
+      stormFlash.style.opacity = '0.88';
+      flashBrightness = 0.88;
+    }, 85);
+
+    setTimeout(() => {
+      stormFlash.style.opacity = '0.2';
+      flashBrightness = 0.2;
+    }, 150);
+
+    setTimeout(() => {
+      stormFlash.style.opacity = '0';
+      stormFlash.classList.remove('is-flashing');
+      flashBrightness = 0;
+    }, 280);
+
+    // Audio cue
+    if (typeof playThunderSFX === 'function') {
+      playThunderSFX();
+    }
+  }
+
+  // Continuous animation loop: Dramatic Lightning, Rain & Bat Rendering
+  function renderStorm(now) {
+    sCtx.clearRect(0, 0, sWidth, sHeight);
+
+    // 1. Render Atmospheric Driving Rain
+    sCtx.save();
+    for (let i = 0; i < rainDrops.length; i++) {
+      const d = rainDrops[i];
+      d.y += d.speed;
+      d.x += d.speed * d.slant;
+
+      if (d.y > sHeight) {
+        d.y = -25;
+        d.x = Math.random() * (sWidth + 150) - 50;
+      }
+      if (d.x < -40) {
+        d.x = sWidth + 20;
+      }
+
+      // Rain illuminates during lightning flash
+      const isLit = flashBrightness > 0.08;
+      const strokeA = isLit ? Math.min(0.92, d.alpha * 3.4) : d.alpha;
+      sCtx.strokeStyle = isLit ? `rgba(235, 248, 255, ${strokeA})` : `rgba(180, 205, 225, ${strokeA})`;
+      sCtx.lineWidth = isLit ? 1.6 : 1.1;
+
+      sCtx.beginPath();
+      sCtx.moveTo(d.x, d.y);
+      sCtx.lineTo(d.x - d.slant * d.length, d.y - d.length);
+      sCtx.stroke();
+    }
+    sCtx.restore();
+
+    // 2. Render Active Lightning Strikes
+    for (let i = activeStrikes.length - 1; i >= 0; i--) {
+      const st = activeStrikes[i];
+      const elapsed = now - st.birth;
+
+      if (elapsed > st.duration) {
+        activeStrikes.splice(i, 1);
+        continue;
+      }
+
+      // Rapid ionizing intensity curve (flickering strobe)
+      let boltAlpha = 1.0;
+      if (elapsed < 35) boltAlpha = 0.85;
+      else if (elapsed < 65) boltAlpha = 0.45;
+      else if (elapsed < 120) boltAlpha = 1.0;
+      else if (elapsed < 170) boltAlpha = 0.65;
+      else {
+        boltAlpha = 1.0 - ((elapsed - 170) / (st.duration - 170));
+      }
+
+      if (boltAlpha <= 0) continue;
+
+      sCtx.save();
+      sCtx.lineCap = 'round';
+      sCtx.lineJoin = 'round';
+
+      // Pass 1: Wide Volumetric Sky Bloom around the origin and strike
+      const glowGrad = sCtx.createRadialGradient(st.startX, st.startY, 10, st.startX, st.startY, 360);
+      glowGrad.addColorStop(0, st.color + ' ' + (boltAlpha * 0.35) + ')');
+      glowGrad.addColorStop(0.5, st.color + ' ' + (boltAlpha * 0.12) + ')');
+      glowGrad.addColorStop(1, 'rgba(0,0,0,0)');
+      sCtx.fillStyle = glowGrad;
+      sCtx.fillRect(0, 0, sWidth, sHeight * 0.85);
+
+      // Pass 2: Outer Electric Corona Glow (Trunk)
+      sCtx.shadowColor = st.color === 'rgba(215, 235, 255,' ? '#68c5ff' : '#ff3b5c';
+      sCtx.shadowBlur = 28;
+      sCtx.strokeStyle = st.color + ' ' + (boltAlpha * 0.85) + ')';
+      sCtx.lineWidth = 6.0;
+
+      sCtx.beginPath();
+      for (let j = 0; j < st.trunk.length; j++) {
+        const pt = st.trunk[j];
+        if (j === 0) sCtx.moveTo(pt.x, pt.y);
+        else sCtx.lineTo(pt.x, pt.y);
+      }
+      sCtx.stroke();
+
+      // Outer Corona for Branches
+      sCtx.lineWidth = 3.2;
+      sCtx.shadowBlur = 18;
+      st.branches.forEach(bPts => {
+        sCtx.beginPath();
+        for (let j = 0; j < bPts.length; j++) {
+          const pt = bPts[j];
+          if (j === 0) sCtx.moveTo(pt.x, pt.y);
+          else sCtx.lineTo(pt.x, pt.y);
+        }
+        sCtx.stroke();
+      });
+
+      // Pass 3: Ultra-hot White Plasma Core (Trunk)
+      sCtx.shadowColor = '#ffffff';
+      sCtx.shadowBlur = 10;
+      sCtx.strokeStyle = 'rgba(255, 255, 255, ' + boltAlpha + ')';
+      sCtx.lineWidth = 2.4;
+
+      sCtx.beginPath();
+      for (let j = 0; j < st.trunk.length; j++) {
+        const pt = st.trunk[j];
+        if (j === 0) sCtx.moveTo(pt.x, pt.y);
+        else sCtx.lineTo(pt.x, pt.y);
+      }
+      sCtx.stroke();
+
+      // White Core for Branches
+      sCtx.lineWidth = 1.3;
+      sCtx.shadowBlur = 6;
+      st.branches.forEach(bPts => {
+        sCtx.beginPath();
+        for (let j = 0; j < bPts.length; j++) {
+          const pt = bPts[j];
+          if (j === 0) sCtx.moveTo(pt.x, pt.y);
+          else sCtx.lineTo(pt.x, pt.y);
+        }
+        sCtx.stroke();
+      });
+
+      sCtx.restore();
+    }
+
+    // 3. Render Startled Bats Scattered Near Lightning
+    for (let i = stormBats.length - 1; i >= 0; i--) {
+      const b = stormBats[i];
+      b.x += b.vx;
+      b.y += b.vy;
+      b.vx *= 0.99;
+      b.vy *= 0.99;
+      b.wing += b.wingSpeed;
+      b.alpha -= b.decay;
+
+      if (b.alpha <= 0 || b.y < -40 || b.x < -60 || b.x > sWidth + 60) {
+        stormBats.splice(i, 1);
+        continue;
+      }
+
+      sCtx.save();
+      sCtx.translate(b.x, b.y);
+      // Backlit silhouette from lightning glow
+      sCtx.fillStyle = `rgba(10, 5, 8, ${b.alpha * 0.95})`;
+      if (flashBrightness > 0.1) {
+        sCtx.shadowColor = 'rgba(255, 240, 245, 0.8)';
+        sCtx.shadowBlur = 10;
+      } else {
+        sCtx.shadowColor = 'rgba(224, 46, 61, 0.4)';
+        sCtx.shadowBlur = 4;
+      }
+      sCtx.beginPath();
+      const wingY = Math.sin(b.wing) * (b.size * 0.44);
+      sCtx.moveTo(0, 0);
+      sCtx.quadraticCurveTo(-b.size * 0.5, -b.size * 0.5 + wingY, -b.size, wingY);
+      sCtx.quadraticCurveTo(-b.size * 0.5, b.size * 0.28, 0, b.size * 0.28);
+      sCtx.quadraticCurveTo(b.size * 0.5, b.size * 0.28, b.size, wingY);
+      sCtx.quadraticCurveTo(b.size * 0.5, -b.size * 0.5 + wingY, 0, 0);
+      sCtx.fill();
+      sCtx.restore();
+    }
+    requestAnimationFrame(renderStorm);
+  }
+  requestAnimationFrame(renderStorm);
+
+  // Automatic Thunderstorm Interval (Strikes every 2.0 to 3.0 seconds as requested)
+  function scheduleNextThunder() {
+    const nextDelay = 2000 + Math.random() * 1000; // strictly between 2.0s and 3.0s
+    setTimeout(() => {
+      if (!document.hidden) {
+        triggerThunderstormStrike();
+      }
+      scheduleNextThunder();
+    }, nextDelay);
+  }
+
+  // First strike 700ms after page load
+  setTimeout(() => {
+    triggerThunderstormStrike();
+    scheduleNextThunder();
+  }, 700);
+
+  // Click on hero to summon lightning at cursor location!
+  const heroElement = document.getElementById('hero');
+  if (heroElement) {
+    heroElement.addEventListener('click', (e) => {
+      if (e.target.closest('a, button, .lantern-rig, .scary-pumpkin-wrap')) return;
+      const rect = heroElement.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickY = e.clientY - rect.top;
+      triggerThunderstormStrike(clickX, clickY);
+    });
+  }
+}
+
+// ----- 10.8 SCROLL HORROR JUMPSCARE & NIGHTMARE ENGINE -----
+const jumpscareBatCv = document.getElementById('jumpscare-bat-cv');
+const bloodContainer = document.getElementById('jumpscare-blood-container');
+const phantomFlash = document.getElementById('phantom-ghost-flash');
+
+if (jumpscareBatCv && bloodContainer) {
+  const jbCtx = jumpscareBatCv.getContext('2d');
+  let jbWidth = 0, jbHeight = 0;
+
+  function resizeJumpscareBat() {
+    jbWidth = jumpscareBatCv.width = window.innerWidth;
+    jbHeight = jumpscareBatCv.height = window.innerHeight;
+  }
+  resizeJumpscareBat();
+  window.addEventListener('resize', resizeJumpscareBat);
+
+  const jBats = [];
+
+  // Jumpscare 1: Screeching Bat Swarm Eruption across the screen
+  function triggerBatSwarmJumpscare() {
+    const originX = Math.random() > 0.5 ? -20 : jbWidth * 0.15;
+    const originY = jbHeight + 20;
+
+    for (let i = 0; i < 34; i++) {
+      const angle = -Math.PI * 0.25 + (Math.random() - 0.5) * 0.8;
+      const speed = Math.random() * 8 + 9;
+      jBats.push({
+        x: originX + (Math.random() - 0.5) * 60,
+        y: originY + (Math.random() - 0.5) * 60,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        size: Math.random() * 14 + 18,
+        wing: Math.random() * Math.PI,
+        wingSpeed: Math.random() * 0.45 + 0.35,
+        alpha: 1.0,
+        decay: Math.random() * 0.008 + 0.005
+      });
+    }
+
+    if (typeof playBatFlutterSFX === 'function') {
+      playBatFlutterSFX();
+    }
+  }
+
+  function renderJumpscareBats() {
+    jbCtx.clearRect(0, 0, jbWidth, jbHeight);
+
+    for (let i = jBats.length - 1; i >= 0; i--) {
+      const b = jBats[i];
+      b.x += b.vx;
+      b.y += b.vy;
+      b.wing += b.wingSpeed;
+      b.alpha -= b.decay;
+
+      if (b.alpha <= 0 || b.y < -60 || b.x > jbWidth + 60) {
+        jBats.splice(i, 1);
+        continue;
+      }
+
+      jbCtx.save();
+      jbCtx.translate(b.x, b.y);
+      jbCtx.fillStyle = 'rgba(8, 4, 6, ' + (b.alpha * 0.95) + ')';
+      jbCtx.shadowColor = 'rgba(165, 29, 41, 0.6)';
+      jbCtx.shadowBlur = 8;
+      jbCtx.beginPath();
+      const wingY = Math.sin(b.wing) * (b.size * 0.44);
+      jbCtx.moveTo(0, 0);
+      jbCtx.quadraticCurveTo(-b.size * 0.5, -b.size * 0.5 + wingY, -b.size, wingY);
+      jbCtx.quadraticCurveTo(-b.size * 0.5, b.size * 0.28, 0, b.size * 0.28);
+      jbCtx.quadraticCurveTo(b.size * 0.5, b.size * 0.28, b.size, wingY);
+      jbCtx.quadraticCurveTo(b.size * 0.5, -b.size * 0.5 + wingY, 0, 0);
+      jbCtx.fill();
+      jbCtx.restore();
+    }
+
+    requestAnimationFrame(renderJumpscareBats);
+  }
+  renderJumpscareBats();
+
+  // Jumpscare 2: Bloody Handprint Smacks Against Screen
+  function triggerBloodyHandprintJumpscare(posX, posY) {
+    const x = posX !== undefined ? posX : (Math.random() * 0.6 + 0.2) * window.innerWidth;
+    const y = posY !== undefined ? posY : (Math.random() * 0.5 + 0.2) * window.innerHeight;
+    const rot = (Math.random() - 0.5) * 45;
+
+    const hand = document.createElement('div');
+    hand.className = 'jumpscare-handprint';
+    hand.style.left = x + 'px';
+    hand.style.top = y + 'px';
+    hand.style.setProperty('--rot', rot + 'deg');
+
+    // Visceral Bloody Handprint with dripping blood trails
+    hand.innerHTML = `
+      <svg viewBox="0 0 100 120" style="width:100%; height:100%;">
+        <defs>
+          <radialGradient id="bloodGoreGrad" cx="45%" cy="45%" r="55%">
+            <stop offset="0%" stop-color="#b80c1d"/>
+            <stop offset="70%" stop-color="#73050f"/>
+            <stop offset="100%" stop-color="#2d0206"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="50" cy="74" rx="22" ry="24" fill="url(#bloodGoreGrad)" opacity="0.95"/>
+        <path d="M28,68 C15,62 10,50 14,44 C18,38 24,48 32,58 Z" fill="url(#bloodGoreGrad)"/>
+        <path d="M36,54 C34,32 35,16 41,14 C47,12 45,30 43,52 Z" fill="url(#bloodGoreGrad)"/>
+        <path d="M47,52 C48,26 50,8 56,8 C62,8 60,26 57,52 Z" fill="url(#bloodGoreGrad)"/>
+        <path d="M58,54 C60,30 63,18 69,18 C75,18 72,32 67,54 Z" fill="url(#bloodGoreGrad)"/>
+        <path d="M68,60 C74,42 80,32 85,34 C90,36 84,48 76,64 Z" fill="url(#bloodGoreGrad)"/>
+        <path d="M50,95 Q51,112 49,120 Q52,110 52,95 Z" fill="#990510"/>
+        <path d="M41,94 Q40,108 42,116 Q43,106 43,94 Z" fill="#990510"/>
+        <path d="M60,94 Q61,105 59,114 Q62,104 62,94 Z" fill="#990510"/>
+        <circle cx="49" cy="122" r="2.5" fill="#ba0c1a"/>
+        <circle cx="42" cy="118" r="2.0" fill="#ba0c1a"/>
+        <circle cx="22" cy="30" r="3" fill="#88040d"/>
+        <circle cx="78" cy="22" r="2.5" fill="#88040d"/>
+        <circle cx="16" cy="85" r="3.2" fill="#88040d"/>
+        <circle cx="86" cy="90" r="2.8" fill="#88040d"/>
+      </svg>
+    `;
+
+    bloodContainer.appendChild(hand);
+
+    // Screen Jolt effect
+    document.body.classList.add('screen-jolt');
+    setTimeout(() => document.body.classList.remove('screen-jolt'), 220);
+
+    // Audio thud / sting
+    if (typeof playScaryLogoSound === 'function') {
+      playScaryLogoSound();
+    }
+
+    // Trigger slam animation
+    requestAnimationFrame(() => {
+      hand.classList.add('slam');
+      setTimeout(() => {
+        hand.classList.add('fade-out');
+        setTimeout(() => hand.remove(), 2400);
+      }, 1600);
+    });
+  }
+
+  // Jumpscare 3: Ghost Screaming Apparition Glitch
+  function triggerPhantomGlitchJumpscare() {
+    if (!phantomFlash) return;
+    phantomFlash.classList.add('scream');
+    document.body.classList.add('screen-jolt');
+
+    if (typeof playScaryLogoSound === 'function') {
+      playScaryLogoSound();
+    }
+
+    setTimeout(() => {
+      phantomFlash.classList.remove('scream');
+      document.body.classList.remove('screen-jolt');
+    }, 260);
+  }
+
+  // Scroll Milestones Observer
+  let jumpscareCooldown = false;
+
+  const scareTriggers = [
+    { id: 'about', action: triggerBatSwarmJumpscare },
+    { id: 'theme', action: () => triggerBloodyHandprintJumpscare() },
+    { id: 'events', action: triggerBatSwarmJumpscare },
+    { id: 'pronites', action: triggerPhantomGlitchJumpscare },
+    { id: 'passes', action: () => triggerBloodyHandprintJumpscare() }
+  ];
+
+  const scareObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !jumpscareCooldown) {
+        const target = scareTriggers.find(t => t.id === entry.target.id);
+        if (target) {
+          jumpscareCooldown = true;
+          target.action();
+          setTimeout(() => { jumpscareCooldown = false; }, 14000); // 14s cooldown
+        }
+      }
+    });
+  }, { threshold: 0.35 });
+
+  scareTriggers.forEach(t => {
+    const el = document.getElementById(t.id);
+    if (el) scareObserver.observe(el);
+  });
+}
+
 // ----- 11. PROCEDURAL CINEMATIC HORROR SOUNDSCAPE (SUB-BASS DRONE, HOWLING WIND, OCCULT BELL, BAT FLUTTER & SCARY LOGO SFX) -----
 let audioCtx = null, isPlaying = false;
 let subOsc1 = null, subOsc2 = null, subFilter = null, subGain = null, droneLFO = null;
@@ -3363,6 +3960,57 @@ function createNoiseBuffer(ctx) {
     data[i] *= 3.5;
   }
   return buffer;
+}
+
+// Realistic Cinematic Thunderclap & Rolling Rumble SFX
+function playThunderSFX() {
+  try {
+    const ctx = getAudioCtx();
+    if (!ctx || ctx.state !== 'running') return;
+    const now = ctx.currentTime;
+
+    // 1. Sharp initial air-crackle / supersonic snap (Noise through fast-decay bandpass)
+    const noiseBuf = createNoiseBuffer(ctx);
+    const snapNode = ctx.createBufferSource();
+    snapNode.buffer = noiseBuf;
+
+    const snapFilter = ctx.createBiquadFilter();
+    snapFilter.type = 'lowpass';
+    snapFilter.frequency.setValueAtTime(900, now);
+    snapFilter.frequency.exponentialRampToValueAtTime(120, now + 0.35);
+
+    const snapGain = ctx.createGain();
+    snapGain.gain.setValueAtTime(0.001, now);
+    snapGain.gain.linearRampToValueAtTime(0.18, now + 0.02);
+    snapGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+
+    snapNode.connect(snapFilter);
+    snapFilter.connect(snapGain);
+    snapGain.connect(ctx.destination);
+    snapNode.start(now);
+    snapNode.stop(now + 0.5);
+
+    // 2. Rolling deep sub-bass thunder rumble (42Hz - 88Hz oscillating resonance)
+    const rumbleNode = ctx.createBufferSource();
+    rumbleNode.buffer = noiseBuf;
+
+    const rumbleFilter = ctx.createBiquadFilter();
+    rumbleFilter.type = 'lowpass';
+    rumbleFilter.frequency.setValueAtTime(120, now + 0.05);
+    rumbleFilter.frequency.exponentialRampToValueAtTime(45, now + 2.3);
+    rumbleFilter.Q.setValueAtTime(3.8, now);
+
+    const rumbleGain = ctx.createGain();
+    rumbleGain.gain.setValueAtTime(0.001, now);
+    rumbleGain.gain.linearRampToValueAtTime(0.14, now + 0.12);
+    rumbleGain.gain.exponentialRampToValueAtTime(0.0001, now + 2.4);
+
+    rumbleNode.connect(rumbleFilter);
+    rumbleFilter.connect(rumbleGain);
+    rumbleGain.connect(ctx.destination);
+    rumbleNode.start(now + 0.05);
+    rumbleNode.stop(now + 2.5);
+  } catch(_) {}
 }
 
 // Atmospheric Eerie Horror SFX triggered on Logo Click (Ghostly breath, distant chime, soft bat flurry — NO dum boom, NO harsh click)

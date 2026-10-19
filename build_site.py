@@ -13,25 +13,43 @@ if hasattr(sys.stdout, 'reconfigure'):
 
 SHARED_CSS = """
 :root {
-  --void: #040304;
-  --char: #0d0a0c;
-  --surface: #141113;
-  --surface-hover: #1c171b;
-  --bone: #e2dbce;
-  --bone-dim: #9e978c;
-  --ash: #736f68;
-  --blood: #5a0a11;
-  --crim: #941722;
-  --crim-glow: rgba(148, 23, 34, 0.45);
-  --crim-bright: #e61c30;
-  --burg: #240508;
-  --amber: #ad5f26;
-  --amber-glow: rgba(173, 95, 38, 0.35);
-  --serif: "Cormorant Garamond", Georgia, serif;
-  --sans: "Syncopate", system-ui, -apple-system, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, monospace;
-  --disp-sans: "Syncopate", sans-serif;
-  --horror: "Creepster", "Eater", cursive;
+  /* Master Palette — Moonlit Revelry */
+  --void: #080506;          /* Background black */
+  --bg: #080506;
+  --maroon: #180607;        /* Deep maroon */
+  --char: #180607;
+  --burg: #180607;
+  --surface: #12090b;
+  --surface-hover: #1c0e12;
+  --blood: #A20D18;         /* Blood red */
+  --crim: #D10F20;          /* Crimson accent */
+  --crim-bright: #E61C30;
+  --crim-glow: rgba(209, 15, 32, 0.45);
+  --amber: #C34B16;         /* Burnt orange */
+  --orange: #C34B16;
+  --amber-glow: rgba(195, 75, 22, 0.35);
+  --gold: #A77A36;          /* Antique gold */
+  --gold-glow: rgba(167, 122, 54, 0.35);
+  --bone: #EEE3BD;          /* Bone white */
+  --bone-dim: #92877E;      /* Muted text */
+  --ash: #92877E;
+  --muted: #92877E;
+
+  /* Deliberate Scary Gothic & Horror Typography System */
+  --font-horror-gothic: 'Cinzel Decorative', 'Pirata One', 'Cinzel', serif;
+  --font-horror-blood: 'Nosifer', cursive;
+  --font-horror-creepy: 'Creepster', cursive;
+  --font-horror-blackletter: 'Grenze Gotisch', cursive;
+  --font-cinematic: 'Cinzel Decorative', 'Cinzel', serif;
+  --font-ui: 'Cinzel Decorative', 'Cinzel', 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow Condensed', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --serif: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
+  --sans: 'Barlow Condensed', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+  --horror: 'Creepster', cursive;
+  --nosifer: 'Nosifer', cursive;
   --pad: clamp(20px, 5.5vw, 88px);
   color-scheme: dark;
   padding-top: env(safe-area-inset-top, 0px);
@@ -53,10 +71,10 @@ html {
 body {
   background: var(--void);
   color: var(--bone);
-  font: 400 15px/1.65 var(--sans);
+  font: 400 16px/1.65 var(--sans);
   overflow-x: hidden;
   min-height: 100vh;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
   -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: column;
@@ -193,126 +211,108 @@ button {
 }
 
 .disp {
-  font-family: var(--serif);
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  line-height: 0.9;
+  font-family: 'Cinzel Decorative', 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
   text-transform: uppercase;
+  color: var(--bone);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 0 0 28px rgba(209, 15, 32, 0.45);
 }
 
 .disp-sans {
-  font-family: var(--disp-sans);
+  font-family: 'Cinzel Decorative', 'Cinzel', sans-serif;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
-/* Shared Navigation */
+/* Shared Navigation (100% Transparent & Evenly Distributed Across Full Width) */
 nav.top {
   position: fixed;
   inset: 0 0 auto;
   z-index: 100;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: calc(14px + env(safe-area-inset-top, 0px)) var(--pad) 14px;
-  background: rgba(4, 3, 4, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  justify-content: center;
+  padding: calc(20px + env(safe-area-inset-top, 0px)) clamp(24px, 5vw, 70px) 20px;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  height: 74px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .brand {
-  font: 700 22px var(--serif);
-  letter-spacing: 0.14em;
-  display: inline-flex;
-  align-items: baseline;
-  gap: 8px;
-}
-
-.brand small {
-  font: 500 9px var(--mono);
-  letter-spacing: 0.25em;
-  color: var(--crim);
+  display: none !important;
 }
 
 .nav-links {
   display: flex;
-  gap: 4px;
+  width: 100%;
+  max-width: 1400px;
+  justify-content: space-between;
   align-items: center;
 }
 
 .nav-link {
-  font: 600 10px var(--mono);
-  letter-spacing: 0.15em;
+  font-family: 'Cinzel Decorative', 'Cinzel', serif;
+  font-weight: 700;
+  font-size: clamp(14px, 1.15vw, 17px);
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ash);
-  padding: 6px 11px;
-  border-radius: 4px;
-  transition: all 0.25s ease;
-  position: relative;
+  color: #ffffff;
   text-decoration: none;
-  border: 1px solid transparent;
+  transition: opacity 0.2s ease, text-shadow 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  opacity: 0.95;
+  padding: 8px 14px;
+  position: relative;
+  white-space: nowrap;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 16px rgba(209, 15, 32, 0.45);
 }
 
 .nav-link:hover {
-  color: #fff;
-  background: rgba(165, 29, 41, 0.15);
-  border-color: rgba(165, 29, 41, 0.4);
-  text-shadow: 0 0 10px rgba(224, 46, 61, 0.6);
+  opacity: 1;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(230, 28, 48, 0.95), 0 0 35px rgba(209, 15, 32, 0.65);
+  transform: translateY(-2px);
 }
 
 .nav-link.active {
-  color: #fff;
-  background: rgba(165, 29, 41, 0.28);
-  border: 1px solid rgba(224, 46, 61, 0.55);
-  box-shadow: 0 0 15px rgba(165, 29, 41, 0.4), inset 0 0 10px rgba(224, 46, 61, 0.2);
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+  opacity: 1;
+  color: #ffffff;
 }
 
 .nav-link.active::after {
   content: "";
   position: absolute;
-  bottom: -2px;
-  left: 18%;
-  right: 18%;
+  bottom: 0;
+  left: 14px;
+  right: 14px;
   height: 2px;
-  background: var(--crim-bright, #e02e3d);
-  box-shadow: 0 0 8px var(--crim-bright, #e02e3d);
+  background: var(--crim-bright);
+  box-shadow: 0 0 12px var(--crim-bright);
   border-radius: 2px;
 }
 
-.nav-sound-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 14px;
-  background: rgba(20, 17, 19, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  font: 500 10px var(--mono);
-  letter-spacing: 0.18em;
-  color: var(--bone-dim);
-  text-transform: uppercase;
-  border-radius: 3px;
-  transition: all 0.3s;
-  margin-right: 6px;
+.mob-link {
+  font-family: 'Cinzel Decorative', 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.16em;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s, color 0.2s;
+  text-shadow: 0 0 16px rgba(209, 15, 32, 0.5);
 }
 
-.nav-sound-btn:hover {
-  color: #fff;
-  border-color: var(--crim);
-}
-
-.nav-sound-btn[aria-pressed="true"] {
-  border-color: var(--crim);
+.mob-link:hover {
+  opacity: 0.85;
   color: var(--crim-bright);
-  box-shadow: 0 0 12px var(--crim-glow);
-}
-
-.nav-sound-btn svg {
-  width: 13px;
-  height: 13px;
-  fill: currentColor;
+  transform: scale(1.05);
 }
 
 /* Button Component */
@@ -322,9 +322,9 @@ nav.top {
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: var(--surface);
-  padding: 16px 28px;
-  font: 500 10px var(--mono);
-  letter-spacing: 0.28em;
+  padding: 14px 26px;
+  font: 700 12px var(--font-ui), 'Cinzel Decorative', sans-serif;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--bone);
   min-height: 48px;
@@ -580,6 +580,7 @@ body.cur, body.cur * {
 }
 
 @media (max-width: 900px) {
+  nav.top { justify-content: flex-end; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
   .nav-links { display: none !important; }
   .burger { display: inline-flex; align-items: center; justify-content: center; }
@@ -1141,24 +1142,24 @@ footer.foot::before {
 
 def generate_shell(title, description, active_page, extra_css, main_html, page_scripts=""):
     pages = [
-        ("index.html", "Home", "HOME"),
-        ("about.html", "About", "ABOUT"),
-        ("index.html#theme", "Theme", "THEME"),
         ("events.html", "Events", "EVENTS"),
-        ("pronites.html", "Pronites", "PRONITES"),
         ("schedule.html", "Schedule", "SCHEDULE"),
-        ("passes.html", "Passes", "PASSES"),
         ("sponsors.html", "Sponsors", "SPONSORS"),
-        ("team.html", "Team", "TEAM"),
-        ("gallery.html", "Gallery", "GALLERY"),
-        ("contact.html", "Contact", "CONTACT")
+        ("#merchandise", "Merchandise", "MERCHANDISE"),
+        ("#ca-program", "CA Program", "CA_PROGRAM"),
+        ("team.html", "Team", "TEAM")
     ]
     nav_links = ""
     mob_links = ""
     for url, label, data_c in pages:
         active_cls = " active" if active_page == url else ""
-        nav_links += f'<a class="nav-link{active_cls}" href="{url}" data-c="{data_c}">{label}</a>\n'
-        mob_links += f'<a class="mob-link{active_cls}" href="{url}">{label}</a>\n'
+        click_handler = ""
+        if url == "#merchandise":
+            click_handler = ' onclick="if(window.toast) toast(\'Official Zeitgeist Merchandise store launching soon! 👕\'); return false;"'
+        elif url == "#ca-program":
+            click_handler = ' onclick="if(window.toast) toast(\'Campus Ambassador Program registrations opening soon! 🎓\'); return false;"'
+        nav_links += f'<a class="nav-link{active_cls}" href="{url}" data-c="{data_c}"{click_handler}>{label}</a>\n'
+        mob_links += f'<a class="mob-link{active_cls}" href="{url}"{click_handler}>{label}</a>\n'
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -1169,7 +1170,7 @@ def generate_shell(title, description, active_page, extra_css, main_html, page_s
 <meta name="description" content="{description}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{description}">
-<meta name="theme-color" content="#040304">
+<meta name="theme-color" content="#080506">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -1180,7 +1181,7 @@ def generate_shell(title, description, active_page, extra_css, main_html, page_s
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="preload" as="image" href="assets/logo_trans.png" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;700&family=Syncopate:wght@400;700&family=Eater&family=Creepster&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,600&family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800;900&family=Creepster&family=Pirata+One&family=Grenze+Gotisch:wght@600;700;800;900&family=Nosifer&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <script type="application/ld+json" id="ld">{{}}</script>
 
 <style>
@@ -1193,24 +1194,16 @@ def generate_shell(title, description, active_page, extra_css, main_html, page_s
 
 <!-- Header Navigation -->
 <nav class="top" aria-label="Primary">
-  <a class="brand" href="index.html" data-c="CAMPUS" style="display:inline-flex; align-items:center; gap:12px;">
-    <img src="assets/logo_trans.png" alt="Zeitgeist'26 Logo" style="height:38px; width:auto; filter:drop-shadow(0 2px 8px rgba(0,0,0,0.8));">
-    <span class="brand-sub" style="font:600 9px var(--mono); color:var(--crim-bright); letter-spacing:0.25em; border-left:1px solid rgba(255,255,255,0.2); padding-left:10px;">MMXXVI · IIT ROPAR</span>
-  </a>
   <div class="nav-links">
-    <button class="nav-sound-btn" id="snd-btn" type="button" aria-pressed="false" data-c="AUDIO">
-      <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-      <span id="snd-label">AUDIO: OFF</span>
-    </button>
     {nav_links}
   </div>
   <button class="burger" id="burger-btn" type="button" aria-label="Toggle Navigation">MENU</button>
 </nav>
 
 <!-- Mobile Menu Overlay -->
-<div id="mobile-menu" style="position:fixed; inset:0; z-index:9999; background:rgba(4,3,4,0.98); display:none; flex-direction:column; justify-content:center; align-items:center; gap:18px; font:700 22px var(--serif);">
+<div id="mobile-menu" style="position:fixed; inset:0; z-index:9999; background:rgba(4,3,4,0.98); display:none; flex-direction:column; justify-content:center; align-items:center; gap:22px; font:700 24px 'Inter', sans-serif;">
   {mob_links}
-  <button id="close-mob" style="margin-top:20px; font:600 11px var(--mono); color:var(--crim); letter-spacing:0.2em; background:none; border:none; cursor:pointer;">[ CLOSE ]</button>
+  <button id="close-mob" style="margin-top:24px; font:600 12px var(--mono); color:var(--crim); letter-spacing:0.2em; background:none; border:none; cursor:pointer;">[ CLOSE ]</button>
 </div>
 
 <div class="atm" aria-hidden="true">

@@ -73,6 +73,17 @@ def init_db():
     )
     """)
 
+    # Leaderboard Table
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS leaderboard (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT UNIQUE NOT NULL,
+        college TEXT,
+        score INTEGER DEFAULT 0,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+    """)
+
     # Pre-seed Admin Users if not exist
     admins = [
         ("Organizing Council Admin", "zeitgeist.ca@iitrpr.ac.in", "snWin%738", "IIT Ropar", "admin"),
@@ -97,6 +108,24 @@ def init_db():
         ]
         for title, points, status, desc in default_tasks:
             cur.execute("INSERT INTO tasks (title, points, status, desc) VALUES (?, ?, ?, ?)", (title, points, status, desc))
+
+    # Pre-seed Leaderboard from ca_extracted.json if empty
+    cur.execute("SELECT COUNT(*) FROM leaderboard")
+    if cur.fetchone()[0] == 0:
+        json_path = os.path.join(BASE_DIR, "ca_extracted.json")
+        if os.path.exists(json_path):
+            try:
+                with open(json_path, "r", encoding="utf-8") as f:
+                    cas = json.load(f)
+                    for ca in cas:
+                        c_name = ca.get("name", "").strip()
+                        c_college = ca.get("college", "Campus Ambassador").strip()
+                        c_score = int(ca.get("score", 0))
+                        if c_name:
+                            cur.execute("INSERT OR IGNORE INTO leaderboard (name, college, score) VALUES (?, ?, ?)", (c_name, c_college, c_score))
+                print(f"[OK] Pre-seeded {len(cas)} Ambassadors into SQLite leaderboard.")
+            except Exception as e:
+                print(f"[WARN] Could not seed leaderboard: {e}")
 
     conn.commit()
     conn.close()
@@ -196,6 +225,22 @@ class ZeitgeistHandler(http.server.SimpleHTTPRequestHandler):
             conn.close()
             users = [{"id": r[0], "name": r[1], "email": r[2], "college": r[3], "role": r[4], "status": r[5]} for r in rows]
             return self.send_json({"success": True, "users": users})
+
+        # API: Get Live Leaderboard
+        if path == "/api/leaderboard":
+            conn = sqlite3.connect(DB_FILE)
+            cur = conn.cursor()
+            cur.execute("SELECT id, name, college, score FROM leaderboard ORDER BY score DESC, name ASC")
+            rows = cur.fetchall()
+            conn.close()
+            leaderboard = [{
+                "rank": idx + 1,
+                "id": r[0],
+                "name": r[1],
+                "college": r[2],
+                "score": r[3]
+            } for idx, r in enumerate(rows)]
+            return self.send_json({"success": True, "leaderboard": leaderboard})
 
         # Static file fallback
         self.path = path
@@ -344,10 +389,50 @@ class ZeitgeistHandler(http.server.SimpleHTTPRequestHandler):
 
             conn = sqlite3.connect(DB_FILE)
             cur = conn.cursor()
+            cur.execute("SELECT user_name FROM submissions WHERE id = ?", (sub_id,))
+            s_row = cur.fetchone()
             cur.execute("UPDATE submissions SET status = ?, points = ? WHERE id = ?", (status, points, sub_id))
+
+            # If approved with points, auto-credit to leaderboard
+            if status == "approved" and points > 0 and s_row and s_row[0]:
+                u_name = s_row[0].strip()
+                cur.execute("SELECT id, score FROM leaderboard WHERE LOWER(name) = LOWER(?)", (u_name,))
+                l_row = cur.fetchone()
+                if l_row:
+                    cur.execute("UPDATE leaderboard SET score = score + ? WHERE id = ?", (points, l_row[0]))
+                else:
+                    cur.execute("INSERT INTO leaderboard (name, college, score) VALUES (?, 'Campus Ambassador', ?)", (u_name, points))
+
             conn.commit()
             conn.close()
             return self.send_json({"success": True, "submission_id": sub_id, "status": status})
+
+        # API: Save Leaderboard / Update Points (Admin)
+        if path == "/api/leaderboard":
+            items = body.get("items", [])
+            if not items and "name" in body:
+                items = [body]
+
+            conn = sqlite3.connect(DB_FILE)
+            cur = conn.cursor()
+            for it in items:
+                name = it.get("name", "").strip()
+                score = int(it.get("score", 0))
+                college = it.get("college", "").strip()
+                if name:
+                    cur.execute("SELECT id FROM leaderboard WHERE LOWER(name) = LOWER(?)", (name,))
+                    row = cur.fetchone()
+                    if row:
+                        if college:
+                            cur.execute("UPDATE leaderboard SET score = ?, college = ? WHERE id = ?", (score, college, row[0]))
+                        else:
+                            cur.execute("UPDATE leaderboard SET score = ? WHERE id = ?", (score, row[0]))
+                    else:
+                        cur.execute("INSERT INTO leaderboard (name, college, score) VALUES (?, ?, ?)", (name, college or 'Campus Ambassador', score))
+
+            conn.commit()
+            conn.close()
+            return self.send_json({"success": True, "message": "Leaderboard points updated successfully."})
 
         return self.send_json({"error": "Endpoint not found"}, status=404)
 

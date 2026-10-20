@@ -1579,6 +1579,20 @@ async function loadTasksFromBackend() {
   } catch (_) {}
 }
 
+async function loadLeaderboardFromBackend() {
+  try {
+    const res = await fetch('api/leaderboard');
+    if (res.ok) {
+      const data = await res.json();
+      if (data.success && Array.isArray(data.leaderboard) && data.leaderboard.length > 0) {
+        leaderboardData = data.leaderboard;
+        renderLeaderboard();
+        renderAdminLeaderboard();
+      }
+    }
+  } catch (_) {}
+}
+
 async function handleCreateTask(e) {
   e.preventDefault();
   const title = document.getElementById('new-task-title').value.trim();
@@ -1725,11 +1739,28 @@ function approveVerification(reqId) {
 
   verificationRequests = verificationRequests.filter(r => r.id !== reqId);
   localStorage.setItem('ca_verif_requests', JSON.stringify(verificationRequests));
+  localStorage.setItem('ca_live_leaderboard_v2', JSON.stringify(leaderboardData));
 
   renderLeaderboard();
   renderVerificationRequests();
   renderAdminLeaderboard();
   updateBadgeCounts();
+
+  // Sync point credit to SQLite backend
+  try {
+    fetch('api/leaderboard', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        items: [{
+          name: req.caName,
+          score: ambassador ? ambassador.score : req.points,
+          college: req.college
+        }]
+      })
+    });
+  } catch (_) {}
+
   if (window.toast) window.toast(`✓ Approved proof for ${req.caName}! Credited +${req.points} pts.`);
 }
 
@@ -1821,12 +1852,16 @@ function renderAdminLeaderboard() {
   `).join('');
 }
 
-function saveManualPoints() {
+async function saveManualPoints() {
+  const updates = [];
   leaderboardData.forEach((item, idx) => {
     const input = document.getElementById(`score-input-${idx}`);
     if (input) {
       const val = parseInt(input.value, 10);
-      if (!isNaN(val)) item.score = val;
+      if (!isNaN(val)) {
+        item.score = val;
+        updates.push({ name: item.name, score: val, college: item.college });
+      }
     }
   });
 
@@ -1835,6 +1870,21 @@ function saveManualPoints() {
 
   renderLeaderboard();
   renderAdminLeaderboard();
+  localStorage.setItem('ca_live_leaderboard_v2', JSON.stringify(leaderboardData));
+
+  // Sync to SQLite database
+  try {
+    const res = await fetch('api/leaderboard', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: updates })
+    });
+    if (res.ok) {
+      if (window.toast) window.toast('✓ Points updated and saved to Database!');
+      return;
+    }
+  } catch (_) {}
+
   if (window.toast) window.toast('✓ Points updated and saved successfully!');
 }
 
@@ -1902,6 +1952,7 @@ function handleProofSubmit(e) {
 
 // Initialize on Load
 loadTasksFromBackend();
+loadLeaderboardFromBackend();
 renderAuthUI();
 syncFromGoogleSheet(false);
 """

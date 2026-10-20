@@ -282,88 +282,141 @@ def get_passes_content():
     main_html = """
 <main id="passes">
   <div class="passes-hero">
-    <span class="eyebrow" style="color:var(--crim);">SECTOR ACCREDITATION & ENTRY DOSSIERS</span>
-    <h1 class="disp">CLEARANCE PASSES</h1>
-    <p class="eyebrow" style="margin-top:12px; color:var(--bone-dim);">Authorize your presence across campus competitive sectors and reserve student hostel accommodation.</p>
+    <span class="eyebrow" style="color:var(--crim);">SECTOR ACCREDITATION & ACCOMMODATION DOSSIERS</span>
+    <h1 class="disp">ACCOMODATION PACKAGES</h1>
+    <p class="eyebrow" style="margin-top:12px; color:var(--bone-dim);">Authorize your presence across campus competitive sectors and reserve student hostel accommodation for ZEITGEIST'26.</p>
   </div>
 
-  <div class="passes-grid">
-    <!-- Pass 1: Day Operative -->
-    <article class="pass-card" aria-label="Day Operative Pass">
-      <div class="hologram-glare" aria-hidden="true"></div>
-      <div>
-        <div class="pass-rfid-chip" aria-hidden="true"><span class="chip-gold"></span><span>RFID // SINGLE DAY CLEARANCE</span></div>
-        <span class="eyebrow">TIER 01 // SINGLE DAY</span>
-        <h2>DAY OPERATIVE PASS</h2>
-        <span class="pass-price">₹299 <small>/ DAY</small></span>
-        <ul class="pass-features">
-          <li>Access to all 12 daytime competitive arenas</li>
-          <li>Entry to Central Library lawn art exhibits</li>
-          <li>Student Activity Centre gaming lounge access</li>
-          <li>Campus food street & merchandise zone</li>
-          <li>Official digital accreditation badge</li>
-        </ul>
-      </div>
-      <button class="btn" type="button" onclick="openPassModal('Day Operative Pass', '₹299')" data-c="SELECT" style="transform:translateZ(25px);">CLAIM DAY PASS</button>
-    </article>
+  <!-- SECTION 1: COMPLETE FEST (3 DAYS) -->
+  <div style="margin-bottom:50px;">
+    <div style="font-family:'Cinzel', serif; font-size:clamp(20px, 2.5vw, 26px); color:var(--amber); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px; border-left:4px solid var(--crim); padding-left:16px; font-weight:800;">
+      * FOR THE COMPLETE FEST (3 DAYS):
+    </div>
+    <div class="passes-grid">
+      <!-- Pass 1: With Comedian and Stay -->
+      <article class="pass-card featured" aria-label="Complete Fest - With Comedian and Stay">
+        <div class="hologram-glare" aria-hidden="true"></div>
+        <span class="featured-ribbon">ALL-INCLUSIVE</span>
+        <div>
+          <div class="pass-rfid-chip" aria-hidden="true"><span class="chip-gold"></span><span>RFID // 3 DAYS + COMEDY + STAY</span></div>
+          <span class="eyebrow" style="color:var(--crim);">TIER 01 // MASTER PASS</span>
+          <h2>WITH COMEDIAN AND STAY</h2>
+          <span class="pass-price">₹1,799 <small>/ 3 DAYS + STAY</small></span>
+          <ul class="pass-features">
+            <li>Complete 3 Days All-Sector Festival Entry</li>
+            <li>Star Standup Comedian Night Pass Included</li>
+            <li>3 Nights Student Hostel Stay at IIT Ropar Campus</li>
+            <li>All 3 Pronite Star Concert Enclosure Access</li>
+            <li>Official Digital Accreditation RFID Credential</li>
+          </ul>
+        </div>
+        <button class="btn btn-crim" type="button" onclick="openPassModal('Complete Fest - With Comedian & Stay', '₹1,799')" data-c="SELECT" style="transform:translateZ(25px);">CLAIM ALL-INCLUSIVE PASS</button>
+      </article>
 
-    <!-- Pass 2: Pronites Access -->
-    <article class="pass-card" aria-label="Three-Night Pronite Pass">
-      <div class="hologram-glare" aria-hidden="true"></div>
-      <div>
-        <div class="pass-rfid-chip" aria-hidden="true"><span class="chip-gold"></span><span>RFID // 3 NIGHTS CONCERT BADGE</span></div>
-        <span class="eyebrow" style="color:var(--crim);">TIER 02 // 3 NIGHTS</span>
-        <h2>PRONITES CONCERT PASS</h2>
-        <span class="pass-price">₹699 <small>/ ALL NIGHTS</small></span>
-        <ul class="pass-features">
-          <li>Night 01: Nirvana's Eclipse (Rock & Metal)</li>
-          <li>Night 02: The Phantom Rave (EDM Spectacle)</li>
-          <li>Night 03: Symphony of Souls (Bollywood Finale)</li>
-          <li>RFID Concert Wristband at Sector 01 Checkpoint</li>
-          <li>Includes all daytime arena visitor access</li>
-        </ul>
-      </div>
-      <button class="btn btn-crim" type="button" onclick="openPassModal('Pronites Concert Pass', '₹699')" data-c="SELECT" style="transform:translateZ(25px);">CLAIM PRONITE PASS</button>
-    </article>
+      <!-- Pass 2: Without Comedian, With Stay -->
+      <article class="pass-card" aria-label="Complete Fest - Without Comedian, With Stay">
+        <div class="hologram-glare" aria-hidden="true"></div>
+        <div>
+          <div class="pass-rfid-chip" aria-hidden="true"><span class="chip-gold"></span><span>RFID // 3 DAYS + HOSTEL STAY</span></div>
+          <span class="eyebrow">TIER 02 // STAY CLEARANCE</span>
+          <h2>WITHOUT COMEDIAN, WITH STAY</h2>
+          <span class="pass-price">₹1,399 <small>/ 3 DAYS + STAY</small></span>
+          <ul class="pass-features">
+            <li>Complete 3 Days Festival Grounds Clearance</li>
+            <li>3 Nights Student Hostel Stay at IIT Ropar</li>
+            <li>All 3 Pronite Star Concerts Access (Excl. Comedian)</li>
+            <li>All Daytime Competitions & Art Arenas</li>
+            <li>Free Shuttle Transit Between Station & Campus</li>
+          </ul>
+        </div>
+        <button class="btn btn-amber" type="button" onclick="openPassModal('Complete Fest - Without Comedian, With Stay', '₹1,399')" data-c="SELECT" style="transform:translateZ(25px);">RESERVE STAY PASS</button>
+      </article>
 
-    <!-- Pass 3: VIP All-Access -->
-    <article class="pass-card featured" aria-label="VIP All-Access Master Pass">
-      <div class="hologram-glare" aria-hidden="true"></div>
-      <span class="featured-ribbon">RECOMMENDED</span>
-      <div>
-        <div class="pass-rfid-chip" aria-hidden="true"><span class="chip-gold"></span><span>RFID // ALL-ACCESS VIP MASTER</span></div>
-        <span class="eyebrow" style="color:var(--amber);">TIER 03 // ALL ACCESS</span>
-        <h2>VIP MASTER PASS</h2>
-        <span class="pass-price">₹1,199 <small>/ 3 DAYS</small></span>
-        <ul class="pass-features">
-          <li>Front-of-stage VIP pit enclosure for all 3 Pronites</li>
-          <li>Priority fast-track entry gates across all sectors</li>
-          <li>Official ZEITGEIST'26 Horror T-Shirt & Lanyard</li>
-          <li>Exclusive access to backstage lounge area</li>
-          <li>Direct clearance for all 12 daytime arenas</li>
-        </ul>
-      </div>
-      <button class="btn btn-crim" type="button" onclick="openPassModal('VIP Master Pass', '₹1,199')" data-c="SELECT" style="transform:translateZ(25px);">CLAIM VIP PASS</button>
-    </article>
+      <!-- Pass 3: Without Comedian, Without Stay -->
+      <article class="pass-card" aria-label="Complete Fest - Without Comedian, Without Stay">
+        <div class="hologram-glare" aria-hidden="true"></div>
+        <div>
+          <div class="pass-rfid-chip" aria-hidden="true"><span class="chip-gold"></span><span>RFID // 3 DAYS FEST ACCESS</span></div>
+          <span class="eyebrow">TIER 03 // FEST PASS</span>
+          <h2>WITHOUT COMEDIAN, WITHOUT STAY</h2>
+          <span class="pass-price">₹799 <small>/ 3 DAYS</small></span>
+          <ul class="pass-features">
+            <li>Complete 3 Days Festival Grounds Access</li>
+            <li>All 3 Pronite Star Concerts Access (Excl. Comedian)</li>
+            <li>All 12 Daytime Competitive Arenas Clearance</li>
+            <li>Student Activity Centre gaming lounge access</li>
+            <li>Campus Food Street & Merchandise Zone</li>
+          </ul>
+        </div>
+        <button class="btn" type="button" onclick="openPassModal('Complete Fest - Without Comedian, Without Stay', '₹799')" data-c="SELECT" style="transform:translateZ(25px);">CLAIM FEST PASS</button>
+      </article>
+    </div>
+  </div>
 
-    <!-- Pass 4: Outstation Contingent + Hostel -->
-    <article class="pass-card" aria-label="Contingent Pass plus Hostels">
-      <div class="hologram-glare" aria-hidden="true"></div>
-      <div>
-        <div class="pass-rfid-chip" aria-hidden="true"><span class="chip-gold"></span><span>RFID // 3 DAYS + HOSTEL STAY</span></div>
-        <span class="eyebrow">TIER 04 // FULL STAY</span>
-        <h2>CONTINGENT + HOSTEL</h2>
-        <span class="pass-price">₹1,899 <small>/ 3 DAYS + STAY</small></span>
-        <ul class="pass-features">
-          <li>All-Access 3-day festival entry + all 3 pronites</li>
-          <li>3 Nights student hostel room stay at IIT Ropar</li>
-          <li>Mattress, bedding, and 24/7 security credential</li>
-          <li>High-speed campus Wi-Fi & electricity clearance</li>
-          <li>Free shuttle transit between RPAR station & campus</li>
-        </ul>
-      </div>
-      <button class="btn btn-amber" type="button" onclick="openPassModal('Contingent + Hostel Pass', '₹1,899')" data-c="SELECT" style="transform:translateZ(25px);">RESERVE STAY & PASS</button>
-    </article>
+  <!-- SECTION 2: FOR DAY 2 AND DAY 3 -->
+  <div style="margin-bottom:60px;">
+    <div style="font-family:'Cinzel', serif; font-size:clamp(20px, 2.5vw, 26px); color:var(--amber); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px; border-left:4px solid var(--amber); padding-left:16px; font-weight:800;">
+      * FOR DAY 2 AND DAY 3:
+    </div>
+    <div class="passes-grid">
+      <!-- Pass 4: Day 2 & 3 - With Comedian and Stay -->
+      <article class="pass-card featured" aria-label="Day 2 and 3 - With Comedian and Stay">
+        <div class="hologram-glare" aria-hidden="true"></div>
+        <span class="featured-ribbon">WEEKEND VIP</span>
+        <div>
+          <div class="pass-rfid-chip" aria-hidden="true"><span class="chip-gold"></span><span>RFID // 2 DAYS + COMEDY + STAY</span></div>
+          <span class="eyebrow" style="color:var(--crim);">TIER 04 // WEEKEND VIP</span>
+          <h2>WITH COMEDIAN AND STAY</h2>
+          <span class="pass-price">₹1,499 <small>/ 2 DAYS + STAY</small></span>
+          <ul class="pass-features">
+            <li>Day 2 & Day 3 Festival Grounds Clearance</li>
+            <li>Star Standup Comedian Pronite Pass Included</li>
+            <li>2 Nights Student Hostel Stay at IIT Ropar</li>
+            <li>Weekend Pronite Star Concert Enclosure Access</li>
+            <li>Official Digital Accreditation RFID Credential</li>
+          </ul>
+        </div>
+        <button class="btn btn-crim" type="button" onclick="openPassModal('Day 2 & 3 - With Comedian and Stay', '₹1,499')" data-c="SELECT" style="transform:translateZ(25px);">CLAIM WEEKEND PACKAGE</button>
+      </article>
+
+      <!-- Pass 5: Day 2 & 3 - Without Comedian, With Stay -->
+      <article class="pass-card" aria-label="Day 2 and 3 - Without Comedian, With Stay">
+        <div class="hologram-glare" aria-hidden="true"></div>
+        <div>
+          <div class="pass-rfid-chip" aria-hidden="true"><span class="chip-gold"></span><span>RFID // 2 DAYS + HOSTEL STAY</span></div>
+          <span class="eyebrow">TIER 05 // WEEKEND STAY</span>
+          <h2>WITHOUT COMEDIAN, WITH STAY</h2>
+          <span class="pass-price">₹1,099 <small>/ 2 DAYS + STAY</small></span>
+          <ul class="pass-features">
+            <li>Day 2 & Day 3 Festival Entry Clearance</li>
+            <li>2 Nights Student Hostel Stay at IIT Ropar</li>
+            <li>Weekend Pronite Star Concerts (Excl. Comedian)</li>
+            <li>Day 2 & Day 3 Competitive Arenas Entry</li>
+            <li>Campus High-Speed Wi-Fi & Safety Clearance</li>
+          </ul>
+        </div>
+        <button class="btn btn-amber" type="button" onclick="openPassModal('Day 2 & 3 - Without Comedian, With Stay', '₹1,099')" data-c="SELECT" style="transform:translateZ(25px);">RESERVE WEEKEND STAY</button>
+      </article>
+
+      <!-- Pass 6: Day 2 & 3 - Without Comedian, Without Stay -->
+      <article class="pass-card" aria-label="Day 2 and 3 - Without Comedian, Without Stay">
+        <div class="hologram-glare" aria-hidden="true"></div>
+        <div>
+          <div class="pass-rfid-chip" aria-hidden="true"><span class="chip-gold"></span><span>RFID // 2 DAYS ENTRY</span></div>
+          <span class="eyebrow">TIER 06 // WEEKEND ENTRY</span>
+          <h2>WITHOUT COMEDIAN, WITHOUT STAY</h2>
+          <span class="pass-price">₹699 <small>/ 2 DAYS</small></span>
+          <ul class="pass-features">
+            <li>Day 2 & Day 3 Complete Fest Grounds Entry</li>
+            <li>Weekend Pronite Star Concerts (Excl. Comedian)</li>
+            <li>Arena Competitions & Cultural Exhibits Access</li>
+            <li>Campus Food Street & Merchandise Zone</li>
+            <li>Official Digital Visitor Pass</li>
+          </ul>
+        </div>
+        <button class="btn" type="button" onclick="openPassModal('Day 2 & 3 - Without Comedian, Without Stay', '₹699')" data-c="SELECT" style="transform:translateZ(25px);">CLAIM WEEKEND PASS</button>
+      </article>
+    </div>
   </div>
 
   <!-- Rules Box -->

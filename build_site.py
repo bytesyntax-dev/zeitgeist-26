@@ -490,6 +490,30 @@ footer.foot {
   text-transform: uppercase;
 }
 
+.foot-social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 4px;
+  font: 600 11px var(--mono);
+  letter-spacing: 0.1em;
+  color: var(--bone);
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  cursor: pointer !important;
+}
+
+.foot-social-pill:hover {
+  background: rgba(209, 15, 32, 0.25);
+  border-color: var(--crim);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(209, 15, 32, 0.35);
+}
+
 /* Toast */
 #toast {
   position: fixed;
@@ -521,7 +545,7 @@ footer.foot {
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 300;
+  z-index: 999999;
   pointer-events: none;
   display: none;
 }
@@ -560,6 +584,31 @@ footer.foot {
 
 body.cur, body.cur * {
   cursor: none !important;
+}
+
+body.cur input,
+body.cur textarea,
+body.cur select,
+body.cur .ca-modal,
+body.cur .ca-modal * {
+  cursor: auto !important;
+}
+
+body.cur input[type="text"],
+body.cur input[type="password"],
+body.cur input[type="email"],
+body.cur input[type="number"],
+body.cur input[type="url"],
+body.cur textarea {
+  cursor: text !important;
+}
+
+body.cur button,
+body.cur .btn,
+body.cur a,
+body.cur .foot-social-pill,
+body.cur [role="button"] {
+  cursor: pointer !important;
 }
 
 @media (hover: none) and (pointer: coarse) {
@@ -1145,21 +1194,16 @@ def generate_shell(title, description, active_page, extra_css, main_html, page_s
         ("events.html", "Events", "EVENTS"),
         ("schedule.html", "Schedule", "SCHEDULE"),
         ("sponsors.html", "Sponsors", "SPONSORS"),
-        ("#merchandise", "Merchandise", "MERCHANDISE"),
-        ("#ca-program", "CA Program", "CA_PROGRAM"),
+        ("merchandise.html", "Merchandise", "MERCHANDISE"),
+        ("ca-program.html", "CA Program", "CA_PROGRAM"),
         ("team.html", "Team", "TEAM")
     ]
     nav_links = ""
     mob_links = ""
     for url, label, data_c in pages:
         active_cls = " active" if active_page == url else ""
-        click_handler = ""
-        if url == "#merchandise":
-            click_handler = ' onclick="if(window.toast) toast(\'Official Zeitgeist Merchandise store launching soon! 👕\'); return false;"'
-        elif url == "#ca-program":
-            click_handler = ' onclick="if(window.toast) toast(\'Campus Ambassador Program registrations opening soon! 🎓\'); return false;"'
-        nav_links += f'<a class="nav-link{active_cls}" href="{url}" data-c="{data_c}"{click_handler}>{label}</a>\n'
-        mob_links += f'<a class="mob-link{active_cls}" href="{url}"{click_handler}>{label}</a>\n'
+        nav_links += f'<a class="nav-link{active_cls}" href="{url}" data-c="{data_c}">{label}</a>\n'
+        mob_links += f'<a class="mob-link{active_cls}" href="{url}">{label}</a>\n'
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -1396,9 +1440,21 @@ def generate_shell(title, description, active_page, extra_css, main_html, page_s
       <ul>
         <li><a href="mailto:zeitgeist@iitrpr.ac.in">zeitgeist@iitrpr.ac.in</a></li>
         <li><a href="tel:+919876543210">+91 98765 43210 (Control Room)</a></li>
-        <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">@zeitgeist_iitrpr</a></li>
-        <li><a href="https://youtube.com" target="_blank" rel="noopener noreferrer">Zeitgeist Archives</a></li>
       </ul>
+      <div style="margin-top:14px; display:flex; flex-direction:column; gap:8px;">
+        <a href="https://www.instagram.com/zeitgeist.iitrpr/?hl=en" target="_blank" rel="noopener noreferrer" class="foot-social-pill" title="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.linkedin.com/in/zeitgeist-iit-ropar-aa2bb6166/" target="_blank" rel="noopener noreferrer" class="foot-social-pill" title="LinkedIn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://www.youtube.com/user/ZeitgeistIITRopar" target="_blank" rel="noopener noreferrer" class="foot-social-pill" title="YouTube">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          <span>YouTube</span>
+        </a>
+      </div>
     </div>
   </div>
   
@@ -1753,6 +1809,8 @@ from pages.sponsors_page import get_sponsors_content
 from pages.team_page import get_team_content
 from pages.gallery_page import get_gallery_content
 from pages.contact_page import get_contact_content
+from pages.merchandise_page import get_merchandise_content
+from pages.ca_program_page import get_ca_program_content
 
 def build_all():
     subpages = [
@@ -1765,6 +1823,8 @@ def build_all():
         ("team.html", get_team_content),
         ("gallery.html", get_gallery_content),
         ("contact.html", get_contact_content),
+        ("merchandise.html", get_merchandise_content),
+        ("ca-program.html", get_ca_program_content),
     ]
 
     print("--- COMPILING ZEITGEIST'26 MULTI-PAGE SUITE ---")

@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>The Archives — Events | ZEITGEIST'26 | IIT Ropar</title>
-<meta name="description" content="Declassified competitive arenas, rulebooks, and registration dockets for ZEITGEIST'26 at IIT Ropar.">
-<meta property="og:title" content="The Archives — Events | ZEITGEIST'26 | IIT Ropar">
-<meta property="og:description" content="Declassified competitive arenas, rulebooks, and registration dockets for ZEITGEIST'26 at IIT Ropar.">
+<title>The Archives — Events & Competitions | ZEITGEIST'26 | IIT Ropar</title>
+<meta name="description" content="Official catalog of all 24+ competitive arenas, unstop registration portals, and downloadable rulebooks for ZEITGEIST'26 at IIT Ropar.">
+<meta property="og:title" content="The Archives — Events & Competitions | ZEITGEIST'26 | IIT Ropar">
+<meta property="og:description" content="Official catalog of all 24+ competitive arenas, unstop registration portals, and downloadable rulebooks for ZEITGEIST'26 at IIT Ropar.">
 <meta name="theme-color" content="#080506">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -501,6 +501,30 @@ footer.foot {
   text-transform: uppercase;
 }
 
+.foot-social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 4px;
+  font: 600 11px var(--mono);
+  letter-spacing: 0.1em;
+  color: var(--bone);
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  cursor: pointer !important;
+}
+
+.foot-social-pill:hover {
+  background: rgba(209, 15, 32, 0.25);
+  border-color: var(--crim);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(209, 15, 32, 0.35);
+}
+
 /* Toast */
 #toast {
   position: fixed;
@@ -532,7 +556,7 @@ footer.foot {
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 300;
+  z-index: 999999;
   pointer-events: none;
   display: none;
 }
@@ -571,6 +595,31 @@ footer.foot {
 
 body.cur, body.cur * {
   cursor: none !important;
+}
+
+body.cur input,
+body.cur textarea,
+body.cur select,
+body.cur .ca-modal,
+body.cur .ca-modal * {
+  cursor: auto !important;
+}
+
+body.cur input[type="text"],
+body.cur input[type="password"],
+body.cur input[type="email"],
+body.cur input[type="number"],
+body.cur input[type="url"],
+body.cur textarea {
+  cursor: text !important;
+}
+
+body.cur button,
+body.cur .btn,
+body.cur a,
+body.cur .foot-social-pill,
+body.cur [role="button"] {
+  cursor: pointer !important;
 }
 
 @media (hover: none) and (pointer: coarse) {
@@ -1152,658 +1201,248 @@ footer.foot::before {
 
 
 
-/* Events Specific Styles */
-.cat-chips {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding: 24px 0 10px;
-  margin-top: 16px;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
+/* Events Catalog Styles */
+.events-hero {
+  margin-bottom: 32px;
 }
 
-.cat-chips::-webkit-scrollbar {
-  display: none;
+.events-hero h1 {
+  font-size: clamp(34px, 6.5vw, 76px);
+  margin-top: 10px;
+  line-height: 1.05;
 }
 
-.chip {
-  flex-shrink: 0;
-  padding: 8px 16px;
-  background: var(--char);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  font: 500 10px var(--mono);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ash);
-  transition: all 0.3s;
-}
 
-.chip:hover {
-  color: var(--bone);
-  border-color: rgba(255, 255, 255, 0.3);
-}
 
-.chip.active {
-  background: var(--surface);
-  border-color: var(--crim);
-  color: var(--bone);
-  box-shadow: 0 0 12px var(--crim-glow);
-}
-
-.fb {
-  position: sticky;
-  top: calc(60px + env(safe-area-inset-top, 0px));
-  z-index: 70;
-  background: rgba(4, 3, 4, 0.95);
-  backdrop-filter: blur(14px);
-  padding: 16px 0;
-  border-block: 1px solid rgba(255, 255, 255, 0.08);
-  display: grid;
-  grid-template-columns: 2fr repeat(5, 1fr) auto;
-  gap: 10px;
-}
-
-.fb input, .fb select {
-  background: var(--char);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 0 14px;
-  min-height: 46px;
-  width: 100%;
-  border-radius: 0;
-  font: 400 12px var(--mono);
-  appearance: none;
-  color: var(--bone);
-  transition: border-color 0.3s, background 0.3s;
-}
-
-.fb input:focus, .fb select:focus {
-  border-color: var(--crim);
-  background: var(--surface);
-}
-
-.fb select {
-  background-image: linear-gradient(45deg, transparent 50%, var(--ash) 50%), linear-gradient(135deg, var(--ash) 50%, transparent 50%);
-  background-position: calc(100% - 16px) 20px, calc(100% - 11px) 20px;
-  background-size: 5px 5px;
-  background-repeat: no-repeat;
-  padding-right: 28px;
-}
-
-.fb input::placeholder {
-  color: var(--ash);
-}
-
-.fb button {
-  padding: 0 16px;
-  min-height: 46px;
-  font: 500 10px var(--mono);
-  letter-spacing: 0.25em;
-  color: var(--ash);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  text-transform: uppercase;
-  transition: color 0.3s, border-color 0.3s;
-  white-space: nowrap;
-}
-
-.fb button:hover {
-  color: var(--bone);
-  border-color: var(--crim);
-}
-
-.cnt-bar {
+/* Search and Controls Bar */
+.catalog-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 24px 0 18px;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.ev {
-  grid-column: span 6;
-  background: var(--void);
-  padding: clamp(20px, 2.5vw, 32px);
-  min-height: 220px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-  transition: background 0.5s, box-shadow 0.4s, transform 0.15s ease-out;
-  animation: in 0.6s both;
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-
-.ev.w { grid-column: span 7; }
-.ev.n { grid-column: span 5; }
-
-@keyframes in {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.ev::before {
-  content: attr(data-n);
-  position: absolute;
-  right: -0.05em;
-  top: -0.22em;
-  font: 700 clamp(48px, 6vw, 84px)/1 var(--serif);
-  opacity: 0.04;
-  color: var(--bone);
-  transition: color 0.5s, transform 0.6s, opacity 0.5s;
-  pointer-events: none;
-}
-
-.ev .card-glare {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s;
-  background: radial-gradient(circle 280px at var(--gx, 50%) var(--gy, 50%), rgba(148, 23, 34, 0.22), rgba(173, 95, 38, 0.06) 50%, transparent 80%);
-  z-index: 1;
-}
-
-.ev:hover .card-glare {
-  opacity: 1;
-}
-
-.ev:hover {
-  background: var(--surface-hover);
-  box-shadow: inset 0 0 0 1px rgba(148, 23, 34, 0.5), 0 12px 36px rgba(0, 0, 0, 0.7);
-}
-
-.ev:hover::before {
-  color: var(--crim);
-  opacity: 0.15;
-  transform: translateX(-12px);
-}
-
-.ev > * {
-  position: relative;
-  z-index: 2;
-}
-
-.ev h2 {
-  font: 700 clamp(18px, 2vw, 24px)/1.08 var(--disp-sans);
-  text-transform: uppercase;
-  margin: 12px 0 18px;
-  transition: transform 0.4s, color 0.3s;
-}
-
-.ev:hover h2 {
-  transform: translateX(8px);
-  color: var(--bone);
-}
-
-.mt {
-  display: flex;
-  gap: 8px 24px;
-  flex-wrap: wrap;
-  color: var(--bone-dim);
-  font: 400 12px var(--mono);
-}
-
-.tags {
-  display: flex;
-  gap: 8px;
-  margin-top: 22px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.tg {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 5px 10px;
-  font: 500 9px var(--mono);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ash);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.tg.Open {
-  border-color: rgba(173, 95, 38, 0.6);
-  color: var(--amber);
-}
-
-.tg.Open .beacon {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--amber);
-  animation: beacon-ping 1.8s infinite;
-}
-
-@keyframes beacon-ping {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.6); opacity: 0.4; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-.tg.Soon { border-color: var(--ash); }
-.tg.Closed { opacity: 0.45; }
-
-.tg.registered {
-  border-color: #27ae60;
-  color: #2ecc71;
-  background: rgba(39, 174, 96, 0.1);
-}
-
-.tg.prize {
-  border-color: rgba(148, 23, 34, 0.45);
-  color: var(--crim);
-}
-
-.ar {
-  margin-left: auto;
-  font-size: 18px;
-  transition: transform 0.4s, color 0.3s;
-  color: var(--ash);
-}
-
-.ev:hover .ar {
-  transform: translateX(8px);
-  color: var(--crim);
-}
-
-/* Detail View Styles */
-.detail-nav-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.back {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 0;
-  font: 500 10px var(--mono);
-  letter-spacing: 0.25em;
-  color: var(--ash);
-  transition: color 0.3s;
-}
-
-.back:hover {
-  color: var(--bone);
-}
-
-.detail-actions {
-  display: flex;
-  gap: 12px;
-}
-
-.detail-hero {
-  will-change: transform;
-
-  aspect-ratio: 24 / 9;
+.search-box-wrap {
   position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(135deg, #090608 0%, #170d10 50%, #080507 100%);
-  display: flex;
-  align-items: flex-end;
-  padding: clamp(24px, 4vw, 48px);
+  min-width: 280px;
+  flex: 1;
+  max-width: 480px;
 }
 
-.detail-hero::before {
-  content: "";
+.search-input {
+  width: 100%;
+  background: var(--char);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 12px 18px 12px 42px;
+  color: var(--bone);
+  font: 400 13px var(--mono);
+  border-radius: 999px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  border-color: var(--crim);
+  background: var(--surface);
+}
+
+.search-icon {
   position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 32px 32px;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ash);
+  font-size: 14px;
   pointer-events: none;
 }
 
-.detail-hero-reticle {
-  position: absolute;
-  top: 20px;
-  right: 24px;
-  font: 500 10px var(--mono);
-  letter-spacing: 0.25em;
-  color: var(--crim);
+.stats-badge {
+  font: 600 11px var(--mono);
+  letter-spacing: 0.15em;
+  color: var(--ash);
+  text-transform: uppercase;
+}
+
+.stats-badge span {
+  color: var(--amber);
+  font-weight: 700;
+}
+
+/* Catalog Card Grid */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+  margin-bottom: 80px;
+}
+
+/* Card Shell matching Reference Design with Moonlit Revelry Theme */
+.catalog-card {
+  background: #090608;
+  border: 1px solid rgba(209, 15, 32, 0.5);
+  border-radius: 14px;
+  padding: 24px 20px 20px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  text-align: right;
-}
-
-.detail-hero-tag {
-  font: 700 clamp(48px, 9vw, 110px)/0.8 var(--serif);
-  color: rgba(226, 219, 206, 0.05);
-  position: absolute;
-  left: 20px;
-  top: 10px;
-  pointer-events: none;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.detail-hero-caption {
-  position: relative;
-  z-index: 2;
-  font: 500 11px var(--mono);
-  letter-spacing: 0.28em;
-  color: var(--ash);
-  text-transform: uppercase;
-}
-
-.dt {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: clamp(30px, 6vw, 90px);
-  margin-top: clamp(36px, 5vw, 60px);
-  align-items: start;
-}
-
-.dt h2 {
-  font: 500 10px var(--mono);
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--amber);
-  margin: 44px 0 16px;
-  display: flex;
   align-items: center;
-  gap: 12px;
-}
-
-.dt h2::after {
-  content: "";
-  height: 1px;
-  flex: 1;
-  background: rgba(173, 95, 38, 0.2);
-}
-
-.dt h2:first-child { margin-top: 0; }
-.dt p, .dt li { color: var(--bone-dim); max-width: 66ch; line-height: 1.7; }
-.dt ol { padding-left: 24px; display: grid; gap: 12px; }
-.dt ol li::marker { color: var(--crim); font-family: var(--mono); }
-
-.tl {
-  list-style: none;
-  padding: 0 !important;
-  border-left: 1px solid rgba(148, 23, 34, 0.4);
-}
-
-.tl li {
-  padding: 0 0 24px 24px;
   position: relative;
+  box-shadow: 0 0 24px rgba(209, 15, 32, 0.15), inset 0 0 16px rgba(0, 0, 0, 0.9);
+  outline: 1.5px solid rgba(255, 255, 255, 0.05);
+  outline-offset: -8px;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s, border-color 0.28s;
+  overflow: hidden;
+}
+
+.catalog-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--crim-bright);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85), 0 0 32px var(--crim-glow), inset 0 0 20px rgba(209, 15, 32, 0.22);
+}
+
+.catalog-card-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 16px;
+  min-height: 54px;
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.tl li::before {
-  content: "";
-  position: absolute;
-  left: -4px;
-  top: 8px;
-  width: 7px;
-  height: 7px;
-  background: var(--crim);
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--crim);
-}
-
-.tl b {
+.catalog-card-title {
+  font: 700 clamp(18px, 1.7vw, 22px)/1.2 var(--disp-sans, var(--serif));
   color: var(--bone);
-  min-width: 90px;
-  font-family: var(--mono);
-  font-weight: 500;
-  font-size: 13px;
+  letter-spacing: 0.03em;
+  text-transform: capitalize;
 }
 
-aside {
-  position: sticky;
-  top: 100px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(14, 11, 13, 0.9);
-  backdrop-filter: blur(14px);
-  padding: clamp(24px, 3.2vw, 38px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
-}
-
-.ds {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px 16px;
-  margin: 24px 0 32px;
-}
-
-.ds dt {
-  font: 500 10px var(--mono);
-  letter-spacing: 0.25em;
+.catalog-card-sub {
+  font: 500 11px var(--mono);
   color: var(--ash);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-}
-
-.ds dd {
-  font: 700 20px/1.2 var(--serif);
-  text-transform: uppercase;
-  word-break: break-word;
-  color: var(--bone);
   margin-top: 4px;
 }
 
-.pn {
-  display: flex;
-  justify-content: space-between;
-  margin-top: clamp(60px, 8vw, 100px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 30px;
-  gap: 18px;
+/* Card Poster Image Container */
+.catalog-card-media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #120709;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
 }
 
-.pn a {
-  font: 700 clamp(16px, 2vw, 22px) var(--serif);
+.catalog-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.catalog-card:hover .catalog-card-media img {
+  transform: scale(1.04);
+}
+
+.catalog-category-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(8, 5, 6, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font: 600 9px var(--mono);
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  transition: color 0.3s;
+  color: var(--bone);
+}
+
+/* 3 Action Buttons */
+.catalog-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.catalog-btn {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font: 700 12px var(--disp-sans, var(--sans));
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.22s ease;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
-.pn a:hover { color: var(--crim); }
-.rbar { display: none; }
-
-/* Registration Modal */
-.modal-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 250;
-  background: rgba(4, 3, 4, 0.88);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  display: grid;
-  place-items: center;
-  padding: var(--pad);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
+/* 1. Register Button: Glowing Primary Pill */
+.btn-register {
+  background: linear-gradient(135deg, rgba(209, 15, 32, 0.95), rgba(162, 13, 24, 0.95));
+  border: 1px solid var(--crim-bright);
+  color: #ffffff;
+  box-shadow: 0 0 16px var(--crim-glow);
 }
 
-.modal-backdrop.open {
-  opacity: 1;
-  pointer-events: auto;
+.btn-register:hover {
+  background: linear-gradient(135deg, #e61c30, #b80f1c);
+  box-shadow: 0 0 24px rgba(230, 28, 48, 0.75);
+  transform: scale(1.02);
 }
 
-.modal-window {
-  background: #0d0a0c;
-  border: 1px solid rgba(148, 23, 34, 0.6);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 30px var(--crim-glow);
-  width: 100%;
-  max-width: 620px;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  padding: clamp(24px, 4vw, 44px);
-  transform: translateY(24px) scale(0.97);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.modal-backdrop.open .modal-window {
-  transform: translateY(0) scale(1);
-}
-
-.modal-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  display: grid;
-  place-items: center;
-  font: 400 16px var(--mono);
-  color: var(--ash);
-  transition: all 0.3s;
-}
-
-.modal-close:hover {
-  border-color: var(--crim);
+/* 2. Explore More Button: Sleek Pill (non-functional/dossier preview per request) */
+.btn-explore {
+  background: rgba(24, 6, 7, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   color: var(--bone);
+  cursor: default;
 }
 
-.modal-head {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 20px;
-  margin-bottom: 24px;
+.btn-explore:hover {
+  background: rgba(35, 12, 15, 0.95);
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
-.modal-head h3 {
-  font: 700 clamp(20px, 3vw, 28px) var(--disp-sans);
-  text-transform: uppercase;
-  margin-top: 8px;
-  color: var(--bone);
-}
-
-.modal-meta-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 14px;
-  margin-bottom: 24px;
-  font: 400 11px var(--mono);
-}
-
-.modal-meta-grid div span {
-  color: var(--ash);
-  display: block;
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-.modal-form { display: grid; gap: 18px; }
-.field-group { display: grid; gap: 6px; }
-
-.field-group label {
-  font: 500 10px var(--mono);
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--ash);
-}
-
-.field-group input, .field-group select {
-  background: #141113;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  padding: 12px 16px;
-  font: 400 13px var(--mono);
-  color: var(--bone);
-  width: 100%;
-  transition: border-color 0.3s;
-}
-
-.field-group input:focus, .field-group select:focus {
-  border-color: var(--crim);
-  outline: none;
-}
-
-.field-terms {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font: 400 11px/1.5 var(--mono);
-  color: var(--bone-dim);
-  margin-top: 6px;
-}
-
-.field-terms input[type="checkbox"] {
-  accent-color: var(--crim);
-  width: 16px;
-  height: 16px;
-  margin-top: 2px;
-  flex-shrink: 0;
-}
-
-.modal-success {
-  display: none;
-  text-align: center;
-  padding: 20px 0;
-}
-
-.modal-success.active {
-  display: block;
-  animation: fx 0.6s ease;
-}
-
-.stamp-seal {
-  display: inline-block;
-  border: 2px solid var(--crim);
-  color: var(--crim-bright);
-  padding: 10px 24px;
-  font: 700 16px var(--mono);
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-  transform: rotate(-3deg);
-  box-shadow: 0 0 20px var(--crim-glow);
-}
-
-.passcode-card {
-  background: rgba(20, 17, 19, 0.9);
-  border: 1px dashed rgba(255, 255, 255, 0.2);
-  padding: 20px;
-  margin: 20px 0;
-  text-align: center;
-}
-
-.passcode-val {
-  font: 700 24px var(--mono);
-  letter-spacing: 0.2em;
+/* 3. Rulebook Button: Pill with download icon */
+.btn-rulebook {
+  background: #0d080a;
+  border: 1px solid rgba(195, 75, 22, 0.65);
   color: var(--amber);
-  margin: 10px 0;
-  word-break: break-all;
 }
 
-@media (max-width: 900px) {
-  .fb { grid-template-columns: 1fr 1fr; position: static; }
-  .fb input { grid-column: 1 / -1; }
-  .ev, .ev.w, .ev.n { grid-column: 1 / -1; min-height: 180px; }
-  .dt { grid-template-columns: 1fr; }
-  aside { position: static; order: -1; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); background: var(--void); padding: 0 0 24px 0; }
-  .detail-hero { aspect-ratio: 16 / 10; }
-  aside .btn { display: none; }
-  .rbar { display: block; position: fixed; inset: auto 0 0; z-index: 70; padding: 14px var(--pad) calc(14px + env(safe-area-inset-bottom, 0px)); background: rgba(4, 3, 4, 0.95); border-top: 1px dashed rgba(255, 255, 255, 0.2); }
+.btn-rulebook:hover {
+  border-color: var(--amber);
+  background: rgba(195, 75, 22, 0.2);
+  color: #ff9d66;
+  box-shadow: 0 0 16px var(--amber-glow);
+}
+
+@media (max-width: 680px) {
+  .catalog-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }
 
 </style>
@@ -1816,8 +1455,8 @@ aside {
     <a class="nav-link active" href="events.html" data-c="EVENTS">Events</a>
 <a class="nav-link" href="schedule.html" data-c="SCHEDULE">Schedule</a>
 <a class="nav-link" href="sponsors.html" data-c="SPONSORS">Sponsors</a>
-<a class="nav-link" href="#merchandise" data-c="MERCHANDISE" onclick="if(window.toast) toast('Official Zeitgeist Merchandise store launching soon! 👕'); return false;">Merchandise</a>
-<a class="nav-link" href="#ca-program" data-c="CA_PROGRAM" onclick="if(window.toast) toast('Campus Ambassador Program registrations opening soon! 🎓'); return false;">CA Program</a>
+<a class="nav-link" href="merchandise.html" data-c="MERCHANDISE">Merchandise</a>
+<a class="nav-link" href="ca-program.html" data-c="CA_PROGRAM">CA Program</a>
 <a class="nav-link" href="team.html" data-c="TEAM">Team</a>
 
   </div>
@@ -1829,8 +1468,8 @@ aside {
   <a class="mob-link active" href="events.html">Events</a>
 <a class="mob-link" href="schedule.html">Schedule</a>
 <a class="mob-link" href="sponsors.html">Sponsors</a>
-<a class="mob-link" href="#merchandise" onclick="if(window.toast) toast('Official Zeitgeist Merchandise store launching soon! 👕'); return false;">Merchandise</a>
-<a class="mob-link" href="#ca-program" onclick="if(window.toast) toast('Campus Ambassador Program registrations opening soon! 🎓'); return false;">CA Program</a>
+<a class="mob-link" href="merchandise.html">Merchandise</a>
+<a class="mob-link" href="ca-program.html">CA Program</a>
 <a class="mob-link" href="team.html">Team</a>
 
   <button id="close-mob" style="margin-top:24px; font:600 12px var(--mono); color:var(--crim); letter-spacing:0.2em; background:none; border:none; cursor:pointer;">[ CLOSE ]</button>
@@ -1889,123 +1528,29 @@ aside {
 <div id="toast" role="status"></div>
 
 
-<main id="list">
-  <p class="eyebrow">Archive 01 // Classified Competitive Arenas</p>
-  <h1 class="disp" tabindex="-1">Declassified Events Dossier</h1>
-  
-  <!-- Category Quick-Chips -->
-  <div class="cat-chips" id="cat-chips" role="tablist" aria-label="Category quick filter">
-    <button class="chip active" type="button" data-cat="" role="tab" aria-selected="true" data-c="FILTER">All Sectors</button>
-    <button class="chip" type="button" data-cat="Music" role="tab" aria-selected="false" data-c="FILTER">Music</button>
-    <button class="chip" type="button" data-cat="Dance" role="tab" aria-selected="false" data-c="FILTER">Dance</button>
-    <button class="chip" type="button" data-cat="Dramatics" role="tab" aria-selected="false" data-c="FILTER">Dramatics</button>
-    <button class="chip" type="button" data-cat="Fashion" role="tab" aria-selected="false" data-c="FILTER">Fashion</button>
-    <button class="chip" type="button" data-cat="Literary" role="tab" aria-selected="false" data-c="FILTER">Literary</button>
-    <button class="chip" type="button" data-cat="Fine Arts" role="tab" aria-selected="false" data-c="FILTER">Fine Arts</button>
-    <button class="chip" type="button" data-cat="Cinematics" role="tab" aria-selected="false" data-c="FILTER">Cinematics</button>
-    <button class="chip" type="button" data-cat="Gaming" role="tab" aria-selected="false" data-c="FILTER">Gaming</button>
+<main id="events-catalog">
+  <div class="events-hero">
+    <span class="eyebrow" style="color:var(--crim);">OFFICIAL FESTIVAL ARENAS</span>
+    <h1 class="disp">THE ARCHIVES</h1>
+    <p class="eyebrow" style="margin-top:12px; color:var(--bone-dim);">Explore all official competitive arenas, download declassified rulebooks, and secure your place on the Unstop portal.</p>
   </div>
 
-  <!-- Search & Filter Bar -->
-  <form class="fb" role="search" aria-label="Find events" onsubmit="return false">
-    <input id="q" type="search" placeholder="Search events, arenas, sector codes, prize..." aria-label="Search events" autocomplete="off">
-    <select id="fc" aria-label="Category"></select>
-    <select id="fd" aria-label="Day"></select>
-    <select id="fv" aria-label="Venue"></select>
-    <select id="fe" aria-label="Solo or team"></select>
-    <select id="fs" aria-label="Registration status"></select>
-    <button type="button" id="clr" data-c="CLEAR">Clear</button>
-  </form>
-  
-  <div class="cnt-bar">
-    <p class="eyebrow cnt" id="cnt" aria-live="polite">Dossier: Initializing records...</p>
-    <span class="eyebrow" id="reg-indicator"></span>
+
+
+  <!-- Search and Stats Toolbar -->
+  <div class="catalog-toolbar">
+    <div class="search-box-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="catalog-search" class="search-input" placeholder="Search by event title, genre, or keyword..." aria-label="Search events" />
+    </div>
+    <div class="stats-badge">
+      SHOWING <span id="event-count">0</span> COMPETITIVE ARENAS
+    </div>
   </div>
-  
-  <div class="grid" id="grid"></div>
+
+  <!-- Catalog Cards Grid -->
+  <div class="catalog-grid" id="catalog-feed" aria-live="polite"></div>
 </main>
-
-<main id="detail" hidden></main>
-
-<!-- Registration Docket Modal -->
-<div class="modal-backdrop" id="reg-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
-  <div class="modal-window">
-    <button class="modal-close" id="modal-close-btn" type="button" aria-label="Close docket" data-c="DISMISS">✕</button>
-    
-    <div id="modal-content-form">
-      <div class="modal-head">
-        <span class="eyebrow" style="color:var(--crim);">CLASSIFIED REGISTRATION PROTOCOL</span>
-        <h3 id="modal-title">COMMENCE RITUAL ENROLLMENT</h3>
-      </div>
-      
-      <div class="modal-meta-grid" id="modal-meta">
-        <div><span>SECTOR ARENA</span><strong id="meta-venue">—</strong></div>
-        <div><span>SCHEDULE TIMING</span><strong id="meta-time">—</strong></div>
-        <div><span>FORMAT</span><strong id="meta-entry">—</strong></div>
-        <div><span>REGISTRATION LEVY</span><strong id="meta-fee" style="color:var(--amber);">—</strong></div>
-      </div>
-      
-      <form class="modal-form" id="docket-form">
-        <div class="field-group">
-          <label for="lead-name">Operative / Squad Lead Name *</label>
-          <input type="text" id="lead-name" required placeholder="e.g. Arjun Varma" autocomplete="name">
-        </div>
-        
-        <div class="field-group">
-          <label for="lead-college">Institutional Entity / College *</label>
-          <input type="text" id="lead-college" required placeholder="e.g. IIT Ropar / Thapar University">
-        </div>
-        
-        <div class="field-group">
-          <label for="lead-email">Encrypted Comms Frequency (Email) *</label>
-          <input type="email" id="lead-email" required placeholder="operative@institution.edu" autocomplete="email">
-        </div>
-        
-        <div class="field-group">
-          <label for="lead-phone">Transmission Channel (Phone / WhatsApp) *</label>
-          <input type="tel" id="lead-phone" required placeholder="+91 98765 43210" autocomplete="tel">
-        </div>
-        
-        <div class="field-group" id="group-team-size" style="display:none;">
-          <label for="team-count">Roster Size (Team Members)</label>
-          <select id="team-count">
-            <option value="4">4 Operatives</option>
-            <option value="6" selected>6 Operatives</option>
-            <option value="8">8 Operatives</option>
-            <option value="10">10 Operatives</option>
-            <option value="12">12 Operatives (Full Legion)</option>
-          </select>
-        </div>
-        
-        <label class="field-terms">
-          <input type="checkbox" id="terms-chk" required>
-          <span>I formally acknowledge the festival curfew, midnight decreta, and accept the finality of the judges' verdict under festival law.</span>
-        </label>
-        
-        <button class="btn btn-crim" type="submit" id="submit-docket-btn" style="width:100%; margin-top:8px;" data-c="SEAL">
-          <span>SEAL THE COVENANT // SUBMIT DOSSIER</span>
-        </button>
-      </form>
-    </div>
-    
-    <div class="modal-success" id="modal-success">
-      <div class="stamp-seal">COVENANT SEALED</div>
-      <p class="eyebrow" style="margin-bottom:12px;">CLEARANCE TOKEN GENERATED & SIGNED</p>
-      <h3 style="font:700 24px var(--disp-sans); color:var(--bone);" id="success-event-name">EVENT NAME</h3>
-      
-      <div class="passcode-card">
-        <span class="eyebrow">YOUR OFFICIAL PASSCODE</span>
-        <div class="passcode-val" id="success-passcode">ZG26-EVT-000-0000</div>
-        <p style="font:400 11px var(--mono); color:var(--ash);">Preserve this token. Required at registration checkpoint in Sector 01.</p>
-      </div>
-      
-      <div style="display:flex; gap:12px; justify-content:center; margin-top:24px;">
-        <button class="btn-mini" type="button" id="copy-pass-btn" data-c="COPY">COPY TOKEN</button>
-        <button class="btn btn-crim" type="button" id="success-done-btn" style="min-height:38px; padding:8px 24px;" data-c="DISMISS">CLOSE DOSSIER</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 <!-- Symmetrical Cemetery Mist, Ground Lanterns & Interactive Pumpkins before Footer -->
@@ -2144,9 +1689,21 @@ aside {
       <ul>
         <li><a href="mailto:zeitgeist@iitrpr.ac.in">zeitgeist@iitrpr.ac.in</a></li>
         <li><a href="tel:+919876543210">+91 98765 43210 (Control Room)</a></li>
-        <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">@zeitgeist_iitrpr</a></li>
-        <li><a href="https://youtube.com" target="_blank" rel="noopener noreferrer">Zeitgeist Archives</a></li>
       </ul>
+      <div style="margin-top:14px; display:flex; flex-direction:column; gap:8px;">
+        <a href="https://www.instagram.com/zeitgeist.iitrpr/?hl=en" target="_blank" rel="noopener noreferrer" class="foot-social-pill" title="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.linkedin.com/in/zeitgeist-iit-ropar-aa2bb6166/" target="_blank" rel="noopener noreferrer" class="foot-social-pill" title="LinkedIn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://www.youtube.com/user/ZeitgeistIITRopar" target="_blank" rel="noopener noreferrer" class="foot-social-pill" title="YouTube">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          <span>YouTube</span>
+        </a>
+      </div>
     </div>
   </div>
   
@@ -2482,505 +2039,355 @@ document.querySelectorAll('.mob-link').forEach(l => {
 });
 
 
-/* Events Data & Router Script */
-const CATS = ["Music", "Dance", "Dramatics", "Fashion", "Literary", "Fine Arts", "Cinematics", "Quizzing", "Gaming", "Special Events"];
-const VENUES = ["Senate Amphitheatre", "Lecture Complex", "Student Activity Centre", "Open Air Theatre", "Sports Grounds", "Central Library Lawn"];
-const pad = n => String(n).padStart(3, "0");
-
-const EVENT_NAMES = [
-  "Sonic Exorcism // Battle of the Bands",
-  "The Danse Macabre // Western Choreo",
-  "Shadows of the Street // Nukkad Natak",
-  "Haute Occult // The Midnight Pageant",
-  "The Lost Manuscript // Slam Poetry",
-  "Canvas of Ashes // Live Charcoal Arts",
-  "48-Hour Midnight Film // Reel of Horrors",
-  "Occult Lore & Enigma // General Quiz",
-  "Purgatory LAN // Valorant & CS2 Arena",
-  "The Alchemist's Trial // Science Mystery",
-  "Rhapsody in Blood // Solo Eastern Vocals",
-  "The Final Masquerade // Mono Act Showcase"
+/* Master Catalog Data (Unstop Registration & Rulebooks) */
+const CATALOG_DATA = [
+  {
+    id: "bidvertise",
+    title: "Bidvertise",
+    subtitle: "Advertising & Auction Warfare",
+    cat: "Management",
+    poster: "assets/events/Bidvertise_Rulebook_0.png",
+    unstop: "https://unstop.com/o/iQw0YWX?lb=lBZyqh8&utm_medium=Share&utm_source=zeitgrop3312&utm_campaign=Events",
+    rulebook: "assets/rulebooks/Bidvertise Rulebook.pdf"
+  },
+  {
+    id: "jam",
+    title: "JAM (Just A Minute)",
+    subtitle: "Rapid-Fire Fluency & Wit",
+    cat: "Literary",
+    poster: "assets/events/Rulebook_JAM_zeitgeist_26_0.png",
+    unstop: "https://unstop.com/o/C4s09Pc?lb=lBZyqh8&utm_medium=Share&utm_source=zeitgrop3312&utm_campaign=Events",
+    rulebook: "assets/rulebooks/Rulebook JAM zeitgeist_26.pdf"
+  },
+  {
+    id: "xuberance",
+    title: "Xuberance",
+    subtitle: "Western Group Choreo Duel",
+    cat: "Dance",
+    poster: "assets/events/Xuberance_Rulebook_0.png",
+    unstop: "https://unstop.com/o/XVWysKc?lb=lBZyqh8&utm_medium=Share&utm_source=zeitgrop3312&utm_campaign=Events",
+    rulebook: "assets/rulebooks/Xuberance Rulebook.pdf"
+  },
+  {
+    id: "swaltza",
+    title: "Swaltza",
+    subtitle: "Duet Dance Synchronization",
+    cat: "Dance",
+    poster: "assets/events/Swaltza_Rulebook_0.png",
+    unstop: "https://unstop.com/o/ybdwAZ9?lb=lBZyqh8&utm_medium=Share&utm_source=zeitgrop3312&utm_campaign=Events",
+    rulebook: "assets/rulebooks/Swaltza Rulebook.pdf"
+  },
+  {
+    id: "smack-that",
+    title: "Smack That",
+    subtitle: "Lightning Reaction Arcade Arena",
+    cat: "Informal",
+    poster: "assets/events/SMACK_THAT_0.png",
+    unstop: "https://unstop.com/o/TDEzHQP?lb=lBZyqh8&utm_medium=Share&utm_source=zeitgrop3312&utm_campaign=Events",
+    rulebook: "assets/rulebooks/SMACK THAT.pdf"
+  },
+  {
+    id: "beat-down-bash",
+    title: "Beat Down Bash",
+    subtitle: "Street Dance & Hip-Hop Face-Off",
+    cat: "Dance",
+    poster: "assets/events/Beat_down_bash_rulebook_0.png",
+    unstop: "https://unstop.com/o/in6wkX3?utm_medium=Share&utm_source=zeitgrop3312&utm_campaign=Events",
+    rulebook: "assets/rulebooks/Beat down bash rulebook.pdf"
+  },
+  {
+    id: "mixology",
+    title: "Mixology",
+    subtitle: "Beverage Craft & Mocktail Duel",
+    cat: "Lifestyle",
+    poster: "assets/events/MIXOLOGY_RULEBOOK_ZT_26_0.png",
+    unstop: "https://unstop.com/o/cLPHny1?lb=lBZyqh8&utm_medium=Share&utm_source=zeitgrop3312&utm_campaign=Events",
+    rulebook: "assets/rulebooks/MIXOLOGY RULEBOOK ZT_26.pdf"
+  },
+  {
+    id: "foody-frenzy",
+    title: "Foody Frenzy",
+    subtitle: "Speed Eating & Culinary Trial",
+    cat: "Informal",
+    poster: "assets/events/Foody_Frenzy_X_Inferno_Rulebook_zeitgeist_26_0.png",
+    unstop: "https://unstop.com/o/rc3PwKR?lb=lBZyqh8&utm_medium=Share&utm_source=zeitgrop3312&utm_campaign=Events",
+    rulebook: "assets/rulebooks/Foody Frenzy X Inferno Rulebook zeitgeist_26.pdf"
+  },
+  {
+    id: "batter-and-brush",
+    title: "Batter and Brush",
+    subtitle: "Confectionery & Dessert Artistry",
+    cat: "Fine Arts",
+    poster: "assets/events/Batter_and_Brush_Rulebook_2_0.png",
+    unstop: "https://unstop.com/o/pWXGfj0?lb=lBZyqh8&utm_medium=Share&utm_source=zeitgrop3312&utm_campaign=Events",
+    rulebook: "assets/rulebooks/Batter and Brush Rulebook-2.pdf"
+  },
+  {
+    id: "war-of-bands",
+    title: "War of Bands",
+    subtitle: "National Battle of the Bands",
+    cat: "Music",
+    poster: "assets/events/WAR_OF_BANDS_0.png",
+    unstop: "https://unstop.com/o/xHYnvLd?lb=lBZyqh8&utm_medium=Share&utm_source=zeitgrop3312&utm_campaign=Events",
+    rulebook: "assets/rulebooks/WAR OF BANDS.pdf"
+  },
+  {
+    id: "voices-unbound",
+    title: "Voices Unbound",
+    subtitle: "Spoken Word & Slam Poetry",
+    cat: "Literary",
+    poster: "assets/events/Voices_Unbound_0.png",
+    unstop: "https://unstop.com/o/brgV4jZ?lb=lBZyqh8&utm_medium=Share&utm_source=zeitgrop3312&utm_campaign=Events",
+    rulebook: "assets/rulebooks/Voices Unbound.pdf"
+  },
+  {
+    id: "rap-sody",
+    title: "Rap-Sody",
+    subtitle: "Freestyle Cypher & Rap Battle",
+    cat: "Music",
+    poster: "assets/events/RapSody_0.png",
+    unstop: "https://unstop.com/o/tvsy5Zu?lb=lBZyqh8&utm_medium=Share&utm_source=zeitgrop3312&utm_campaign=Events",
+    rulebook: "assets/rulebooks/RapSody.pdf"
+  },
+  {
+    id: "beyond-words",
+    title: "Beyond Words",
+    subtitle: "Mime & Silent Theatre Showcase",
+    cat: "Dramatics",
+    poster: "assets/events/BEYOND_WORDS_0.png",
+    unstop: "https://unstop.com/o/ZtEMPyQ?lb=lBZyqh8&utm_medium=Share&utm_source=zeitgrop3312&utm_campaign=Events",
+    rulebook: "assets/rulebooks/BEYOND WORDS.pdf"
+  },
+  {
+    id: "artees",
+    title: "Artees: T-shirt Painting",
+    subtitle: "Wearable Fine Arts & Design",
+    cat: "Fine Arts",
+    poster: "assets/events/_Rulebook_Artees_zeitgeist_26_0.png",
+    unstop: "https://unstop.com/p/artees-indian-institute-of-technology-iit-ropar-1768583",
+    rulebook: "assets/rulebooks/_Rulebook Artees zeitgeist_26.pdf"
+  },
+  {
+    id: "halloween-hues",
+    title: "Halloween Hues",
+    subtitle: "Dark Character & Canvas Duel",
+    cat: "Fine Arts",
+    poster: "assets/events/halloween_hues.png",
+    unstop: "https://unstop.com/p/halloween-hues-indian-institute-of-technology-iit-ropar-1768585",
+    rulebook: ""
+  },
+  {
+    id: "josh-e-junta",
+    title: "Josh-e-Junta",
+    subtitle: "High-Voltage Nukkad Natak",
+    cat: "Dramatics",
+    poster: "assets/events/josh_e_junta.png",
+    unstop: "https://unstop.com/p/josh-e-junta-indian-institute-of-technology-iit-ropar-1768569",
+    rulebook: ""
+  },
+  {
+    id: "bakheda",
+    title: "Bakheda",
+    subtitle: "Main Stage Theatrical Riot",
+    cat: "Dramatics",
+    poster: "assets/events/bakheda.png",
+    unstop: "https://unstop.com/p/bakheda-indian-institute-of-technology-iit-ropar-1768571",
+    rulebook: ""
+  },
+  {
+    id: "unleashed-monoact",
+    title: "Unleashed: Monoact",
+    subtitle: "Solo Dramatic Powerhouse",
+    cat: "Dramatics",
+    poster: "assets/events/unleashed_monoact.png",
+    unstop: "https://unstop.com/p/unleashed-monoact-indian-institute-of-technology-iit-ropar-1768573",
+    rulebook: ""
+  },
+  {
+    id: "product-pixel",
+    title: "Product Pixel",
+    subtitle: "Digital Design & Brand Sprint",
+    cat: "Design",
+    poster: "assets/events/Copy_Product_Pixel_zeitgeist_26_0.png",
+    unstop: "https://unstop.com/p/product-pixel-indian-institute-of-technology-iit-ropar-1768574",
+    rulebook: "assets/rulebooks/Copy Product Pixel zeitgeist_26.pdf"
+  },
+  {
+    id: "cineclash",
+    title: "CineClash",
+    subtitle: "Short Film Direction & Cinematic Challenge",
+    cat: "Dramatics",
+    poster: "assets/events/CINECLASH_RULEBOOK_0.png",
+    unstop: "https://unstop.com/p/cineclash-indian-institute-of-technology-iit-ropar-1769301",
+    rulebook: "assets/rulebooks/CINECLASH RULEBOOK.pdf"
+  },
+  {
+    id: "hidden-element",
+    title: "Hidden Element",
+    subtitle: "Occult Enigma & Mystery Hunt",
+    cat: "Quizzing",
+    poster: "assets/events/Hidden_Element_zeitgeist_26_0.png",
+    unstop: "https://unstop.com/p/hidden-element-indian-institute-of-technology-iit-ropar-1768577",
+    rulebook: "assets/rulebooks/Hidden Element zeitgeist_26.pdf"
+  },
+  {
+    id: "comic-sutra",
+    title: "Comic Sutra",
+    subtitle: "Standup Comedy Showdown",
+    cat: "Comedy",
+    poster: "assets/events/comic_sutra.png",
+    unstop: "https://unstop.com/o/JjTs0SO?lb=HrYUNYG7&utm_medium=Share&utm_source=events&utm_campaign=Ameykem3658",
+    rulebook: ""
+  },
+  {
+    id: "wicked-hats",
+    title: "Wicked Hats-Off",
+    subtitle: "Avant-Garde Millinery Runway",
+    cat: "Fashion",
+    poster: "assets/events/wicked_hats.png",
+    unstop: "https://unstop.com/o/NRnG9Sy?lb=lBZyqh8&utm_medium=Share&utm_source=zeitgrop3312&utm_campaign=Events",
+    rulebook: ""
+  },
+  {
+    id: "squid-game",
+    title: "Squid Game",
+    subtitle: "5 Mysterious Elimination Survival Trials",
+    cat: "Informal",
+    poster: "assets/events/SQUID_GAME_0.png",
+    unstop: "https://unstop.com/p/squid-game-indian-institute-of-technology-iit-ropar-1769324",
+    rulebook: "assets/rulebooks/SQUID GAME.pdf"
+  },
+  {
+    id: "kavyanjali",
+    title: "Kavyanjali",
+    subtitle: "Live Stage Poetry Slam & Spoken Word",
+    cat: "Literary",
+    poster: "assets/events/Bidvertise_Rulebook_0.png",
+    unstop: "https://unstop.com/o/mkh52TD?lb=M3pELvx1&utm_medium=Share&utm_source=events&utm_campaign=Sakshdha26236",
+    rulebook: "assets/rulebooks/Kavyanjali Rulebook.pdf"
+  },
+  {
+    id: "hobsons-ink",
+    title: "Hobson's Ink",
+    subtitle: "24-Hour Narrative Storytelling Arena",
+    cat: "Literary",
+    poster: "assets/events/Bidvertise_Rulebook_0.png",
+    unstop: "https://unstop.com/o/sn8o19N?lb=M3pELvx1&utm_medium=Share&utm_source=events&utm_campaign=Sakshdha26236",
+    rulebook: "assets/rulebooks/Hobsons Ink Rulebook.pdf"
+  },
+  {
+    id: "verses-vs-verses",
+    title: "Verses vs. Verses",
+    subtitle: "On-Spot Thematic Poetry Duel",
+    cat: "Literary",
+    poster: "assets/events/Bidvertise_Rulebook_0.png",
+    unstop: "https://unstop.com/o/W9NHtXh?lb=M3pELvx1&utm_medium=Share&utm_source=events&utm_campaign=Sakshdha26236",
+    rulebook: "assets/rulebooks/Verses vs Verses Rulebook.pdf"
+  },
+  {
+    id: "directors-bluff",
+    title: "Director's Bluff",
+    subtitle: "Movie Grid, Mystery & Movie Poker",
+    cat: "Dramatics",
+    poster: "assets/events/Bidvertise_Rulebook_0.png",
+    unstop: "https://unstop.com/o/6Gk1tqp?utm_medium=Share&utm_source=zeitgrop3312&utm_campaign=Events",
+    rulebook: "assets/rulebooks/Directors Bluff Rulebook.pdf"
+  },
+  {
+    id: "one-question-after-another",
+    title: "One Question After Another",
+    subtitle: "Open General Quiz by Major Chandrakanth Nair",
+    cat: "Quizzing",
+    poster: "assets/events/Bidvertise_Rulebook_0.png",
+    unstop: "https://unstop.com/p/one-question-after-another-a-general-quiz-by-major-chandrakanth-nair-zeitgeist26-moonlit-revelry-indian-institute-of-t-1770552",
+    rulebook: "assets/rulebooks/One Question After Another Quiz Rulebook.pdf"
+  }
 ];
 
-const EVENTS = Array.from({ length: 12 }, (_, i) => {
-  const team = i % 3 === 1;
-  return {
-    id: "evt-" + pad(i + 1),
-    n: i + 1,
-    name: EVENT_NAMES[i],
-    cat: CATS[i % CATS.length],
-    day: (i % 3) + 1,
-    date: ["Oct 30, 2026", "Oct 31, 2026", "Nov 01, 2026"][i % 3],
-    time: ["11:00 AM", "02:30 PM", "05:00 PM", "08:30 PM"][i % 4],
-    venue: VENUES[i % VENUES.length],
-    entry: team ? "Team" : "Solo",
-    teamSize: team ? "4 - 12 Members" : "1 Participant",
-    fee: team ? "₹500 / Team" : "₹150 / Person",
-    prize: ["₹40,000", "₹30,000", "₹25,000", "₹50,000"][i % 4],
-    status: ["Open", "Open", "Soon", "Closed"][i % 4],
-    short: "Enter the arena where the sound refuses to die and the judges judge under candle fire.",
-    desc: "A headline competitive ritual at Zeitgeist'26. Open to recognized colleges and independent collectives across the nation. Participants will be judged on precision, thematic horror integration, technical mastery, and stage presence under midnight stage lighting.",
-    rules: [
-      "All registered teams must report at least 45 minutes prior to slot timing with clearance token.",
-      "Time limit: 12 minutes on stage + 3 minutes setup. Negative marking beyond deadline.",
-      "Explicit vulgarity is prohibited; psychological and dark editorial interpretations are strongly encouraged.",
-      "Decisions of the judge panel are final, absolute, and binding under festival law."
-    ],
-    timeline: [
-      ["10:00 AM", "Registration & Dossier Verification"],
-      ["11:00 AM", "Preliminary Round & Soundcheck"],
-      ["04:00 PM", "Finals Showcase & Verdict"]
-    ],
-    contact: "Event Lead: Kabir Sharma · +91 98765 43210 · events@zeitgeist.org.in"
-  };
-});
+let activeCat = "all";
+let searchQuery = "";
 
-const STATUS = {
-  Open: "Commence Ritual",
-  Soon: "Pending Clearance",
-  Closed: "Dossier Sealed"
-};
+function renderCatalog() {
+  const container = document.getElementById("catalog-feed");
+  const q = searchQuery.toLowerCase().trim();
 
-const $ = s => document.querySelector(s);
-const $$ = s => [...document.querySelectorAll(s)];
-
-const getRegisteredEvents = () => {
-  try { return JSON.parse(localStorage.getItem("zg_regs") || "{}"); } catch (e) { return {}; }
-};
-
-const saveRegistration = (eventId, token, details) => {
-  try {
-    const data = getRegisteredEvents();
-    data[eventId] = { token, date: new Date().toISOString(), ...details };
-    localStorage.setItem("zg_regs", JSON.stringify(data));
-  } catch (e) {}
-};
-
-const fill = (id, label, arr) => {
-  $(id).innerHTML = `<option value="">${label}</option>` + arr.map(a => `<option value="${a[0]}">${a[1]}</option>`).join("");
-};
-
-fill("#fc", "All Categories", CATS.map(c => [c, c]));
-fill("#fd", "All Days", [1, 2, 3].map(d => [d, "Day 0" + d]));
-fill("#fv", "All Venues", VENUES.map(v => [v, v]));
-fill("#fe", "Solo / Team", [["Solo", "Solo Arena"], ["Team", "Team Arena"]]);
-fill("#fs", "Any Status", Object.keys(STATUS).map(s => [s, s]));
-
-const F = { q: "", cat: "", day: "", venue: "", entry: "", status: "" };
-const map = { q: "#q", cat: "#fc", day: "#fd", venue: "#fv", entry: "#fe", status: "#fs" };
-
-Object.entries(map).forEach(([k, s]) => $(s).addEventListener(k === "q" ? "input" : "change", e => {
-  F[k] = k === "q" ? e.target.value.trim().toLowerCase() : e.target.value;
-  if (k === "cat") {
-    $$(".chip").forEach(c => c.classList.toggle("active", c.dataset.cat === F.cat));
-  }
-  playClick(500);
-  drawList();
-}));
-
-$$(".chip").forEach(ch => {
-  ch.onclick = () => {
-    $$(".chip").forEach(c => c.classList.remove("active"));
-    ch.classList.add("active");
-    F.cat = ch.dataset.cat || "";
-    $("#fc").value = F.cat;
-    playClick(600);
-    drawList();
-  };
-});
-
-$("#clr").onclick = () => {
-  Object.keys(F).forEach(k => { F[k] = ""; $(map[k]).value = ""; });
-  $$(".chip").forEach(c => c.classList.toggle("active", c.dataset.cat === ""));
-  playClick(350);
-  drawList();
-  toast("DOSSIER FILTERS CLEARED.");
-};
-
-function drawList() {
-  const registered = getRegisteredEvents();
-  const regCount = Object.keys(registered).length;
-  $("#reg-indicator").textContent = regCount ? `[YOUR DOSSIERS SEALED: ${regCount}]` : "";
-
-  const r = EVENTS.filter(e =>
-    (!F.q || `${e.name} ${e.cat} ${e.venue} ${e.id} event ${pad(e.n)} ${e.entry} ${e.status} ${e.prize}`.toLowerCase().includes(F.q)) &&
-    (!F.cat || e.cat === F.cat) &&
-    (!F.day || e.day == F.day) &&
-    (!F.venue || e.venue === F.venue) &&
-    (!F.entry || e.entry === F.entry) &&
-    (!F.status || e.status === F.status)
-  );
-
-  $("#cnt").textContent = `Dossier: ${r.length} of ${EVENTS.length} classified arenas declassified`;
-
-  $("#grid").innerHTML = r.length ? r.map((e, i) => {
-    const isReg = !!registered[e.id];
-    return `
-      <a class="ev ${[" w", " n", " n", " w"][i % 4].trim()}" data-n="${pad(e.n)}" href="#/event/${e.id}" style="animation-delay:${Math.min(i, 8) * 40}ms" data-c="INSPECT" aria-label="${e.name}, ${e.cat}, ${e.status}">
-        <div class="card-glare"></div>
-        <div>
-          <span class="eyebrow">Dossier ${pad(e.n)} · ${e.cat}</span>
-          <h2>${e.name}</h2>
-          <div class="mt">
-            <span>Day 0${e.day} · ${e.time}</span>
-            <span>${e.venue}</span>
-          </div>
-        </div>
-        <div class="tags">
-          <span class="tg">${e.entry}</span>
-          <span class="tg ${e.status}">
-            ${e.status === "Open" ? '<span class="beacon"></span>' : ''}
-            ${e.status}
-          </span>
-          <span class="tg prize">Pool: ${e.prize}</span>
-          ${isReg ? '<span class="tg registered">✓ COVENANT SEALED</span>' : ''}
-          <span class="ar" aria-hidden="true">→</span>
-        </div>
-      </a>
-    `;
-  }).join("") : `
-    <div class="empty" style="grid-column: 1 / -1; padding: 80px 20px; text-align: center;">
-      <h2>Nothing stirs in this sector.</h2>
-      <p class="eyebrow" style="margin-top:12px;">No arena records match your search parameters. Try clearing filters.</p>
-    </div>
-  `;
-
-  attachCardTilt();
-}
-
-function attachCardTilt() {
-  if (matchMedia("(pointer: coarse)").matches) return;
-  $$(".ev").forEach(card => {
-    card.addEventListener("pointermove", e => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -6;
-      const rotateY = ((x - centerX) / centerX) * 6;
-      card.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
-      card.style.setProperty("--gx", `${x}px`);
-      card.style.setProperty("--gy", `${y}px`);
-    });
-    card.addEventListener("pointerleave", () => {
-      card.style.transform = "perspective(700px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
-    });
-  });
-}
-function attachDetailTilt() {
-  if (matchMedia("(pointer: coarse)").matches) return;
-  const hero = $(".detail-hero");
-  if (!hero) return;
-  hero.addEventListener('pointermove', e => {
-    const rect = hero.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const cx = rect.width / 2;
-    const cy = rect.height / 2;
-    const rx = ((y - cy) / cy) * -5;
-    const ry = ((x - cx) / cx) * 5;
-    hero.style.transform = `perspective(1200px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateZ(8px)`;
-  });
-  hero.addEventListener('pointerleave', () => {
-    hero.style.transform = '';
-  });
-}
-
-function drawDetail(id) {
-  const i = EVENTS.findIndex(e => e.id === id);
-  const e = EVENTS[i];
-  const d = $("#detail");
-  const registered = getRegisteredEvents();
-  const isReg = registered[id];
-
-  if (!e) {
-    d.innerHTML = `
-      <a class="back" href="#/" data-c="RETURN">← Return to all dossiers</a>
-      <h1 class="disp" tabindex="-1" style="margin-top:20px;">Dossier Classified</h1>
-      <p style="margin-top:20px; color:var(--ash);">This arena record has vanished into the Punjab fog.</p>
-    `;
-    document.title = "Not Found — ZEITGEIST'26";
-    return;
-  }
-
-  const p = EVENTS[(i + EVENTS.length - 1) % EVENTS.length];
-  const n = EVENTS[(i + 1) % EVENTS.length];
-  const open = e.status === "Open";
-
-  const btnLabel = isReg ? `COVENANT SEALED [${isReg.token}]` : STATUS[e.status];
-  const btnClass = isReg ? "btn btn-crim registered-btn" : (open ? "btn btn-crim" : "btn");
-  const btnAction = open ? `data-reg-id="${e.id}"` : `data-disabled-msg="${STATUS[e.status]}"`;
-  const btnHtml = `<button type="button" class="${btnClass}" ${btnAction} aria-disabled="${!open && !isReg}" data-c="${isReg ? 'VIEW' : 'REGISTER'}">${btnLabel}</button>`;
-
-  d.innerHTML = `
-    <div class="detail-nav-bar">
-      <a class="back" href="#/" data-c="RETURN">← All Dossiers Archive</a>
-      <div class="detail-actions">
-        <button type="button" class="btn-mini" id="share-dossier-btn" data-c="SHARE">⎘ Share Link</button>
-        <button type="button" class="btn-mini" id="print-dossier-btn" data-c="PRINT">🖶 Print Directive</button>
-      </div>
-    </div>
-
-    <p class="eyebrow" style="margin-top:8px;">CLASSIFIED RITUAL · ARENA ${pad(e.n)} // ${e.cat}</p>
-    <h1 class="disp" tabindex="-1" style="font-size:clamp(30px, 5.5vw, 68px); margin-top:10px;">${e.name}</h1>
-    
-    <div class="detail-hero">
-      <span class="detail-hero-tag" aria-hidden="true">${e.cat}</span>
-      <div class="detail-hero-reticle">
-        <span>SECTOR: ${e.venue.toUpperCase()}</span>
-        <span>CLEARANCE: LEVEL OMEGA</span>
-        <span>STATUS: ${e.status.toUpperCase()}</span>
-      </div>
-      <div class="detail-hero-caption">
-        [CLASSIFIED SURVEILLANCE DOSSIER // IIT ROPAR ARENA ${pad(e.n)} · DAY 0${e.day}]
-      </div>
-    </div>
-    
-    <div class="dt">
-      <div>
-        <h2>The Decree</h2>
-        <p style="font:italic 500 clamp(20px, 2.2vw, 28px)/1.35 var(--serif); color:var(--bone); border-left:2px solid var(--crim); padding-left:20px;">
-          "${e.short}"
-        </p>
-        
-        <h2>Full Dossier Briefing</h2>
-        <p>${e.desc}</p>
-        
-        <h2>Decrees & Protocols</h2>
-        <ol>${e.rules.map(r => `<li>${r}</li>`).join("")}</ol>
-        
-        <h2>Sequence of Rites</h2>
-        <ul class="tl">${e.timeline.map(t => `<li><b>${t[0]}</b><span>${t[1]}</span></li>`).join("")}</ul>
-        
-        <h2>Contact Liaison</h2>
-        <p>${e.contact}</p>
-      </div>
-      
-      <aside aria-label="Event facts">
-        <span class="eyebrow">Day 0${e.day} · ${e.date}</span>
-        <dl class="ds">
-          <div><dt>TIME</dt><dd>${e.time}</dd></div>
-          <div><dt>SECTOR</dt><dd>${e.venue}</dd></div>
-          <div><dt>ENTRY</dt><dd>${e.entry}</dd></div>
-          <div><dt>TEAM SIZE</dt><dd>${e.teamSize}</dd></div>
-          <div><dt>REG FEE</dt><dd>${e.fee}</dd></div>
-          <div style="grid-column: 1 / -1;"><dt>PRIZE POOL</dt><dd style="color:var(--amber); font-size:26px;">${e.prize}</dd></div>
-        </dl>
-        ${btnHtml}
-      </aside>
-    </div>
-    
-    <div class="rbar">${btnHtml}</div>
-    
-    <div class="pn">
-      <a href="#/event/${p.id}" data-c="PREV">← Previous: ${p.name}</a>
-      <a href="#/event/${n.id}" data-c="NEXT">Next: ${n.name} →</a>
-    </div>
-  `;
-
-  document.title = `${e.name} — ${e.cat} | ZEITGEIST'26`;
-attachDetailTilt();
-
-  const shareBtn = $("#share-dossier-btn");
-  if (shareBtn) {
-    shareBtn.onclick = () => {
-      playClick(750);
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(location.href).then(() => {
-          toast("DOSSIER FREQUENCY COPIED TO CLIPBOARD.");
-        });
-      } else {
-        toast("DOSSIER LINK: " + location.href);
-      }
-    };
-  }
-
-  const printBtn = $("#print-dossier-btn");
-  if (printBtn) {
-    printBtn.onclick = () => { playClick(500); window.print(); };
-  }
-}
-
-let activeRegistrationEvent = null;
-
-function openRegistrationModal(eventId) {
-  const e = EVENTS.find(x => x.id === eventId);
-  if (!e) return;
-  activeRegistrationEvent = e;
-
-  const modal = $("#reg-modal");
-  const isTeam = e.entry === "Team";
-
-  $("#modal-title").textContent = `ENROLLMENT // ${e.name}`;
-  $("#meta-venue").textContent = e.venue;
-  $("#meta-time").textContent = `Day 0${e.day} · ${e.time}`;
-  $("#meta-entry").textContent = `${e.entry} (${e.teamSize})`;
-  $("#meta-fee").textContent = e.fee;
-
-  $("#group-team-size").style.display = isTeam ? "grid" : "none";
-  $("#modal-content-form").style.display = "block";
-  $("#modal-success").classList.remove("active");
-  $("#modal-success").style.display = "none";
-  $("#docket-form").reset();
-
-  modal.hidden = false;
-  void modal.offsetWidth;
-  modal.classList.add("open");
-  playChime(400);
-
-  const firstInput = $("#lead-name");
-  if (firstInput) firstInput.focus();
-}
-
-function closeRegistrationModal() {
-  const modal = $("#reg-modal");
-  modal.classList.remove("open");
-  setTimeout(() => {
-    modal.hidden = true;
-    activeRegistrationEvent = null;
-  }, 350);
-  playClick(400);
-}
-
-$("#modal-close-btn").onclick = closeRegistrationModal;
-$("#success-done-btn").onclick = closeRegistrationModal;
-$("#reg-modal").onclick = e => { if (e.target === $("#reg-modal")) closeRegistrationModal(); };
-
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape" && !$("#reg-modal").hidden) closeRegistrationModal();
-});
-
-$("#docket-form").onsubmit = e => {
-  e.preventDefault();
-  if (!activeRegistrationEvent) return;
-
-  const btn = $("#submit-docket-btn");
-  btn.setAttribute("aria-disabled", "true");
-  btn.querySelector("span").textContent = "TRANSMITTING ENCRYPTED DOSSIER...";
-  playGlitch();
-
-  setTimeout(() => {
-    const randomHex = Math.floor(1000 + Math.random() * 9000);
-    const token = `ZG26-${activeRegistrationEvent.id.toUpperCase()}-${randomHex}`;
-
-    const leadName = $("#lead-name").value.trim();
-    const college = $("#lead-college").value.trim();
-    const email = $("#lead-email").value.trim();
-
-    saveRegistration(activeRegistrationEvent.id, token, {
-      leadName,
-      college,
-      email,
-      eventName: activeRegistrationEvent.name
-    });
-
-    playChime(500);
-
-    $("#modal-content-form").style.display = "none";
-    const succ = $("#modal-success");
-    succ.style.display = "block";
-    succ.classList.add("active");
-
-    $("#success-event-name").textContent = activeRegistrationEvent.name;
-    $("#success-passcode").textContent = token;
-
-    btn.removeAttribute("aria-disabled");
-    btn.querySelector("span").textContent = "SEAL THE COVENANT // SUBMIT DOSSIER";
-
-    if (location.hash.startsWith("#/event/")) {
-      drawDetail(activeRegistrationEvent.id);
-    } else {
-      drawList();
+  const filtered = CATALOG_DATA.filter(item => {
+    if (activeCat !== "all" && item.cat !== activeCat) return false;
+    if (q) {
+      const matchTitle = item.title.toLowerCase().includes(q);
+      const matchSub = item.subtitle.toLowerCase().includes(q);
+      const matchCat = item.cat.toLowerCase().includes(q);
+      if (!matchTitle && !matchSub && !matchCat) return false;
     }
+    return true;
+  });
 
-    toast(`COVENANT SEALED FOR ${activeRegistrationEvent.name}`);
-  }, 800);
-};
+  document.getElementById("event-count").textContent = filtered.length;
 
-$("#copy-pass-btn").onclick = () => {
-  playClick(800);
-  const pass = $("#success-passcode").textContent;
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(pass).then(() => {
-      toast("CLEARANCE TOKEN COPIED TO CLIPBOARD.");
-    });
-  } else {
-    toast("TOKEN: " + pass);
-  }
-};
-
-document.addEventListener("click", ev => {
-  const regBtn = ev.target.closest("[data-reg-id]");
-  if (regBtn) {
-    ev.preventDefault();
-    openRegistrationModal(regBtn.dataset.regId);
+  if (!filtered.length) {
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; padding: 70px 20px; text-align: center; background: var(--surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+        <p style="color: var(--amber); font: 700 16px var(--mono); margin-bottom: 8px;">NO ARENAS MATCHING SEARCH</p>
+        <p style="color: var(--ash); font-size: 13px;">No competitive dockets match your search or category filter. Try clearing filters.</p>
+      </div>`;
     return;
   }
-  const disBtn = ev.target.closest("[data-disabled-msg]");
-  if (disBtn) {
-    ev.preventDefault();
-    playGlitch();
-    toast(disBtn.dataset.disabledMsg.toUpperCase() + ".");
-  }
-});
 
-function route() {
-  const m = location.hash.match(/^#\/event\/([\w-]+)/);
-  const L = $("#list"), D = $("#detail");
-  L.hidden = !!m;
-  D.hidden = !m;
-  
-  if (m) {
-    document.body.setAttribute("data-atm", "archive");
-    drawDetail(m[1]);
-  } else {
-    document.body.setAttribute("data-atm", "events");
-    document.title = "The Archives — Events | ZEITGEIST'26 | IIT Ropar";
-    drawList();
-  }
-  
-  const v = m ? D : L;
-  v.style.animation = "none";
-  void v.offsetWidth;
-  v.style.animation = "";
-  scrollTo(0, 0);
-  const h = v.querySelector("h1");
-  if (h) h.focus({ preventScroll: true });
-}
-addEventListener("hashchange", route);
-route();
+  container.innerHTML = filtered.map(item => `
+    <article class="catalog-card" aria-label="${item.title}">
+      <div class="catalog-card-header">
+        <h2 class="catalog-card-title">${item.title}</h2>
+        <div class="catalog-card-sub">${item.subtitle}</div>
+      </div>
 
-/* ===== 3D TILT — EVENT CARDS ===== */
-function attach3DTilt() {
-  document.querySelectorAll('.ev').forEach(card => {
-    card.addEventListener('pointermove', e => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const cx = rect.width / 2;
-      const cy = rect.height / 2;
-      const rx = ((y - cy) / cy) * -4;
-      const ry = ((x - cx) / cx) * 4;
-      card.style.setProperty('--gx', (x / rect.width * 100) + '%');
-      card.style.setProperty('--gy', (y / rect.height * 100) + '%');
-      card.style.transform = `perspective(1000px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateZ(4px)`;
-    });
-    card.addEventListener('pointerleave', () => {
-      card.style.transform = '';
-    });
-  });
+      <div class="catalog-card-media">
+        <span class="catalog-category-tag">${item.cat}</span>
+        <img src="${item.poster}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.src='assets/logo_trans.png';" />
+      </div>
+
+      <div class="catalog-actions">
+        <!-- 1. Register Button: Direct Unstop Link -->
+        <a class="catalog-btn btn-register" href="${item.unstop}" target="_blank" rel="noopener noreferrer" data-c="UNSTOP">
+          REGISTER NOW ↗
+        </a>
+
+        <!-- 2. Explore More: Styled Non-working Button per request -->
+        <button class="catalog-btn btn-explore" type="button" onclick="handleExploreMore('${item.title}')" data-c="EXPLORE">
+          EXPLORE MORE
+        </button>
+
+        <!-- 3. Rulebook Button: Direct PDF Download or View -->
+        ${item.rulebook ? `
+          <a class="catalog-btn btn-rulebook" href="${item.rulebook}" download="${item.title} Rulebook.pdf" target="_blank" data-c="RULEBOOK">
+            RULEBOOK ⤓
+          </a>
+        ` : `
+          <a class="catalog-btn btn-rulebook" href="${item.unstop}" target="_blank" rel="noopener noreferrer" data-c="RULEBOOK">
+            RULEBOOK (ON UNSTOP) ⤓
+          </a>
+        `}
+      </div>
+    </article>
+  `).join("");
 }
-// Re-attach after list is redrawn
-const origDL = typeof drawList === 'function' ? drawList : null;
-if (origDL) {
-  const _dl = drawList;
-  drawList = function() {
-    _dl.apply(this, arguments);
-    requestAnimationFrame(attach3DTilt);
-  };
+
+
+
+// Search Filter
+document.getElementById("catalog-search").oninput = e => {
+  searchQuery = e.target.value;
+  renderCatalog();
+};
+
+// Explore More Click Handler (non-working per user instructions, but provides feedback)
+function handleExploreMore(title) {
+  if (typeof playClick === "function") playClick(450);
+  if (typeof toast === "function") {
+    toast(title.toUpperCase() + ": DETAILED DOSSIER RELEASING SOON.");
+  }
 }
-attach3DTilt();
+
+renderCatalog();
 
 </script>
 </body>

@@ -580,7 +580,6 @@ function renderCatalog() {
       </div>
 
       <div class="catalog-card-media">
-        <span class="catalog-category-tag">${item.cat}</span>
         <img src="${item.poster}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.src='assets/logo_trans.png';" />
       </div>
 

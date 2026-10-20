@@ -1563,13 +1563,46 @@ function renderAdminTasks() {
   `).join('');
 }
 
-function handleCreateTask(e) {
+async function loadTasksFromBackend() {
+  try {
+    const res = await fetch('api/tasks');
+    if (res.ok) {
+      const data = await res.json();
+      if (data.success && Array.isArray(data.tasks) && data.tasks.length > 0) {
+        portalTasks = data.tasks;
+        renderTasks();
+        renderAdminTasks();
+        updateBadgeCounts();
+        return;
+      }
+    }
+  } catch (_) {}
+}
+
+async function handleCreateTask(e) {
   e.preventDefault();
   const title = document.getElementById('new-task-title').value.trim();
   const desc = document.getElementById('new-task-desc').value.trim();
   const points = parseInt(document.getElementById('new-task-points').value, 10) || 0;
   const status = document.getElementById('new-task-status').value;
 
+  // 1. Try Backend API (saves directly to SQLite database)
+  try {
+    const res = await fetch('api/tasks', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title, desc, points, status })
+    });
+    if (res.ok) {
+      await loadTasksFromBackend();
+      document.getElementById('create-task-form').reset();
+      updateBadgeCounts();
+      if (window.toast) window.toast('✓ Task created & permanently saved to database!');
+      return;
+    }
+  } catch (_) {}
+
+  // 2. Offline / LocalStorage Fallback
   const newId = portalTasks.length ? Math.max(...portalTasks.map(t => t.id)) + 1 : 1;
   const newTask = {
     id: newId,
@@ -1589,7 +1622,21 @@ function handleCreateTask(e) {
   if (window.toast) window.toast('✓ New Task Created Successfully!');
 }
 
-function toggleTaskStatus(id) {
+async function toggleTaskStatus(id) {
+  // Try Backend
+  try {
+    const res = await fetch('api/tasks/toggle', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id })
+    });
+    if (res.ok) {
+      await loadTasksFromBackend();
+      return;
+    }
+  } catch (_) {}
+
+  // Fallback
   const task = portalTasks.find(t => t.id === id);
   if (!task) return;
   task.status = task.status === 'open' ? 'closed' : 'open';
@@ -1598,8 +1645,23 @@ function toggleTaskStatus(id) {
   renderAdminTasks();
 }
 
-function deleteTask(id) {
+async function deleteTask(id) {
   if (!confirm('Are you sure you want to delete this task?')) return;
+
+  // Try Backend
+  try {
+    const res = await fetch('api/tasks/delete', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id })
+    });
+    if (res.ok) {
+      await loadTasksFromBackend();
+      return;
+    }
+  } catch (_) {}
+
+  // Fallback
   portalTasks = portalTasks.filter(t => t.id !== id);
   localStorage.setItem('ca_custom_tasks', JSON.stringify(portalTasks));
   renderTasks();
@@ -1839,6 +1901,7 @@ function handleProofSubmit(e) {
 }
 
 // Initialize on Load
+loadTasksFromBackend();
 renderAuthUI();
 syncFromGoogleSheet(false);
 """

@@ -160,8 +160,8 @@ class ZeitgeistHandler(http.server.SimpleHTTPRequestHandler):
 
     def normalize_path(self):
         p = urllib.parse.urlparse(self.path).path
-        # Strip subpath if hosted under /bost/zeitgeist/
-        for prefix in ["/bost/zeitgeist/", "/bost/zeitgeist", "/zeitgeist-26/", "/zeitgeist-26"]:
+        # Strip subpath if hosted under /bost/zeitgeist/ or /zeitgeist/
+        for prefix in ["/bost/zeitgeist/", "/bost/zeitgeist", "/zeitgeist/", "/zeitgeist", "/zeitgeist-26/", "/zeitgeist-26"]:
             if p.startswith(prefix):
                 p = p[len(prefix):]
                 if not p.startswith("/"):

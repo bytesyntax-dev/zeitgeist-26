@@ -26,7 +26,7 @@ ZT/
 │   ├── pronites_page.py    # Midnight star lineup, stage gates & artist cards
 │   ├── schedule_page.py    # Full 3-day chronological festival schedule
 │   ├── sponsors_page.py    # Corporate partners & title benefactors
-│   └── team_page.py        # Student coordinators & department council
+│   └── team_page.py        # The Council: renders assets/team/team.json
 ├── assets/                 # Logos, stage photos, audio textures, and icons
 ├── *.html                  # Compiled production files (index, events, schedule, etc.)
 └── WEBSITE_GUIDE.md        # This guide
@@ -139,22 +139,26 @@ In `pages/passes_page.py`, edit the pricing cards:
 
 ---
 
-### E. Updating Organizing Team & Council (`pages/team_page.py`)
-In `pages/team_page.py`, cards are grouped by department:
+### E. Updating Organizing Team & Council (`assets/team/team.json`)
+The Team page is **generated from data**. Nobody hand-writes the cards. `pages/team_page.py` reads `assets/team/team.json` at build time and renders one section per team (in `order`), with one `council-card` per member. Don't hand-edit the card HTML: edit the JSON and photos, then rebuild.
 
-```html
-<div class="council-card" data-category="convenors">
-  <div class="avatar-frame">AS</div>
-  <div class="member-role">Festival Chief Convenor</div>
-  <div class="member-name">Aarav Sharma</div>
-  <div class="member-dept">Overall Management & Rites</div>
-  <div class="contact-links">
-    <a class="contact-line" href="tel:+919876543210">📞 +91 98765 43210</a>
-    <a class="contact-line" href="mailto:convenor.zeitgeist@iitrpr.ac.in">✉ convenor.zeitgeist@iitrpr.ac.in</a>
-  </div>
-</div>
+```json
+{
+  "id": "web-development", "name": "Web Development", "order": 8,
+  "folder": "08-web-development",
+  "members": [
+    { "name": "Rujul Matta", "role": "Team Head",
+      "photo": "assets/team/08-web-development/rujul-matta.webp",
+      "photoWidth": 812, "photoHeight": 1200 }
+  ]
+}
 ```
-* Use `data-category` matching the filter chips (`"convenors"`, `"events"`, `"pronites"`, `"sponsorship"`, `"media"`).
+* **Rename someone / change a role:** edit `name` / `role` in `team.json` and rebuild (`python3 build_site.py`). Names are HTML-escaped automatically.
+* **Swap a photo:** drop the new `.webp` into the team's folder, point `photo` at it, and update `photoWidth` / `photoHeight` (they prevent layout shift).
+* **Add or remove a member:** add or remove an entry in `members` and update `totalMembers`. The build asserts that the two agree, and the section counters and the "N DEPARTMENTS · N WARDENS" divider are computed from the JSON.
+* **Add a team:** add a team object with a unique `id` and `order`, and add its badge code (e.g. `"WEB"`) to `TEAM_CODES` in `pages/team_page.py`. Each section gets `id="<team id>"`, so `team.html#web-development` links straight to it.
+* **Face cropped badly?** Photos are shown cover-cropped to 3:4 at `object-position: 50% 30%`. Add a per-photo override (keyed by photo path) to `PHOTO_POSITIONS` in `pages/team_page.py`, e.g. `"85% 30%"` to pull the frame right.
+* The OC cards always show `DOMAIN: Festival Command / CLEARANCE: All Sectors`. Department cards show the team name and `Sector <order>`.
 
 ---
 

@@ -1,0 +1,696 @@
+{
+  "event": "Zeitgeist'26",
+  "source": "Canva deck \"Copy of Zeitgeist 26 ppt\" (DAHU7vdLTAI), slides 17-61",
+  "photoFormat": "webp (max 1200px long edge)",
+  "teams": [
+    {
+      "id": "overall-coordinators",
+      "name": "Overall Coordinators",
+      "order": 1,
+      "folder": "01-overall-coordinators",
+      "members": [
+        {
+          "name": "Sukrit Rana",
+          "firstName": "Sukrit",
+          "lastName": "Rana",
+          "role": "Overall Coordinator",
+          "team": "Overall Coordinators",
+          "photo": "assets/team/01-overall-coordinators/sukrit-rana.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 18,
+          "canvaMediaId": "MAHU_Lo2vgg"
+        },
+        {
+          "name": "Aks Srivastava",
+          "firstName": "Aks",
+          "lastName": "Srivastava",
+          "role": "Overall Coordinator",
+          "team": "Overall Coordinators",
+          "photo": "assets/team/01-overall-coordinators/aks-srivastava.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 18,
+          "canvaMediaId": "MAHU_TMWcgg"
+        },
+        {
+          "name": "Arfan Ali",
+          "firstName": "Arfan",
+          "lastName": "Ali",
+          "role": "Overall Coordinator",
+          "team": "Overall Coordinators",
+          "photo": "assets/team/01-overall-coordinators/arfan-ali.webp",
+          "photoWidth": 1024,
+          "photoHeight": 1024,
+          "canvaSlide": 19,
+          "canvaMediaId": "MAHU_qTH06Q"
+        },
+        {
+          "name": "Adrika Sikader",
+          "firstName": "Adrika",
+          "lastName": "Sikader",
+          "role": "Overall Coordinator",
+          "team": "Overall Coordinators",
+          "photo": "assets/team/01-overall-coordinators/adrika-sikader.webp",
+          "photoWidth": 807,
+          "photoHeight": 807,
+          "canvaSlide": 19,
+          "canvaMediaId": "MAHU__qWI-o"
+        }
+      ]
+    },
+    {
+      "id": "content-and-anchoring",
+      "name": "Content and Anchoring",
+      "order": 2,
+      "folder": "02-content-and-anchoring",
+      "members": [
+        {
+          "name": "Saurabh Sharma",
+          "firstName": "Saurabh",
+          "lastName": "Sharma",
+          "role": "Team Head",
+          "team": "Content and Anchoring",
+          "photo": "assets/team/02-content-and-anchoring/saurabh-sharma.webp",
+          "photoWidth": 1080,
+          "photoHeight": 1080,
+          "canvaSlide": 22,
+          "canvaMediaId": "MAHU8PSQs9Y"
+        },
+        {
+          "name": "Prakhar Garg",
+          "firstName": "Prakhar",
+          "lastName": "Garg",
+          "role": "Team Head",
+          "team": "Content and Anchoring",
+          "photo": "assets/team/02-content-and-anchoring/prakhar-garg.webp",
+          "photoWidth": 1200,
+          "photoHeight": 900,
+          "canvaSlide": 22,
+          "canvaMediaId": "MAHU9AVgSqs"
+        }
+      ]
+    },
+    {
+      "id": "finance",
+      "name": "Finance",
+      "order": 3,
+      "folder": "03-finance",
+      "members": [
+        {
+          "name": "Aviral Vohra",
+          "firstName": "Aviral",
+          "lastName": "Vohra",
+          "role": "Team Head",
+          "team": "Finance",
+          "photo": "assets/team/03-finance/aviral-vohra.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 24,
+          "canvaMediaId": "MAHU_uRMB18"
+        },
+        {
+          "name": "Malhar Dave",
+          "firstName": "Malhar",
+          "lastName": "Dave",
+          "role": "Team Head",
+          "team": "Finance",
+          "photo": "assets/team/03-finance/malhar-dave.webp",
+          "photoWidth": 829,
+          "photoHeight": 793,
+          "canvaSlide": 24,
+          "canvaMediaId": "MAHU_dEGv0s"
+        }
+      ]
+    },
+    {
+      "id": "sponsorship",
+      "name": "Sponsorship",
+      "order": 4,
+      "folder": "04-sponsorship",
+      "members": [
+        {
+          "name": "Isha B Nambiar",
+          "firstName": "Isha",
+          "lastName": "B Nambiar",
+          "role": "Team Head",
+          "team": "Sponsorship",
+          "photo": "assets/team/04-sponsorship/isha-b-nambiar.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 26,
+          "canvaMediaId": "MAHU-3QPbjY"
+        },
+        {
+          "name": "Makarand Dhepe",
+          "firstName": "Makarand",
+          "lastName": "Dhepe",
+          "role": "Team Head",
+          "team": "Sponsorship",
+          "photo": "assets/team/04-sponsorship/makarand-dhepe.webp",
+          "photoWidth": 800,
+          "photoHeight": 1200,
+          "canvaSlide": 26,
+          "canvaMediaId": "MAHU-k84Ys0"
+        },
+        {
+          "name": "Tejaswi",
+          "firstName": "Tejaswi",
+          "lastName": "",
+          "role": "Team Head",
+          "team": "Sponsorship",
+          "photo": "assets/team/04-sponsorship/tejaswi.webp",
+          "photoWidth": 675,
+          "photoHeight": 1200,
+          "canvaSlide": 26,
+          "canvaMediaId": "MAHU_J9fvpk"
+        },
+        {
+          "name": "Rakshit Garg",
+          "firstName": "Rakshit",
+          "lastName": "Garg",
+          "role": "Team Head",
+          "team": "Sponsorship",
+          "photo": "assets/team/04-sponsorship/rakshit-garg.webp",
+          "photoWidth": 894,
+          "photoHeight": 1200,
+          "canvaSlide": 26,
+          "canvaMediaId": "MAHU-VP4dXc"
+        },
+        {
+          "name": "Kaashika Chopra",
+          "firstName": "Kaashika",
+          "lastName": "Chopra",
+          "role": "Team Head",
+          "team": "Sponsorship",
+          "photo": "assets/team/04-sponsorship/kaashika-chopra.webp",
+          "photoWidth": 1012,
+          "photoHeight": 1200,
+          "canvaSlide": 26,
+          "canvaMediaId": "MAHU9a17NuU"
+        },
+        {
+          "name": "Kanishka Mittal",
+          "firstName": "Kanishka",
+          "lastName": "Mittal",
+          "role": "Team Head",
+          "team": "Sponsorship",
+          "photo": "assets/team/04-sponsorship/kanishka-mittal.webp",
+          "photoWidth": 1019,
+          "photoHeight": 1200,
+          "canvaSlide": 26,
+          "canvaMediaId": "MAHU77ewlac"
+        },
+        {
+          "name": "Parth",
+          "firstName": "Parth",
+          "lastName": "",
+          "role": "Team Head",
+          "team": "Sponsorship",
+          "photo": "assets/team/04-sponsorship/parth.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 26,
+          "canvaMediaId": "MAHU_hxUVEc"
+        }
+      ]
+    },
+    {
+      "id": "event-management",
+      "name": "Event Management",
+      "order": 5,
+      "folder": "05-event-management",
+      "members": [
+        {
+          "name": "Dhaval Jain",
+          "firstName": "Dhaval",
+          "lastName": "Jain",
+          "role": "Team Head",
+          "team": "Event Management",
+          "photo": "assets/team/05-event-management/dhaval-jain.webp",
+          "photoWidth": 250,
+          "photoHeight": 444,
+          "canvaSlide": 29,
+          "canvaMediaId": "MAHU_QIcGhQ"
+        },
+        {
+          "name": "Ishan Arora",
+          "firstName": "Ishan",
+          "lastName": "Arora",
+          "role": "Team Head",
+          "team": "Event Management",
+          "photo": "assets/team/05-event-management/ishan-arora.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 29,
+          "canvaMediaId": "MAHU_lHoXd4"
+        },
+        {
+          "name": "Saksham Kumar",
+          "firstName": "Saksham",
+          "lastName": "Kumar",
+          "role": "Team Head",
+          "team": "Event Management",
+          "photo": "assets/team/05-event-management/saksham-kumar.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 29,
+          "canvaMediaId": "MAHU_uxyfOI"
+        },
+        {
+          "name": "Vikram Gautam",
+          "firstName": "Vikram",
+          "lastName": "Gautam",
+          "role": "Team Head",
+          "team": "Event Management",
+          "photo": "assets/team/05-event-management/vikram-gautam.webp",
+          "photoWidth": 425,
+          "photoHeight": 567,
+          "canvaSlide": 29,
+          "canvaMediaId": "MAHU7tCpdw4"
+        },
+        {
+          "name": "Amey Kemkar",
+          "firstName": "Amey",
+          "lastName": "Kemkar",
+          "role": "Team Head",
+          "team": "Event Management",
+          "photo": "assets/team/05-event-management/amey-kemkar.webp",
+          "photoWidth": 901,
+          "photoHeight": 1200,
+          "canvaSlide": 29,
+          "canvaMediaId": "MAHU_A55zHg"
+        }
+      ]
+    },
+    {
+      "id": "decoration",
+      "name": "Decoration",
+      "order": 6,
+      "folder": "06-decoration",
+      "members": [
+        {
+          "name": "Anushka Singhal",
+          "firstName": "Anushka",
+          "lastName": "Singhal",
+          "role": "Team Head",
+          "team": "Decoration",
+          "photo": "assets/team/06-decoration/anushka-singhal.webp",
+          "photoWidth": 948,
+          "photoHeight": 1200,
+          "canvaSlide": 32,
+          "canvaMediaId": "MAHU9rmVZaE"
+        },
+        {
+          "name": "Ananya Gupta",
+          "firstName": "Ananya",
+          "lastName": "Gupta",
+          "role": "Team Head",
+          "team": "Decoration",
+          "photo": "assets/team/06-decoration/ananya-gupta.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 32,
+          "canvaMediaId": "MAHU-tsuLmc"
+        }
+      ]
+    },
+    {
+      "id": "graphic-design",
+      "name": "Graphic Design",
+      "order": 7,
+      "folder": "07-graphic-design",
+      "members": [
+        {
+          "name": "Iia Bansal",
+          "firstName": "Iia",
+          "lastName": "Bansal",
+          "role": "Team Head",
+          "team": "Graphic Design",
+          "photo": "assets/team/07-graphic-design/iia-bansal.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 35,
+          "canvaMediaId": "MAHU_GHFO5Y"
+        },
+        {
+          "name": "Ritika Nain",
+          "firstName": "Ritika",
+          "lastName": "Nain",
+          "role": "Team Head",
+          "team": "Graphic Design",
+          "photo": "assets/team/07-graphic-design/ritika-nain.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 35,
+          "canvaMediaId": "MAHU-1gxcrc"
+        }
+      ]
+    },
+    {
+      "id": "web-development",
+      "name": "Web Development",
+      "order": 8,
+      "folder": "08-web-development",
+      "members": [
+        {
+          "name": "Rujul Matta",
+          "firstName": "Rujul",
+          "lastName": "Matta",
+          "role": "Team Head",
+          "team": "Web Development",
+          "photo": "assets/team/08-web-development/rujul-matta.webp",
+          "photoWidth": 812,
+          "photoHeight": 1200,
+          "canvaSlide": 40,
+          "canvaMediaId": "MAHU_RuFPu8"
+        },
+        {
+          "name": "Tanish Jain",
+          "firstName": "Tanish",
+          "lastName": "Jain",
+          "role": "Team Head",
+          "team": "Web Development",
+          "photo": "assets/team/08-web-development/tanish-jain.webp",
+          "photoWidth": 1200,
+          "photoHeight": 1200,
+          "canvaSlide": 40,
+          "canvaMediaId": "MAHU_NckK78"
+        },
+        {
+          "name": "Harsh Dalal",
+          "firstName": "Harsh",
+          "lastName": "Dalal",
+          "role": "Team Head",
+          "team": "Web Development",
+          "photo": "assets/team/08-web-development/harsh-dalal.webp",
+          "photoWidth": 991,
+          "photoHeight": 1200,
+          "canvaSlide": 40,
+          "canvaMediaId": "MAHU_1k0Sfk"
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "name": "Security",
+      "order": 9,
+      "folder": "09-security",
+      "members": [
+        {
+          "name": "Ayush Sharma",
+          "firstName": "Ayush",
+          "lastName": "Sharma",
+          "role": "Team Head",
+          "team": "Security",
+          "photo": "assets/team/09-security/ayush-sharma.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 43,
+          "canvaMediaId": "MAHU-aZrvrE"
+        },
+        {
+          "name": "Amey Chauhan",
+          "firstName": "Amey",
+          "lastName": "Chauhan",
+          "role": "Team Head",
+          "team": "Security",
+          "photo": "assets/team/09-security/amey-chauhan.webp",
+          "photoWidth": 801,
+          "photoHeight": 1200,
+          "canvaSlide": 43,
+          "canvaMediaId": "MAHU_DXBOJA"
+        }
+      ]
+    },
+    {
+      "id": "social-media-and-coverage",
+      "name": "Social Media & Coverage",
+      "order": 10,
+      "folder": "10-social-media-and-coverage",
+      "members": [
+        {
+          "name": "Srajan Sijariya",
+          "firstName": "Srajan",
+          "lastName": "Sijariya",
+          "role": "Team Head",
+          "team": "Social Media & Coverage",
+          "photo": "assets/team/10-social-media-and-coverage/srajan-sijariya.webp",
+          "photoWidth": 1028,
+          "photoHeight": 1200,
+          "canvaSlide": 46,
+          "canvaMediaId": "MAHU-f1aRSY"
+        },
+        {
+          "name": "Modi Kadu",
+          "firstName": "Modi",
+          "lastName": "Kadu",
+          "role": "Team Head",
+          "team": "Social Media & Coverage",
+          "photo": "assets/team/10-social-media-and-coverage/modi-kadu.webp",
+          "photoWidth": 768,
+          "photoHeight": 1172,
+          "canvaSlide": 46,
+          "canvaMediaId": "MAHU-28Gf08"
+        },
+        {
+          "name": "Shivam Badyal",
+          "firstName": "Shivam",
+          "lastName": "Badyal",
+          "role": "Team Head",
+          "team": "Social Media & Coverage",
+          "photo": "assets/team/10-social-media-and-coverage/shivam-badyal.webp",
+          "photoWidth": 697,
+          "photoHeight": 1200,
+          "canvaSlide": 46,
+          "canvaMediaId": "MAHU_Op5Xf4"
+        }
+      ]
+    },
+    {
+      "id": "pronite",
+      "name": "Pronite",
+      "order": 11,
+      "folder": "11-pronite",
+      "members": [
+        {
+          "name": "Rhydam Sharma",
+          "firstName": "Rhydam",
+          "lastName": "Sharma",
+          "role": "Team Head",
+          "team": "Pronite",
+          "photo": "assets/team/11-pronite/rhydam-sharma.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 50,
+          "canvaMediaId": "MAHU-wPnIoY"
+        },
+        {
+          "name": "Vishwajeet Rajpurohit",
+          "firstName": "Vishwajeet",
+          "lastName": "Rajpurohit",
+          "role": "Team Head",
+          "team": "Pronite",
+          "photo": "assets/team/11-pronite/vishwajeet-rajpurohit.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 50,
+          "canvaMediaId": "MAHU-mMTUdU"
+        },
+        {
+          "name": "Pranav Goyal",
+          "firstName": "Pranav",
+          "lastName": "Goyal",
+          "role": "Team Head",
+          "team": "Pronite",
+          "photo": "assets/team/11-pronite/pranav-goyal.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 50,
+          "canvaMediaId": "MAHU_r50paw"
+        },
+        {
+          "name": "Vihaan Bansal",
+          "firstName": "Vihaan",
+          "lastName": "Bansal",
+          "role": "Team Head",
+          "team": "Pronite",
+          "photo": "assets/team/11-pronite/vihaan-bansal.webp",
+          "photoWidth": 1200,
+          "photoHeight": 1200,
+          "canvaSlide": 50,
+          "canvaMediaId": "MAHU-uLu3JU"
+        }
+      ]
+    },
+    {
+      "id": "media-and-publicity",
+      "name": "Media and Publicity",
+      "order": 12,
+      "folder": "12-media-and-publicity",
+      "members": [
+        {
+          "name": "Aditya Garg",
+          "firstName": "Aditya",
+          "lastName": "Garg",
+          "role": "Team Head",
+          "team": "Media and Publicity",
+          "photo": "assets/team/12-media-and-publicity/aditya-garg.webp",
+          "photoWidth": 703,
+          "photoHeight": 794,
+          "canvaSlide": 54,
+          "canvaMediaId": "MAHU-jnPivo"
+        },
+        {
+          "name": "Armaan Dua",
+          "firstName": "Armaan",
+          "lastName": "Dua",
+          "role": "Team Head",
+          "team": "Media and Publicity",
+          "photo": "assets/team/12-media-and-publicity/armaan-dua.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 54,
+          "canvaMediaId": "MAHU_eILCAE"
+        },
+        {
+          "name": "Pratham Garg",
+          "firstName": "Pratham",
+          "lastName": "Garg",
+          "role": "Team Head",
+          "team": "Media and Publicity",
+          "photo": "assets/team/12-media-and-publicity/pratham-garg.webp",
+          "photoWidth": 1184,
+          "photoHeight": 864,
+          "canvaSlide": 54,
+          "canvaMediaId": "MAHU_HqR50k"
+        },
+        {
+          "name": "Arshit Goyal",
+          "firstName": "Arshit",
+          "lastName": "Goyal",
+          "role": "Team Head",
+          "team": "Media and Publicity",
+          "photo": "assets/team/12-media-and-publicity/arshit-goyal.webp",
+          "photoWidth": 850,
+          "photoHeight": 1200,
+          "canvaSlide": 54,
+          "canvaMediaId": "MAHU-yuqfVk"
+        },
+        {
+          "name": "Vanya Mangla",
+          "firstName": "Vanya",
+          "lastName": "Mangla",
+          "role": "Team Head",
+          "team": "Media and Publicity",
+          "photo": "assets/team/12-media-and-publicity/vanya-mangla.webp",
+          "photoWidth": 1200,
+          "photoHeight": 1200,
+          "canvaSlide": 54,
+          "canvaMediaId": "MAHU-kC6Yak"
+        }
+      ]
+    },
+    {
+      "id": "workshop",
+      "name": "Workshop",
+      "order": 13,
+      "folder": "13-workshop",
+      "members": [
+        {
+          "name": "Aeshan Singh",
+          "firstName": "Aeshan",
+          "lastName": "Singh",
+          "role": "Team Head",
+          "team": "Workshop",
+          "photo": "assets/team/13-workshop/aeshan-singh.webp",
+          "photoWidth": 1200,
+          "photoHeight": 900,
+          "canvaSlide": 57,
+          "canvaMediaId": "MAHU--fBacs"
+        },
+        {
+          "name": "Aditya Gaurav",
+          "firstName": "Aditya",
+          "lastName": "Gaurav",
+          "role": "Team Head",
+          "team": "Workshop",
+          "photo": "assets/team/13-workshop/aditya-gaurav.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 57,
+          "canvaMediaId": "MAHU-3TkJ7c"
+        }
+      ]
+    },
+    {
+      "id": "hospitality",
+      "name": "Hospitality",
+      "order": 14,
+      "folder": "14-hospitality",
+      "members": [
+        {
+          "name": "Kartik Garg",
+          "firstName": "Kartik",
+          "lastName": "Garg",
+          "role": "Team Head",
+          "team": "Hospitality",
+          "photo": "assets/team/14-hospitality/kartik-garg.webp",
+          "photoWidth": 857,
+          "photoHeight": 1200,
+          "canvaSlide": 60,
+          "canvaMediaId": "MAHU_nqQBt0"
+        },
+        {
+          "name": "Tejas Singh",
+          "firstName": "Tejas",
+          "lastName": "Singh",
+          "role": "Team Head",
+          "team": "Hospitality",
+          "photo": "assets/team/14-hospitality/tejas-singh.webp",
+          "photoWidth": 900,
+          "photoHeight": 1200,
+          "canvaSlide": 60,
+          "canvaMediaId": "MAHU_S1kYWY"
+        },
+        {
+          "name": "Aashu Mishra",
+          "firstName": "Aashu",
+          "lastName": "Mishra",
+          "role": "Team Head",
+          "team": "Hospitality",
+          "photo": "assets/team/14-hospitality/aashu-mishra.webp",
+          "photoWidth": 554,
+          "photoHeight": 1200,
+          "canvaSlide": 60,
+          "canvaMediaId": "MAHU_5J7ZrQ"
+        },
+        {
+          "name": "Ekjot Kundal",
+          "firstName": "Ekjot",
+          "lastName": "Kundal",
+          "role": "Team Head",
+          "team": "Hospitality",
+          "photo": "assets/team/14-hospitality/ekjot-kundal.webp",
+          "photoWidth": 675,
+          "photoHeight": 1200,
+          "canvaSlide": 60,
+          "canvaMediaId": "MAHU-7azgSE"
+        },
+        {
+          "name": "Ravi Kant Sharma",
+          "firstName": "Ravi Kant",
+          "lastName": "Sharma",
+          "role": "Team Head",
+          "team": "Hospitality",
+          "photo": "assets/team/14-hospitality/ravi-kant-sharma.webp",
+          "photoWidth": 1200,
+          "photoHeight": 1043,
+          "canvaSlide": 60,
+          "canvaMediaId": "MAHU_HfeNzE"
+        }
+      ]
+    }
+  ],
+  "totalMembers": 48
+}

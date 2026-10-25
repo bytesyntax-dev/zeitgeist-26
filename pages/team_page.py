@@ -10,11 +10,12 @@ import os
 
 TEAM_JSON = os.path.join(os.path.dirname(__file__), "..", "assets", "team", "team.json")
 
-OC_TEAM_ID = "overall-coordinators"
+LEADERSHIP_TEAM_IDS = ("overall-coordinators", "general-secretary")
 
 # Short codes shown on each card's badge ("WEB // 02"), keyed by team id.
 TEAM_CODES = {
     "overall-coordinators": "OC",
+    "general-secretary": "GS",
     "content-and-anchoring": "CNT",
     "finance": "FIN",
     "sponsorship": "SPN",
@@ -32,7 +33,6 @@ TEAM_CODES = {
 
 # Per-photo crop fixes for the 3:4 frame (default is 50% 30%), keyed by photo path.
 PHOTO_POSITIONS = {
-    "assets/team/01-overall-coordinators/adrika-sikader.webp": "85% 30%",
     "assets/team/02-content-and-anchoring/saurabh-sharma.webp": "30% 30%",  # keeps the ARTURO watermark out of frame
     "assets/team/08-web-development/tanish-jain.webp": "100% 30%",
 }
@@ -47,20 +47,20 @@ def _load_team():
     return teams, total
 
 
-def _render_card(team, index, member, is_oc):
+def _render_card(team, index, member, is_leadership):
     name = html.escape(member["name"])
     role = html.escape(member["role"])
     photo = html.escape(member["photo"])
     badge = f"{TEAM_CODES[team['id']]} // {index:02d}"
 
-    if is_oc:
+    if is_leadership:
         domain, clearance = "Festival Command", "All Sectors"
     else:
         domain, clearance = html.escape(team["name"]), f"Sector {team['order']:02d}"
 
     position = PHOTO_POSITIONS.get(member["photo"])
     img_style = f' style="object-position:{position};"' if position else ""
-    loading = "eager" if is_oc else "lazy"
+    loading = "eager" if is_leadership else "lazy"
 
     return f"""
       <article class="council-card" aria-label="{name}, {role}">
@@ -81,14 +81,15 @@ def _render_card(team, index, member, is_oc):
 
 
 def _render_section(team):
-    is_oc = team["id"] == OC_TEAM_ID
-    cards = "".join(_render_card(team, i, m, is_oc) for i, m in enumerate(team["members"], 1))
+    is_leadership = team["id"] in LEADERSHIP_TEAM_IDS
+    cards = "".join(_render_card(team, i, m, is_leadership) for i, m in enumerate(team["members"], 1))
     team_name = html.escape(team["name"])
+    warden_text = "COUNCIL WARDEN" if len(team["members"]) == 1 else "COUNCIL WARDENS"
     return f"""
   <section class="council-section" id="{html.escape(team['id'])}" aria-label="{team_name}">
     <div class="council-section-hdr">
-      <h2 class="council-section-title">* {team_name}</h2>
-      <div class="council-count">SHOWING <span>{len(team['members']):02d}</span> COUNCIL WARDENS</div>
+      <h2 class="council-section-title">* {team_name} *</h2>
+      <div class="council-count">SHOWING <span>{len(team['members']):02d}</span> {warden_text}</div>
     </div>
     <div class="council-grid">{cards}
     </div>
@@ -97,16 +98,18 @@ def _render_section(team):
 
 def get_team_content():
     title = "The Council — Team | ZEITGEIST'26 | IIT Ropar"
-    description = "Meet the organizing council of ZEITGEIST'26: the overall coordinators and team heads across 13 departments at IIT Ropar."
+    description = "Meet the organizing council of ZEITGEIST'26: the overall coordinators, general secretary, and team heads across 13 departments at IIT Ropar."
 
     teams, total_members = _load_team()
-    oc_teams = [t for t in teams if t["id"] == OC_TEAM_ID]
-    departments = [t for t in teams if t["id"] != OC_TEAM_ID]
+    leadership_teams = [t for t in teams if t["id"] in LEADERSHIP_TEAM_IDS]
+    leadership_teams.sort(key=lambda t: LEADERSHIP_TEAM_IDS.index(t["id"]))
+    departments = [t for t in teams if t["id"] not in LEADERSHIP_TEAM_IDS]
 
     extra_css = """
 /* Team / Council Styles */
 .council-hero {
   margin-bottom: 60px;
+  text-align: center;
 }
 
 .council-hero h1 {
@@ -119,16 +122,17 @@ def get_team_content():
 }
 
 .council-section + .council-section {
-  margin-top: 80px;
+  margin-top: 96px;
 }
 
 .council-section-hdr {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  gap: 12px 24px;
-  margin-bottom: 24px;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  margin-bottom: 36px;
 }
 
 .council-section-title {
@@ -139,8 +143,8 @@ def get_team_content():
   color: var(--amber);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  border-left: 4px solid var(--crim);
-  padding-left: 16px;
+  border-left: none;
+  padding-left: 0;
   margin: 0;
 }
 
@@ -156,18 +160,22 @@ def get_team_content():
 }
 
 .council-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px 32px;
 }
 
 .council-card {
   background: #0d0a0c;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 20px 20px 24px;
+  padding: 24px 22px 28px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
   position: relative;
-  min-width: 0;
+  min-width: 250px;
+  max-width: 300px;
+  width: 100%;
+  flex: 0 1 calc(25% - 24px);
 }
 
 main#team .council-card:hover {
@@ -239,8 +247,10 @@ main#team .council-card:hover {
 .council-info {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding-top: 22px;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding-top: 24px;
 }
 
 .council-role {
@@ -257,7 +267,7 @@ main#team .council-card:hover {
   color: var(--bone);
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 0 0 28px rgba(209, 15, 32, 0.45);
   overflow-wrap: anywhere;
-  margin: 0;
+  margin: 2px 0 0;
   transition: text-shadow 0.4s ease;
 }
 
@@ -268,10 +278,12 @@ main#team .council-card:hover {
 .council-meta {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 16px;
-  margin: 6px 0 0;
+  padding-top: 18px;
+  margin: 10px 0 0;
+  width: 100%;
+  text-align: center;
 }
 
 .council-meta dt {
@@ -290,11 +302,14 @@ main#team .council-card:hover {
 .council-divider {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
-  margin: 56px 0 64px;
+  margin: 64px 0 72px;
+  text-align: center;
 }
 
-.council-divider::before {
+.council-divider::before,
+.council-divider::after {
   content: "";
   flex: 0 0 48px;
   height: 1px;
@@ -309,16 +324,19 @@ main#team .council-card:hover {
 }
 
 @media (max-width: 1200px) {
-  .council-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .council-grid { gap: 36px 28px; }
+  .council-card { flex: 0 1 calc(33.333% - 20px); }
 }
 
 @media (max-width: 900px) {
-  .council-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .council-grid { gap: 32px 24px; }
+  .council-card { flex: 0 1 calc(50% - 14px); max-width: 340px; }
 }
 
 @media (max-width: 600px) {
-  .council-grid { grid-template-columns: minmax(0, 1fr); }
-  .council-section + .council-section { margin-top: 64px; }
+  .council-grid { gap: 28px; }
+  .council-card { flex: 0 1 100%; max-width: 360px; }
+  .council-section + .council-section { margin-top: 72px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -327,7 +345,7 @@ main#team .council-card:hover {
 }
 """
 
-    oc_html = "".join(_render_section(t) for t in oc_teams)
+    leadership_html = "".join(_render_section(t) for t in leadership_teams)
     dept_html = "".join(_render_section(t) for t in departments)
 
     main_html = f"""
@@ -336,7 +354,7 @@ main#team .council-card:hover {
     <span class="eyebrow" style="color:var(--crim);">THE ORGANIZING COUNCIL // MMXXVI</span>
     <h1 class="disp">THE COUNCIL</h1>
   </div>
-{oc_html}
+{leadership_html}
 
   <div class="council-divider">
     <span>{len(departments)} DEPARTMENTS · {total_members} WARDENS · ROSTER UNSEALS BELOW</span>

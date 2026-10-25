@@ -10,34 +10,37 @@ Machine-readable data: [`team.json`](team.json). Paths below are relative to thi
 |---|---|---|---|---|---|
 | 1 | Sukrit Rana | Overall Coordinator | ![Sukrit Rana](01-overall-coordinators/sukrit-rana.webp) `01-overall-coordinators/sukrit-rana.webp` | 900×1200 | 18 |
 | 2 | Aks Srivastava | Overall Coordinator | ![Aks Srivastava](01-overall-coordinators/aks-srivastava.webp) `01-overall-coordinators/aks-srivastava.webp` | 900×1200 | 18 |
-| 3 | Arfan Ali | Overall Coordinator | ![Arfan Ali](01-overall-coordinators/arfan-ali.webp) `01-overall-coordinators/arfan-ali.webp` | 1024×1024 | 19 |
-| 4 | Adrika Sikader | Overall Coordinator | ![Adrika Sikader](01-overall-coordinators/adrika-sikader.webp) `01-overall-coordinators/adrika-sikader.webp` | 807×807 | 19 |
 
-## 2. Content and Anchoring
+## 2. General Secretary
+
+| # | Name | Role | Photo | Size | Slide |
+|---|---|---|---|---|---|
+| 1 | Arfan Ali | General Secretary | ![Arfan Ali](01-overall-coordinators/arfan-ali.webp) `01-overall-coordinators/arfan-ali.webp` | 1024×1024 | 19 |
+
+## 3. Content and Anchoring
 
 | # | Name | Role | Photo | Size | Slide |
 |---|---|---|---|---|---|
 | 1 | Saurabh Sharma | Team Head | ![Saurabh Sharma](02-content-and-anchoring/saurabh-sharma.webp) `02-content-and-anchoring/saurabh-sharma.webp` | 1080×1080 | 22 |
 | 2 | Prakhar Garg | Team Head | ![Prakhar Garg](02-content-and-anchoring/prakhar-garg.webp) `02-content-and-anchoring/prakhar-garg.webp` | 1200×900 | 22 |
 
-## 3. Finance
+## 4. Finance
 
 | # | Name | Role | Photo | Size | Slide |
 |---|---|---|---|---|---|
 | 1 | Aviral Vohra | Team Head | ![Aviral Vohra](03-finance/aviral-vohra.webp) `03-finance/aviral-vohra.webp` | 900×1200 | 24 |
 | 2 | Malhar Dave | Team Head | ![Malhar Dave](03-finance/malhar-dave.webp) `03-finance/malhar-dave.webp` | 829×793 | 24 |
 
-## 4. Sponsorship
+## 5. Sponsorship
 
 | # | Name | Role | Photo | Size | Slide |
 |---|---|---|---|---|---|
 | 1 | Isha B Nambiar | Team Head | ![Isha B Nambiar](04-sponsorship/isha-b-nambiar.webp) `04-sponsorship/isha-b-nambiar.webp` | 900×1200 | 26 |
 | 2 | Makarand Dhepe | Team Head | ![Makarand Dhepe](04-sponsorship/makarand-dhepe.webp) `04-sponsorship/makarand-dhepe.webp` | 800×1200 | 26 |
 | 3 | Tejaswi | Team Head | ![Tejaswi](04-sponsorship/tejaswi.webp) `04-sponsorship/tejaswi.webp` | 675×1200 | 26 |
-| 4 | Rakshit Garg | Team Head | ![Rakshit Garg](04-sponsorship/rakshit-garg.webp) `04-sponsorship/rakshit-garg.webp` | 894×1200 | 26 |
-| 5 | Kaashika Chopra | Team Head | ![Kaashika Chopra](04-sponsorship/kaashika-chopra.webp) `04-sponsorship/kaashika-chopra.webp` | 1012×1200 | 26 |
-| 6 | Kanishka Mittal | Team Head | ![Kanishka Mittal](04-sponsorship/kanishka-mittal.webp) `04-sponsorship/kanishka-mittal.webp` | 1019×1200 | 26 |
-| 7 | Parth | Team Head | ![Parth](04-sponsorship/parth.webp) `04-sponsorship/parth.webp` | 900×1200 | 26 |
+| 4 | Kaashika Chopra | Team Head | ![Kaashika Chopra](04-sponsorship/kaashika-chopra.webp) `04-sponsorship/kaashika-chopra.webp` | 1012×1200 | 26 |
+| 5 | Kanishka Mittal | Team Head | ![Kanishka Mittal](04-sponsorship/kanishka-mittal.webp) `04-sponsorship/kanishka-mittal.webp` | 1019×1200 | 26 |
+| 6 | Parth | Team Head | ![Parth](04-sponsorship/parth.webp) `04-sponsorship/parth.webp` | 900×1200 | 26 |
 
 ## 5. Event Management
 

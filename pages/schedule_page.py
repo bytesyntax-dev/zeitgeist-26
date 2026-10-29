@@ -389,7 +389,7 @@ const SCHEDULE_DATA = [
     time: "12:00 PM",
     end: "07:00 PM",
     title: "One Question After Another",
-    venue: "M6",
+    venue: "SRC 107",
     cat: "Quizzing",
     desc: "An open general quiz by Chandrakanth Nair.",
     link: "events.html"

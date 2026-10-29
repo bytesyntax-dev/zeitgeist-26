@@ -15,7 +15,8 @@ Machine-readable data: [`team.json`](team.json). Paths below are relative to thi
 
 | # | Name | Role | Photo | Size | Slide |
 |---|---|---|---|---|---|
-| 1 | Arfan Ali | General Secretary | ![Arfan Ali](01-overall-coordinators/arfan-ali.webp) `01-overall-coordinators/arfan-ali.webp` | 1024×1024 | 19 |
+| 1 | Arfan Ali | General Secretary BOLA | ![Arfan Ali](01-overall-coordinators/arfan-ali.webp) `01-overall-coordinators/arfan-ali.webp` | 1024×1024 | 19 |
+| 2 | Adrika Sikader | General Secretary BOCA | ![Adrika Sikader](01-overall-coordinators/adrika-sikader.webp) `01-overall-coordinators/adrika-sikader.webp` | 807×807 | 19 |
 
 ## 3. Content and Anchoring
 

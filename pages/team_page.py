@@ -33,6 +33,7 @@ TEAM_CODES = {
 
 # Per-photo crop fixes for the 3:4 frame (default is 50% 30%), keyed by photo path.
 PHOTO_POSITIONS = {
+    "assets/team/01-overall-coordinators/adrika-sikader.webp": "85% 30%",
     "assets/team/02-content-and-anchoring/saurabh-sharma.webp": "30% 30%",  # keeps the ARTURO watermark out of frame
     "assets/team/08-web-development/tanish-jain.webp": "100% 30%",
 }

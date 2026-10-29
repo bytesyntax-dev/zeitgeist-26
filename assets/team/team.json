@@ -45,13 +45,25 @@
           "name": "Arfan Ali",
           "firstName": "Arfan",
           "lastName": "Ali",
-          "role": "General Secretary",
+          "role": "General Secretary BOLA",
           "team": "General Secretary",
           "photo": "assets/team/01-overall-coordinators/arfan-ali.webp",
           "photoWidth": 1024,
           "photoHeight": 1024,
           "canvaSlide": 19,
           "canvaMediaId": "MAHU_qTH06Q"
+        },
+        {
+          "name": "Adrika Sikader",
+          "firstName": "Adrika",
+          "lastName": "Sikader",
+          "role": "General Secretary BOCA",
+          "team": "General Secretary",
+          "photo": "assets/team/01-overall-coordinators/adrika-sikader.webp",
+          "photoWidth": 807,
+          "photoHeight": 807,
+          "canvaSlide": 19,
+          "canvaMediaId": "MAHU__qWI-o"
         }
       ]
     },
@@ -676,5 +688,5 @@
       ]
     }
   ],
-  "totalMembers": 46
+  "totalMembers": 47
 }
